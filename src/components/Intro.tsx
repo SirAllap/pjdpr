@@ -1,17 +1,23 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 import UserCard from './UserCard'
-import { BigTitle, Links, NormalText } from '../shared_styling/Styled'
+import { BigTitle, CTA, Links, NormalText } from '../shared_styling/Styled'
 
 const Intro: FC = () => {
 	return (
 		<>
 			<Container>
 				<HeaderContainer>
-					<BigTitle pos='mid'>Hi, my name is David Pallarés</BigTitle>
-					<Links href='https://github.com/SirAllap' target='_blank'>
-						<NormalText pos='right'>GitHub</NormalText>
-					</Links>
+					<LeftHeaderTextContainer>
+						<Links href=''>
+							<NormalText textSize='subTitle'>ABOUT</NormalText>
+						</Links>
+						<Links href=''>
+							<NormalText textSize='subTitle'>WORK</NormalText>
+						</Links>
+					</LeftHeaderTextContainer>
+					<BigTitle className='titleGlow'>DPR</BigTitle>
+					<CTA>Hit me up</CTA>
 				</HeaderContainer>
 
 				<IntroContainer>
@@ -24,16 +30,26 @@ const Intro: FC = () => {
 
 const Container = styled.div`
 	height: 100vh;
-	background-color: #5402be;
 `
 const HeaderContainer = styled.header`
 	position: sticky;
 	height: 10%;
 	margin: 0 auto;
-	text-align: left;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+`
+const LeftHeaderTextContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	:first-child {
+		margin-right: 10px;
+	}
 `
 const IntroContainer = styled.div`
-	border: 1px solid red;
 	height: 90%;
 `
 
