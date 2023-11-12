@@ -3,10 +3,10 @@
 		sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
-
+	font-size: 16px;
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
+	background-color: #3b3561;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -15,13 +15,28 @@
 	-webkit-text-size-adjust: 100%;
 }
 
+.titleGlow {
+	color: #fff;
+	text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 16px #fff, 0 0 32px #fff;
+
+	animation: pulsate 2.5s infinite alternate;
+}
+@keyframes pulsate {
+	100% {
+		/* Larger blur radius */
+		text-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 32px #fff, 0 0 64px #fff;
+	}
+	0% {
+		/* Smaller blur radius */
+		text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 16px #fff, 0 0 32px #fff;
+	}
+}
+
 a {
 	font-weight: 500;
-	color: #646cff;
+	color: #fff;
 	text-decoration: inherit;
-}
-a:hover {
-	color: #535bf2;
+	transition: 0.25s;
 }
 
 * {
@@ -46,34 +61,62 @@ h1 {
 	line-height: 1.1;
 }
 
+header::before {
+	content: '';
+}
+
+header::after {
+	content: '';
+}
+
 button {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	padding: 0.6em 1.2em;
-	font-size: 1em;
+	border-radius: 50px;
+	color: #fff;
+	border: 1px solid #fff;
+	padding: 1.3rem;
+	font-size: 1.5rem;
 	font-weight: 500;
 	font-family: inherit;
-	background-color: #1a1a1a;
+	background-color: transparent;
 	cursor: pointer;
-	transition: border-color 0.25s;
+	transition: 0.25s;
 }
 button:hover {
-	border-color: #646cff;
+	color: #000;
+	background-color: #fff;
 }
-button:focus,
+/* Accesibility for buttons */
+/* button:focus,
 button:focus-visible {
 	outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 @media (prefers-color-scheme: light) {
 	:root {
-		color: #213547;
-		background-color: #ffffff;
+		color: #fff;
+		background-color: #5402be;
 	}
 	a:hover {
-		color: #747bff;
+		color: #fff;
+	}
+	button:hover {
+		background-color: #fff;
 	}
 	button {
-		background-color: #f9f9f9;
+		background-color: transparent;
+		border: 1px solid #fff;
+	}
+	.titleGlow {
+		color: #fff;
+		text-shadow: none;
+		animation: none;
+	}
+}
+
+@media screen and (prefers-reduced-motion) {
+	.titleGlow {
+		color: #fff;
+		text-shadow: none;
+		animation: none;
 	}
 }
