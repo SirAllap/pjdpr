@@ -16,9 +16,24 @@ export const Links = styled.a``
 type NormalTextProps = {
 	pos?: string
 	color?: string
+	textSize?: string
 }
 export const NormalText = styled.p<NormalTextProps>`
-	font-size: 1.5rem;
-	text-align: ${(props) => (props.pos === 'right' ? 'right' : 'left')};
-	color: ${(props) => (props.color === 'white' ? '#fff' : '#000')};
+	text-align: ${(props) =>
+		props.pos === 'mid'
+			? 'center'
+			: props.pos === 'right'
+			? 'right'
+			: 'left'};
+	font-size: ${(props) =>
+		props.textSize === 'subTitle' ? '1.5rem' : '1rem'};
+	border-bottom: ${(props) =>
+		props.textSize === 'subTitle' ? '1px solid trasparent' : 'none'};
+	padding: ${(props) => (props.textSize === 'subTitle' ? '10px' : 'none')};
+	&:hover {
+		border-bottom: ${(props) =>
+			props.textSize === 'subTitle' ? '1px solid white' : 'none'};
+	}
 `
+
+export const CTA = styled.button``
