@@ -1,14 +1,35 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import UserCard from './UserCard'
 import { BigTitle, CTA, Links, NormalText } from '../shared_styling/Styled'
+import { DarkModeSwitch } from 'react-toggle-dark-mode'
 
 const Intro: FC = () => {
+	const [isDarkMode, setIsDarkMode] = useState(
+		window.matchMedia('(prefers-color-scheme: dark)').matches
+	)
+	const toggleDarkMode = () => {
+		setIsDarkMode(!isDarkMode)
+	}
+	useEffect(() => {
+		document.documentElement.classList.toggle('dark-mode', isDarkMode)
+	}, [isDarkMode])
+
 	return (
 		<>
 			<Container>
 				<HeaderContainer>
 					<LeftHeaderTextContainer>
+						<DarkModeSwapper>
+							<DarkModeSwitch
+								style={{}}
+								checked={isDarkMode}
+								onChange={toggleDarkMode}
+								size={70}
+								moonColor={'white'}
+								sunColor={'white'}
+							/>
+						</DarkModeSwapper>
 						<Links href='#contactSection'>
 							<NormalText textSize='subTitle'>CONTACT</NormalText>
 						</Links>
@@ -16,7 +37,7 @@ const Intro: FC = () => {
 							<NormalText textSize='subTitle'>WORK</NormalText>
 						</Links>
 					</LeftHeaderTextContainer>
-					<BigTitle className='titleGlow'>DPR</BigTitle>
+					<BigTitle className='title-glow'>DPR</BigTitle>
 					<CTA>Hit me up</CTA>
 				</HeaderContainer>
 
@@ -51,6 +72,13 @@ const LeftHeaderTextContainer = styled.div`
 `
 const IntroContainer = styled.div`
 	height: 90%;
+`
+
+const DarkModeSwapper = styled.span`
+	position: fixed;
+	left: 20px;
+	bottom: 20px;
+	cursor: pointer;
 `
 
 export default Intro
