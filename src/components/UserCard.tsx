@@ -24,21 +24,20 @@ const UserCard: FC = () => {
 
 const CardContainer = styled.div`
 	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	display: grid;
+	place-items: center;
 `
 
 const Card = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	display: grid;
+	place-items: center;
 	margin: 0 auto;
-	width: 500px;
+	max-width: 500px;
 	height: 500px;
 	border: 1px solid white;
 	border-radius: 10px;
 	text-align: center;
+	padding: 50px;
 `
 
 export default UserCard
