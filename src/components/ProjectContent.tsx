@@ -2,18 +2,18 @@ import { FC } from 'react'
 import styled from 'styled-components'
 import { NormalText } from '../shared_styling/Styled'
 
-const BodyContent: FC = () => {
+const ProjectContent: FC = () => {
 	return (
 		<>
-			<BodyContainer id='superSection'>
-				<FirstSection>
+			<BodyContainer id='projectSection'>
+				<FirstSection className='firstSection'>
 					<NormalText>
 						I'm a container where all the projects will be
 					</NormalText>
 				</FirstSection>
-				<SecondSection></SecondSection>
-				<ThirdSection></ThirdSection>
-				<FourthSection></FourthSection>
+				<SecondSection className='secondSection'></SecondSection>
+				<ThirdSection className='thirdSection'></ThirdSection>
+				<FourthSection className='fourthSection'></FourthSection>
 			</BodyContainer>
 		</>
 	)
@@ -24,19 +24,15 @@ const BodyContainer = styled.div`
 `
 const FirstSection = styled.div`
 	height: 25%;
-	background-color: #dd7373;
 `
 const SecondSection = styled.div`
 	height: 25%;
-	background-color: #3b3561;
 `
 const ThirdSection = styled.div`
 	height: 25%;
-	background-color: #51a3a3;
 `
 const FourthSection = styled.div`
 	height: 25%;
-	background-color: #ead94c;
 `
 
-export default BodyContent
+export default ProjectContent
