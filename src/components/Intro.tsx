@@ -9,10 +9,10 @@ const Intro: FC = () => {
 			<Container>
 				<HeaderContainer>
 					<LeftHeaderTextContainer>
-						<Links href=''>
-							<NormalText textSize='subTitle'>ABOUT</NormalText>
+						<Links href='#contactSection'>
+							<NormalText textSize='subTitle'>CONTACT</NormalText>
 						</Links>
-						<Links href=''>
+						<Links href='#projectSection'>
 							<NormalText textSize='subTitle'>WORK</NormalText>
 						</Links>
 					</LeftHeaderTextContainer>
