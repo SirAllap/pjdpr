@@ -1,13 +1,15 @@
 import { FC } from 'react'
 import './App.css'
 import Intro from './components/Intro'
-import BodyContent from './components/BodyContent'
+import ProjectContent from './components/ProjectContent'
+import ContactContent from './components/ContactContent'
 
 const App: FC = () => {
 	return (
 		<>
 			<Intro />
-			<BodyContent />
+			<ProjectContent />
+			<ContactContent />
 		</>
 	)
 }
