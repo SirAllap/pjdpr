@@ -28,7 +28,7 @@
 	background-color: #443f18;
 }
 
-.titleGlow {
+.title-glow {
 	color: #fff;
 	text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 16px #fff, 0 0 32px #fff;
 
@@ -107,8 +107,15 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
 	:root {
-		color: #fff;
+		color-scheme: light;
+		color: rgba(255, 255, 255, 0.87);
 		background-color: #5402be;
+		transition: 0.5s;
+	}
+	.dark-mode {
+		transition: 0.5s;
+		color: rgba(255, 255, 255, 0.87);
+		background-color: #3b3561;
 	}
 	a:hover {
 		color: #fff;
@@ -120,7 +127,7 @@ button:focus-visible {
 		background-color: transparent;
 		border: 1px solid #fff;
 	}
-	.titleGlow {
+	.title-glow {
 		color: #fff;
 		text-shadow: none;
 		animation: none;
@@ -140,7 +147,7 @@ button:focus-visible {
 }
 
 @media screen and (prefers-reduced-motion) {
-	.titleGlow {
+	.title-glow {
 		color: #fff;
 		text-shadow: none;
 		animation: none;
