@@ -38,6 +38,7 @@ const Card = styled.div`
 	border-radius: 10px;
 	text-align: center;
 	padding: 50px;
+	background-color: #5402be;
 `
 
 export default UserCard
