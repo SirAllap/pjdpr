@@ -1,6 +1,10 @@
+@font-face {
+	font-family: 'Emnizen';
+	src: local('Emizen'), url('../fonts/Emizen.ttf') format('truetype');
+}
+
 :root {
-	font-family: monospace, Inter, system-ui, Avenir, Helvetica, Arial,
-		sans-serif;
+	font-family: Emnizen, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 	font-size: 16px;
@@ -86,7 +90,7 @@ button {
 	border-radius: 50px;
 	color: #fff;
 	border: 1px solid #fff;
-	padding: 1.5rem 0;
+	padding: 1rem 0;
 	padding-inline: 2rem;
 	font-size: 1.5rem;
 	font-weight: 500;
