@@ -10,6 +10,7 @@ export const BigTitle = styled.h1<BigTitleProps>`
 			: props.pos === 'right'
 			? 'right'
 			: 'left'};
+	font-size: 4rem;
 `
 export const Links = styled.a``
 
@@ -28,11 +29,11 @@ export const NormalText = styled.p<NormalTextProps>`
 	font-size: ${(props) =>
 		props.textSize === 'subTitle' ? '1.5rem' : '1rem'};
 	border-bottom: ${(props) =>
-		props.textSize === 'subTitle' ? '1px solid trasparent' : 'none'};
+		props.textSize === 'subTitle' ? '2px solid trasparent' : 'none'};
 	padding: ${(props) => (props.textSize === 'subTitle' ? '10px' : 'none')};
 	&:hover {
 		border-bottom: ${(props) =>
-			props.textSize === 'subTitle' ? '1px solid white' : 'none'};
+			props.textSize === 'subTitle' ? '2px solid white' : 'none'};
 	}
 `
 
