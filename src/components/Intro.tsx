@@ -11,14 +11,19 @@ const Intro: FC = () => {
 	const [isDarkMode, setIsDarkMode] = useState(
 		window.matchMedia('(prefers-color-scheme: dark)').matches
 	)
+	const [isLigthMode, setIsLigthMode] = useState(
+		window.matchMedia('(prefers-color-scheme: ligth)').matches
+	)
 	const toggleDarkMode = () => {
-		setIsDarkMode(!isDarkMode)
+		setIsLigthMode(!isLigthMode), setIsDarkMode(!isDarkMode)
 	}
 	function logit() {
 		setScrollY(window.scrollY)
 	}
+
 	useEffect(() => {
 		document.documentElement.classList.toggle('dark-mode', isDarkMode)
+		document.documentElement.classList.toggle('ligth-mode', isLigthMode)
 		function watchScroll() {
 			window.addEventListener('scroll', logit)
 		}
@@ -27,12 +32,11 @@ const Intro: FC = () => {
 		return () => {
 			window.removeEventListener('scroll', logit)
 		}
-	}, [isDarkMode, scrollY])
+	}, [isDarkMode, isLigthMode, scrollY])
 	return (
 		<>
 			<DarkModeSwapper>
 				<DarkModeSwitch
-					style={{}}
 					checked={isDarkMode}
 					onChange={toggleDarkMode}
 					size={70}
@@ -46,21 +50,23 @@ const Intro: FC = () => {
 						<Links href='#projectSection'>
 							<NormalText textSize='subTitle'>WORK</NormalText>
 						</Links>
-						<Links href='#contactSection'>
-							<NormalText textSize='subTitle'>CONTACT</NormalText>
+						<Links href='#aboutMeSection'>
+							<NormalText textSize='subTitle'>MORE</NormalText>
 						</Links>
 					</LeftHeaderTextContainer>
 					<Links href='#'>
 						<BigTitle className='title-glow'>DPR</BigTitle>
 					</Links>
 					<RightHeaderTextContainer>
-						<CTA>Hit me up</CTA>
+						<Links href='#contactSection'>
+							<CTA>Hit me up</CTA>
+						</Links>
 					</RightHeaderTextContainer>
 				</HeaderContainer>
 				<MePicture>
 					<IntroContainer>Hi. I'm David.</IntroContainer>
 					<IntroNextContainer>A Developer.</IntroNextContainer>
-					<Arrow href='#aboutMeSection'>arrowdown</Arrow>
+					<Arrow href='#aboutMeSection'></Arrow>
 				</MePicture>
 			</Container>
 		</>
@@ -85,7 +91,7 @@ const IntroNextContainer = styled.div`
 	position: relative;
 	left: 50%;
 	top: 62%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -40%);
 	text-align: center;
 	font-size: 7vw;
 	width: 62%;
@@ -133,12 +139,12 @@ const IntroNextContainer = styled.div`
 const MePicture = styled.div`
 	background-image: url(${imageMe});
 	background-repeat: no-repeat;
-	background-size: 35vw;
-	background-position-y: 105%;
+	background-size: 40vw;
+	background-position-y: 103%;
 	background-position-x: -2%;
 	height: 100vh;
-	filter: brightness(60%);
-	transition: 0.5s;
+	filter: brightness(50%);
+	transition: 1s;
 	&:hover {
 		filter: brightness(100%);
 		background-position-y: 100%;
@@ -197,6 +203,28 @@ const Arrow = styled.a`
 	bottom: 10%;
 	transform: translate(-50%, -50%);
 	cursor: pointer;
+	border: solid #ffc300;
+	border-width: 0 10px 10px 0;
+	display: inline-block;
+	padding: 3px;
+	width: 90px;
+	height: 90px;
+	transition: 0.5s;
+	&:hover {
+		scale: 1.05;
+	}
+	animation: float 2.5s ease-in-out infinite;
+	@keyframes float {
+		0% {
+			transform: translatey(0px) rotate(45deg);
+		}
+		50% {
+			transform: translatey(-20px) rotate(45deg);
+		}
+		100% {
+			transform: translatey(0px) rotate(45deg);
+		}
+	}
 `
 
 export default Intro
