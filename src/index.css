@@ -71,6 +71,7 @@ body {
 	margin: 0;
 	min-width: 320px;
 	min-height: 100vh;
+	overflow: hidden;
 }
 
 h1 {
@@ -116,10 +117,10 @@ button:focus-visible {
 		background-color: #5402be;
 		transition: 0.5s;
 	}
-	.dark-mode {
+	.ligth-mode {
 		transition: 0.5s;
 		color: rgba(255, 255, 255, 0.87);
-		background-color: #3b3561;
+		background-color: #272727;
 	}
 	a:hover {
 		color: #fff;
@@ -147,6 +148,56 @@ button:focus-visible {
 	}
 	.fourthSection {
 		background-color: #ead94c;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+		color: rgba(255, 255, 255, 0.87);
+		background-color: #5402be;
+		transition: 0.5s;
+	}
+	.dark-mode {
+		transition: 0.5s;
+		color: rgba(255, 255, 255, 0.87);
+		background-color: #272727;
+	}
+
+	.firstSection {
+		background-color: #420000; /* Adjust background color for dark mode */
+	}
+
+	.secondSection {
+		background-color: #191731; /* Adjust background color for dark mode */
+	}
+
+	.thirdSection {
+		background-color: #0d1a1a; /* Adjust background color for dark mode */
+	}
+
+	.fourthSection {
+		background-color: #1c1a07; /* Adjust background color for dark mode */
+	}
+
+	a:hover {
+		color: #fff; /* Adjust link hover color for dark mode */
+	}
+
+	button:hover {
+		background-color: #fff; /* Adjust button hover color for dark mode */
+		color: #000; /* Adjust button text color for dark mode */
+	}
+
+	button {
+		background-color: transparent;
+		border: 1px solid #fff; /* Adjust button border color for dark mode */
+	}
+
+	.title-glow {
+		color: #fff; /* Adjust title glow color for dark mode */
+		text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 16px #fff, 0 0 32px #fff;
+		animation: pulsate 2.5s infinite alternate;
 	}
 }
 
