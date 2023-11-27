@@ -44,6 +44,11 @@ const Intro: FC = () => {
 					sunColor={'white'}
 				/>
 			</DarkModeSwapper>
+			<Links href='https://github.com/SirAllap' target='_blank'>
+				<CTAGH>
+					<NormalText>GitHub</NormalText>
+				</CTAGH>
+			</Links>
 			<Container>
 				<HeaderContainer shadow={shadowed}>
 					<LeftHeaderTextContainer>
@@ -178,6 +183,9 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
 `
 
 const LeftHeaderTextContainer = styled.div`
+	p {
+		font-size: 2rem;
+	}
 	display: flex;
 	:first-child {
 		margin-right: 10px;
@@ -185,6 +193,11 @@ const LeftHeaderTextContainer = styled.div`
 	margin-right: 20%;
 `
 const RightHeaderTextContainer = styled.div`
+	a {
+		button {
+			font-size: 2rem;
+		}
+	}
 	margin-left: 20%;
 `
 
@@ -197,7 +210,7 @@ const DarkModeSwapper = styled.span`
 `
 
 const Arrow = styled.a`
-	z-index: 99;
+	z-index: 2;
 	position: fixed;
 	left: 50%;
 	bottom: 10%;
@@ -224,6 +237,22 @@ const Arrow = styled.a`
 		100% {
 			transform: translatey(0px) rotate(45deg);
 		}
+	}
+`
+
+const CTAGH = styled.button`
+	p {
+		font-size: 1.5rem;
+	}
+	z-index: 2;
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	background-color: white;
+	color: black;
+	&:hover {
+		background-color: transparent;
+		color: white;
 	}
 `
 
