@@ -56,7 +56,7 @@ const Intro: FC = () => {
 							<NormalText textSize='subTitle'>WORK</NormalText>
 						</Links>
 						<Links href='#aboutMeSection'>
-							<NormalText textSize='subTitle'>MORE</NormalText>
+							<NormalText textSize='subTitle'>ABOUT</NormalText>
 						</Links>
 					</LeftHeaderTextContainer>
 					<Links href='#'>
@@ -190,9 +190,9 @@ const LeftHeaderTextContainer = styled.div`
 	}
 	display: flex;
 	:first-child {
-		margin-right: 10px;
+		margin: 0px 10px 0px 10px;
 	}
-	margin-right: 20%;
+	padding-right: 15%;
 `
 const RightHeaderTextContainer = styled.div`
 	a {
@@ -200,7 +200,7 @@ const RightHeaderTextContainer = styled.div`
 			font-size: 2rem;
 		}
 	}
-	margin-left: 20%;
+	padding-left: 18%;
 `
 
 const DarkModeSwapper = styled.span`
