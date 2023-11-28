@@ -174,6 +174,8 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
+	margin-top: -55px;
+	margin-top: ${(props) => (props.shadow ? '-55px' : '0')};
 	background: ${(props) =>
 		props.shadow ? 'rgba(0, 0, 0, 0.167)' : 'transparent'};
 	border-radius: 80px;
