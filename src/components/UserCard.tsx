@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { CTA, Links, NormalText } from '../shared_styling/Styled'
+import { Links, NormalText } from '../shared_styling/Styled'
 import styled from 'styled-components'
 
 const UserCard: FC = () => {
@@ -8,39 +8,23 @@ const UserCard: FC = () => {
 			<CardContainer>
 				<Card>
 					<NormalText pos='mid'>
-						My name is David Pallarés, and I live in the beautiful
-						Canary Islands, where the sun shines all year round. For
-						the past two years, I have been fully immersed in
-						learning and creating, contributing to several
-						noteworthy projects along the way. My interest in
-						technology began in my childhood, where I spent
-						countless hours tinkering with old gadgets, eager to
-						understand their inner workings.
+						I'm David Pallarés, based in the sunny Canary Islands.
+						Over the last two years, I've deeply engaged in
+						technology, making notable contributions. My early
+						passion for gadgets evolved into expertise in PC
+						hardware and Linux systems.
 					</NormalText>
 					<NormalText pos='mid'>
-						After completing my education, I delved even further
-						into the world of PCs and hardware, honing my skills in
-						the art of crafting custom computers. The world of Linux
-						and systems fascinated me, and I relished the joy of
-						bringing together PC parts and giving them life.
+						Post-education, I delved deeper into crafting custom
+						computers. Discovering my passion for web development
+						just before the COVID pandemic, I embraced HTML, CSS,
+						JS, PHP, and Laravel, marking a turning point.
 					</NormalText>
 					<NormalText pos='mid'>
-						Just before the COVID pandemic, I discovered my true
-						passion for web development. I enrolled in a web
-						development course and dived straight into HTML, CSS,
-						JS, and some PHP & Laravel. Although it wasn't a
-						profound commitment at the time, it marked the beginning
-						of a turning point for me.
-					</NormalText>
-					<NormalText pos='mid'>
-						Two years ago, I made a bold decision to enroll in a
-						Coding Bootcamp, where I gained an in-depth foundation
-						in JS, Node, Express, UX-UI, Vue, React, which has been
-						a game-changer for me. Since then, my commitment to
-						learning and my curiosity about this fascinating world
-						has only deepened. I have contributed to various
-						remarkable projects, and I am eager to take on more
-						challenges that will enhance my skills and expertise.
+						Two years ago, I enrolled in a Coding Bootcamp, gaining
+						expertise in JS, Node, Express, UX-UI, Vue, and React.
+						I've contributed to remarkable projects and am eager for
+						new challenges to enhance my skills.
 					</NormalText>
 					<Links href='#projectSection'>
 						<CTAProjects>Projects!</CTAProjects>
