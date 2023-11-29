@@ -10,9 +10,18 @@ export const BigTitle = styled.h1<BigTitleProps>`
 			: props.pos === 'right'
 			? 'right'
 			: 'left'};
-	font-size: 4rem;
+	font-size: 5rem;
+	@media (max-width: 600px) {
+		font-size: 3rem;
+	}
 `
-export const Links = styled.a``
+export const Links = styled.a`
+	color: #bead8e;
+	font-size: 2rem;
+	&:hover {
+		color: #ceacf9;
+	}
+`
 
 type NormalTextProps = {
 	pos?: string
@@ -25,9 +34,15 @@ export const NormalText = styled.p<NormalTextProps>`
 			? 'center'
 			: props.pos === 'right'
 			? 'right'
+			: props.pos === 'justi'
+			? 'justify'
 			: 'left'};
 	font-size: ${(props) =>
-		props.textSize === 'subTitle' ? '1.5rem' : '1rem'};
+		props.textSize === 'subTitle'
+			? '1.5rem'
+			: props.textSize === 'title'
+			? '1.5rem'
+			: '1rem'};
 	border-bottom: ${(props) =>
 		props.textSize === 'subTitle' ? '2px solid trasparent' : 'none'};
 	padding: ${(props) => (props.textSize === 'subTitle' ? '10px' : 'none')};
