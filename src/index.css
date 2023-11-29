@@ -3,6 +3,24 @@
 	src: local('Emizen'), url('../fonts/Emizen.ttf') format('truetype');
 }
 
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+	overflow: hidden;
+}
+
 :root {
 	font-family: Emnizen, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
@@ -10,26 +28,14 @@
 	font-size: 16px;
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
-	background-color: #3b3561;
+	/* background-color: #3b3561; */
+	background-color: #373737;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
-}
-
-.firstSection {
-	background-color: #934b4b;
-}
-.secondSection {
-	background-color: #3b3561;
-}
-.thirdSection {
-	background-color: #2b5757;
-}
-.fourthSection {
-	background-color: #443f18;
 }
 
 .title-glow {
@@ -51,27 +57,9 @@
 
 a {
 	font-weight: 500;
-	color: #fff;
+	color: #8c56d2;
 	text-decoration: inherit;
 	transition: 0.25s;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-}
-
-html {
-	margin: 0;
-	padding: 0;
-	scroll-behavior: smooth;
-}
-
-body {
-	margin: 0;
-	min-width: 320px;
-	min-height: 100vh;
-	overflow: hidden;
 }
 
 h1 {
@@ -79,125 +67,52 @@ h1 {
 	line-height: 1.1;
 }
 
-header::before {
-	content: '';
-}
-
-header::after {
-	content: '';
-}
-
 button {
 	border-radius: 50px;
-	color: #fff;
-	border: 1px solid #fff;
-	padding: 1rem 0;
-	padding-inline: 2rem;
+	color: #8c56d2;
+	border: 2px solid #8c56d2;
+	padding: 1rem;
 	font-size: 1.5rem;
 	font-weight: 500;
 	font-family: inherit;
 	background-color: transparent;
 	cursor: pointer;
 	transition: 0.25s;
+	width: 190px;
+	@media (max-width: 600px) {
+		width: 120px;
+		font-size: 1.3rem !important;
+		padding-inline: 1rem !important;
+	}
 }
-button:hover {
-	color: #000;
-	background-color: #fff;
-}
-/* Accesibility for buttons */
-/* button:focus,
-button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
-} */
 
 @media (prefers-color-scheme: light) {
 	:root {
 		color-scheme: light;
 		color: rgba(255, 255, 255, 0.87);
-		background-color: #5402be;
+		background-color: #373737;
 		transition: 0.5s;
 	}
 	.ligth-mode {
 		transition: 0.5s;
 		color: rgba(255, 255, 255, 0.87);
-		background-color: #272727;
+		background-color: #373737;
 	}
 	a:hover {
 		color: #fff;
 	}
 	button:hover {
-		background-color: #fff;
+		background-color: #8c56d2;
+		color: #fff;
 	}
 	button {
 		background-color: transparent;
-		border: 1px solid #fff;
+		border: 2px solid #8c56d2;
 	}
 	.title-glow {
 		color: #fff;
 		text-shadow: none;
 		animation: none;
-	}
-	.firstSection {
-		background-color: #dd7373;
-	}
-	.secondSection {
-		background-color: #3b3561;
-	}
-	.thirdSection {
-		background-color: #51a3a3;
-	}
-	.fourthSection {
-		background-color: #ead94c;
-	}
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		color-scheme: dark;
-		color: rgba(255, 255, 255, 0.87);
-		background-color: #5402be;
-		transition: 0.5s;
-	}
-	.dark-mode {
-		transition: 0.5s;
-		color: rgba(255, 255, 255, 0.87);
-		background-color: #272727;
-	}
-
-	.firstSection {
-		background-color: #420000; /* Adjust background color for dark mode */
-	}
-
-	.secondSection {
-		background-color: #191731; /* Adjust background color for dark mode */
-	}
-
-	.thirdSection {
-		background-color: #0d1a1a; /* Adjust background color for dark mode */
-	}
-
-	.fourthSection {
-		background-color: #1c1a07; /* Adjust background color for dark mode */
-	}
-
-	a:hover {
-		color: #fff; /* Adjust link hover color for dark mode */
-	}
-
-	button:hover {
-		background-color: #fff; /* Adjust button hover color for dark mode */
-		color: #000; /* Adjust button text color for dark mode */
-	}
-
-	button {
-		background-color: transparent;
-		border: 1px solid #fff; /* Adjust button border color for dark mode */
-	}
-
-	.title-glow {
-		color: #fff; /* Adjust title glow color for dark mode */
-		text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 16px #fff, 0 0 32px #fff;
-		animation: pulsate 2.5s infinite alternate;
 	}
 }
 
