@@ -1,13 +1,10 @@
 import { FC } from 'react'
 import styled from 'styled-components'
-import UserCard from './UserCard'
 
 const AboutMeContent: FC = () => {
 	return (
 		<>
-			<BodyContainer id='aboutMeSection'>
-				<UserCard />
-			</BodyContainer>
+			<BodyContainer id='aboutMeSection'></BodyContainer>
 		</>
 	)
 }
