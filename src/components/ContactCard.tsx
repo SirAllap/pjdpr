@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Links, NormalText } from '../shared_styling/Styled'
+import { CTA, Links, NormalText } from '../shared_styling/Styled'
 import styled from 'styled-components'
 
 const ContactCard: FC = () => {
@@ -22,7 +22,7 @@ const ContactCard: FC = () => {
 				</NormalText>
 				<br />
 				<br />
-				<NormalText>👨‍💻 Contact Info:</NormalText>
+				<NormalText>👨‍💻 Contact:</NormalText>
 				<br />
 				<NormalText>Telephone: +34 638492817</NormalText>
 				<NormalText>
@@ -35,6 +35,18 @@ const ContactCard: FC = () => {
 					Github:{' '}
 					<Links href='https://github.com/SirAllap'>SirAllap</Links>
 				</NormalText>
+				<Links
+					href='/src/assets/CV/David_PR_ESP.pdf'
+					download='David_PR_ESP.pdf'
+				>
+					<CTA>🇪🇸 CV ESPAÑOL 🇪🇸</CTA>
+				</Links>
+				<Links
+					href='/src/assets/CV/David_PR_ENG.pdf'
+					download='David_PR_ENG.pdf'
+				>
+					<CTA>🇬🇧 CV ENGLISH 🇬🇧</CTA>
+				</Links>
 			</Card>
 		</>
 	)
@@ -55,6 +67,19 @@ const Card = styled.div`
 			text-align: justify;
 			font-size: 1rem;
 		}
+	}
+	a {
+		text-align: center;
+		margin: 20px 0 20px 0;
+	}
+	button {
+		width: fit-content;
+		background-color: #8c56d2;
+		color: white;
+	}
+	button:hover {
+		background-color: transparent;
+		color: #8c56d2;
 	}
 `
 
