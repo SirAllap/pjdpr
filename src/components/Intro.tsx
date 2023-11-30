@@ -3,7 +3,7 @@ import styled from 'styled-components'
 // import UserCard from './UserCard'
 import { BigTitle, CTA, Links } from '../shared_styling/Styled'
 import imageMe from '../assets/me1.png'
-import UserCard from './UserCard'
+import UserCard from './IntroCard'
 
 const Intro: FC = () => {
 	const [scrollY, setScrollY] = useState(0)
@@ -49,8 +49,8 @@ const Intro: FC = () => {
 					<IntroNextContainer>A Developer.</IntroNextContainer>
 					<UserCard />
 				</TextArea>
+				<Arrow href='#projectSection' />
 			</Container>
-			<Arrow href='#projectSection' />
 		</>
 	)
 }
@@ -58,24 +58,32 @@ const Intro: FC = () => {
 const Container = styled.div`
 	position: relative;
 	height: 100dvh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	@media (min-width: 600px) {
+		justify-content: center;
+	}
+	@media (max-width: 600px) {
+		margin-top: 150px;
+	}
 `
 
 const TextArea = styled.div`
-	width: 60%;
+	width: 60dvw;
 	height: fit-content;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	backdrop-filter: blur(2px);
+	@media (max-width: 1500px) {
+		width: 80%;
+	}
 	@media (max-width: 600px) {
-		top: 27%;
 		width: 100%;
 	}
 `
 
 const IntroContainer = styled.div`
 	text-align: center;
-	font-size: 7rem;
+	font-size: 6.5dvw;
 	text-transform: uppercase;
 	transition: 0.5s;
 	@media (max-width: 600px) {
@@ -85,7 +93,7 @@ const IntroContainer = styled.div`
 
 const IntroNextContainer = styled.div`
 	text-align: center;
-	font-size: 8rem;
+	font-size: 7.5dvw;
 	transition: 0.5s;
 	text-transform: uppercase;
 	animation: glitch 900ms infinite;
@@ -125,6 +133,7 @@ const IntroNextContainer = styled.div`
 `
 
 const MePicture = styled.div`
+	z-index: -10;
 	width: 550px;
 	height: 500px;
 	position: fixed;
@@ -139,6 +148,12 @@ const MePicture = styled.div`
 	&:hover {
 		background-position-y: 100%;
 		background-position-x: 0%;
+	}
+	@media (max-width: 600px) {
+		background-size: 300px;
+	}
+	@media (max-width: 1200px) {
+		background-size: 450px;
 	}
 `
 
@@ -171,11 +186,6 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
 	p {
 		color: #8c56d2;
 	}
-	button {
-		background-color: ${(props) =>
-			props.shadow === 'yes' ? '#8c56d2' : 'transparent'};
-		color: ${(props) => (props.shadow === 'yes' ? '#373737' : '#8c56d2')};
-	}
 	button:hover {
 		background-color: ${(props) =>
 			props.shadow === 'yes' ? 'transparent' : '#8c56d2'};
@@ -183,6 +193,32 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
 	}
 	@media (max-width: 1500px) {
 		width: 85dvw;
+	}
+	@media (max-width: 1200px) {
+		border-radius: 55px 20px 55px 20px;
+		padding: ${(props) => (props.shadow === 'yes' ? '0.5rem' : '0')};
+	}
+	@media (max-width: 600px) {
+		width: 90dvw;
+		margin-top: 0;
+		background: none;
+		border-radius: none;
+		box-shadow: none;
+		backdrop-filter: none;
+		button:hover {
+			background-color: ${(props) =>
+				props.shadow === 'yes' ? '#8c56d2' : 'transparent'};
+			color: ${(props) =>
+				props.shadow === 'yes' ? '#373737' : '#8c56d2'};
+		}
+	}
+	@media (min-width: 600px) {
+		button {
+			background-color: ${(props) =>
+				props.shadow === 'yes' ? '#8c56d2' : 'transparent'};
+			color: ${(props) =>
+				props.shadow === 'yes' ? '#373737' : '#8c56d2'};
+		}
 	}
 `
 
@@ -205,7 +241,7 @@ const RightHeaderTextContainer = styled.div`
 const Arrow = styled.a`
 	position: absolute;
 	bottom: 5%;
-	right: 49%;
+	left: calc(50% - 35px);
 	transform: translate(-50%, -50%);
 	cursor: pointer;
 	border: solid #8c56d2;
@@ -224,6 +260,11 @@ const Arrow = styled.a`
 		100% {
 			transform: translatey(0px) rotate(45deg);
 		}
+	}
+	@media (max-width: 600px) {
+		width: 40px;
+		height: 40px;
+		left: calc(50% - 20px);
 	}
 `
 
