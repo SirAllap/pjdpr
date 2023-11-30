@@ -21,6 +21,9 @@ export const Links = styled.a`
 	&:hover {
 		color: #ceacf9;
 	}
+	@media (max-width: 600px) {
+		font-size: 1rem;
+	}
 `
 
 type NormalTextProps = {
