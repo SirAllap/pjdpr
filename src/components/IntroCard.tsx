@@ -7,23 +7,23 @@ const UserCard: FC = () => {
 		<>
 			<Card>
 				<NormalText pos='justi'>
-					Hello there! I'm a passionate{' '}
+					Hello there! I'm a{' '}
 					<HighlightedText color='#8c56d2'>
 						web developer
 					</HighlightedText>{' '}
-					dedicated to crafting digital experiences that bring genuine
-					enjoyment to users. Customer satisfaction is at the heart of
-					what I do.
+					with a passion for crafting seamless, user-friendly websites
+					and apps that leave a lasting impression. I aim not only to
+					meet but also to exceed user expectations, ensuring they
+					keep coming back for more.
 				</NormalText>
 				<br />
 				<NormalText pos='justi'>
-					As a Full-stack Developer at OXYGEN Coworking, I bring a
-					meticulous approach to testing, prioritize accessibility,
-					thrive in teamwork, and consistently produce high-quality
-					code. My expertise lies in building scalable and secure
-					applications usingself-motivated learner React.js,
-					Express.js, Node.js, and MongoDB — skills acquired within
-					the last two years.
+					As a Full-stack Developer, I prioritize testing and
+					accessibility, excel in teamwork, and continually strive to
+					improve my code with each iteration. My expertise lies in
+					constructing scalable and secure applications, predominantly
+					utilizing React.js, Express.js, Node.js, and MongoDB —
+					skills I've developed over the past two years.
 				</NormalText>
 				<br />
 				<NormalText pos='justi'>
