@@ -18,22 +18,24 @@ const ContactContent: FC = () => {
 const BodyContainer = styled.div`
 	height: 100dvh;
 	display: flex;
-	align-items: center;
-	flex-direction: column;
+	flex-direction: row;
+	justify-content: center;
 `
 
 const TextArea = styled.div`
 	backdrop-filter: blur(2px);
 	width: 60dvw;
-	padding-top: 10dvh;
+	padding-top: 15dvh;
 	@media (max-width: 1200px) {
-		padding-top: 0;
 		width: 100%;
 	}
 `
 
 const IntroSection = styled.div`
 	height: 150px;
+	@media (max-width: 600px) {
+		height: 100px;
+	}
 `
 
 export default ContactContent
