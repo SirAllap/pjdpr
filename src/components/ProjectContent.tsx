@@ -8,11 +8,21 @@ import oxygenshop from '../assets/oxygen_shop.png'
 import peekbeats from '../assets/peekbeats.png'
 import frogger from '../assets/frogger.png'
 import gmf from '../assets/gmf.png'
+
 import js from '../assets/technologies/js.png'
+import ts from '../assets/technologies/ts.png'
 import html from '../assets/technologies/html.png'
 import css from '../assets/technologies/css.png'
 import php from '../assets/technologies/php.png'
 import scss from '../assets/technologies/scss.png'
+import aws from '../assets/technologies/aws.png'
+import react from '../assets/technologies/react.png'
+import node from '../assets/technologies/node.png'
+import mongo from '../assets/technologies/mongo-db.png'
+import npm from '../assets/technologies/npm.png'
+import vscode from '../assets/technologies/vscode.png'
+import vue from '../assets/technologies/vue.png'
+import mui from '../assets/technologies/mui.png'
 
 const ProjectContent: FC = () => {
 	return (
@@ -22,6 +32,9 @@ const ProjectContent: FC = () => {
 				<FirstSection>
 					<ProjectCard>
 						<PhotoContainerRight>
+							<NormalText pos='mid' textSize='title'>
+								Hotel Miranda
+							</NormalText>
 							<Links
 								href='http://13.38.229.168/index'
 								target='_blank'
@@ -62,6 +75,7 @@ const ProjectContent: FC = () => {
 								<IconImage src={js} />
 								<IconImage src={scss} />
 								<IconImage src={php} />
+								<IconImage src={vscode} />
 							</IconsContainer>
 							<NormalText pos='right'>
 								<Links
@@ -77,6 +91,9 @@ const ProjectContent: FC = () => {
 				<SecondSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
+							<NormalText pos='mid' textSize='title'>
+								Travl Dashboard
+							</NormalText>
 							<Links
 								href='http://hotelmiranda-dashboard.s3-website.eu-west-3.amazonaws.com/login'
 								target='_blank'
@@ -111,11 +128,13 @@ const ProjectContent: FC = () => {
 							</NormalText>
 							<NormalText>Technologies used:</NormalText>
 							<IconsContainer>
-								<IconImage src={html} />
-								<IconImage src={css} />
-								<IconImage src={js} />
-								<IconImage src={scss} />
-								<IconImage src={php} />
+								<IconImage src={vscode} />
+								<IconImage src={npm} />
+								<IconImage src={aws} />
+								<IconImage src={node} />
+								<IconImage src={mongo} />
+								<IconImage src={ts} />
+								<IconImage src={react} />
 							</IconsContainer>
 							<NormalText pos='left'>
 								<Links
@@ -131,6 +150,9 @@ const ProjectContent: FC = () => {
 				<ThirdSection>
 					<ProjectCard>
 						<PhotoContainerRight>
+							<NormalText pos='mid' textSize='title'>
+								Oxygen Stock Free Photos
+							</NormalText>
 							<Links
 								href='http://oxygen-academy-photo-app.s3-website.eu-west-3.amazonaws.com/'
 								target='_blank'
@@ -167,11 +189,15 @@ const ProjectContent: FC = () => {
 							</NormalText>
 							<NormalText>Technologies used:</NormalText>
 							<IconsContainer>
-								<IconImage src={html} />
-								<IconImage src={css} />
 								<IconImage src={js} />
-								<IconImage src={scss} />
-								<IconImage src={php} />
+								<IconImage src={react} />
+								<IconImage
+									style={{ width: '50px' }}
+									src={mui}
+								/>
+								<IconImage src={node} />
+								<IconImage src={aws} />
+								<IconImage src={npm} />
 							</IconsContainer>
 							<NormalText pos='right'>
 								<Links
@@ -187,50 +213,45 @@ const ProjectContent: FC = () => {
 				<FourthSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
+							<NormalText pos='mid' textSize='title'>
+								Oxigen Shop
+							</NormalText>
 							<Links
-								href='http://13.38.229.168/index'
+								href='https://tinyurl.com/oxygenshop'
 								target='_blank'
 							>
 								<PhotoProjectLeft
 									src={oxygenshop}
-									alt='Project peekbeats'
+									alt='Oxigen Shop'
 								/>
 							</Links>
 						</PhotoContainerLeft>
 						<TextSectionRight>
 							<NormalText pos='mid' textSize='title'>
-								PeekBeats
+								Oxigen Shop
 							</NormalText>
 							<NormalText pos='justi'>
-								This is a streaming applicationdesigned for both
-								music lovers and content creators. I
-								collaborated with two other bootcamp students to
-								develop PeekBeats, an incredible application.
-								"PeekBeats is a dynamic streaming platform that
-								connects music producers with listeners. It
-								offers a user-friendly interface and bridges the
-								gap between creators and consumers, enriching
-								the global music scene." This platform is
-								working thanks to: Socket.IO a "bidirectional
-								and low-latency communication for every
-								platform."
+								I took on the challenge of transforming a Figma
+								design into a functional website by utilizing my
+								skills in HTML, CSS, and JS.
 							</NormalText>
 							<NormalText pos='left'>
-								<Links href='#'>
-									NOT AVAILABLE AT THE MOMENT
+								<Links href='https://tinyurl.com/oxygenshop'>
+									Visit the website
 								</Links>
 							</NormalText>
 							<NormalText>Technologies used:</NormalText>
 							<IconsContainer>
-								<IconImage src={html} />
-								<IconImage src={css} />
-								<IconImage src={js} />
+								<IconImage src={aws} />
+								<IconImage src={npm} />
 								<IconImage src={scss} />
-								<IconImage src={php} />
+								<IconImage src={js} />
+								<IconImage src={css} />
+								<IconImage src={html} />
 							</IconsContainer>
 							<NormalText pos='left'>
 								<Links
-									href='https://github.com/JuanAntonioLeonOjeda/Project-3---Streaming-App'
+									href='https://github.com/SirAllap/OxygenShop'
 									target='_blank'
 								>
 									Github
@@ -242,8 +263,11 @@ const ProjectContent: FC = () => {
 				<FifthSection>
 					<ProjectCard>
 						<PhotoContainerRight>
+							<NormalText pos='mid' textSize='title'>
+								PeekBeats
+							</NormalText>
 							<Links
-								href='http://13.38.229.168/index'
+								href='https://peek-beats.netlify.app/'
 								target='_blank'
 							>
 								<PhotoProjectRight
@@ -257,8 +281,8 @@ const ProjectContent: FC = () => {
 								PeekBeats
 							</NormalText>
 							<NormalText pos='justi'>
-								This is a streaming applicationdesigned for both
-								music lovers and content creators. I
+								This is a streaming application designed for
+								both music lovers and content creators. I
 								collaborated with two other bootcamp students to
 								develop PeekBeats, an incredible application.
 								"PeekBeats is a dynamic streaming platform that
@@ -271,17 +295,20 @@ const ProjectContent: FC = () => {
 								platform."
 							</NormalText>
 							<NormalText pos='left'>
-								<Links href='#'>
-									NOT AVAILABLE AT THE MOMENT
+								<Links href='https://peek-beats.netlify.app/'>
+									NOT AVAILABLE
 								</Links>
 							</NormalText>
 							<NormalText>Technologies used:</NormalText>
 							<IconsContainer>
-								<IconImage src={html} />
-								<IconImage src={css} />
+								<IconImage src={vue} />
+								<IconImage
+									style={{ width: '50px' }}
+									src={mui}
+								/>
 								<IconImage src={js} />
-								<IconImage src={scss} />
-								<IconImage src={php} />
+								<IconImage src={node} />
+								<IconImage src={mongo} />
 							</IconsContainer>
 							<NormalText pos='left'>
 								<Links
@@ -297,8 +324,11 @@ const ProjectContent: FC = () => {
 				<SixthSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
+							<NormalText pos='mid' textSize='title'>
+								Frogger, classic game
+							</NormalText>
 							<Links
-								href='http://13.38.229.168/index'
+								href='https://sirallap.github.io/proyecto1-frogger/'
 								target='_blank'
 							>
 								<PhotoProjectLeft
@@ -307,7 +337,7 @@ const ProjectContent: FC = () => {
 								/>
 							</Links>
 						</PhotoContainerLeft>
-						<TextSection>
+						<TextSectionRight>
 							<NormalText pos='mid' textSize='title'>
 								Frogger, classic game
 							</NormalText>
@@ -323,7 +353,7 @@ const ProjectContent: FC = () => {
 							</NormalText>
 							<NormalText pos='right'>
 								<Links
-									href='sirallap.github.io/proyecto1-frogger/'
+									href='https://sirallap.github.io/proyecto1-frogger/'
 									target='_blank'
 								>
 									Visit the website
@@ -334,8 +364,6 @@ const ProjectContent: FC = () => {
 								<IconImage src={html} />
 								<IconImage src={css} />
 								<IconImage src={js} />
-								<IconImage src={scss} />
-								<IconImage src={php} />
 							</IconsContainer>
 							<NormalText pos='right'>
 								<Links
@@ -345,12 +373,15 @@ const ProjectContent: FC = () => {
 									Github
 								</Links>
 							</NormalText>
-						</TextSection>
+						</TextSectionRight>
 					</ProjectCard>
 				</SixthSection>
 				<SeventhSection>
 					<ProjectCard>
 						<PhotoContainerRight>
+							<NormalText pos='mid' textSize='title'>
+								GMF Mediación
+							</NormalText>
 							<Links
 								href='http://13.38.229.168/index'
 								target='_blank'
@@ -426,6 +457,9 @@ const BodyContainer = styled.div`
 
 const IntroSection = styled.div`
 	height: 150px;
+	@media (max-width: 600px) {
+		height: 70px;
+	}
 `
 
 const EndSection = styled.div`
@@ -448,11 +482,21 @@ const ProjectCard = styled.div`
 	filter: grayscale(90%);
 	&:hover {
 		filter: grayscale(0%);
-		scale: 1.01;
+	}
+	@media (max-width: 1200px) {
+		width: 98%;
+		overflow-y: auto;
+		overflow-x: auto;
+	}
+	@media (max-width: 800px) {
+		filter: grayscale(0%);
 	}
 `
 
 const PhotoContainerRight = styled.div`
+	p {
+		display: none;
+	}
 	&::-webkit-scrollbar {
 		width: 0px;
 	}
@@ -482,9 +526,22 @@ const PhotoContainerRight = styled.div`
 		-webkit-backdrop-filter: blur(5px);
 		border-radius: 5px;
 	}
+	@media (max-width: 1200px) {
+		overflow: hidden;
+		width: 100%;
+		height: fit-content;
+		position: relative;
+		p {
+			display: block;
+			font-size: 2rem;
+		}
+	}
 `
 
 const PhotoContainerLeft = styled.div`
+	p {
+		display: none;
+	}
 	&::-webkit-scrollbar {
 		width: 0px;
 	}
@@ -514,18 +571,51 @@ const PhotoContainerLeft = styled.div`
 		-webkit-backdrop-filter: blur(5px);
 		border-radius: 5px;
 	}
+	@media (max-width: 1200px) {
+		overflow: hidden;
+		width: 100%;
+		height: fit-content;
+		position: relative;
+		p {
+			display: block;
+			font-size: 2rem;
+		}
+	}
 `
 
 const TextSection = styled.div`
+	overflow-y: auto;
 	margin-top: 15px;
 	width: 30%;
 	height: 100%;
 	p {
-		padding: 0 40px 0 40px;
+		padding: 0 15px 0 15px;
+		&:last-child {
+			padding-bottom: 10px;
+		}
+	}
+	@media (max-width: 1200px) {
+		p {
+			&:first-child {
+				display: none;
+			}
+			padding: 0 15px 0 15px;
+			&:last-child {
+				padding-bottom: 10px;
+			}
+		}
+		overflow: hidden;
+		width: 100%;
+		height: fit-content;
+		position: relative;
+		a {
+			font-size: 1.6rem;
+		}
 	}
 `
 
 const TextSectionRight = styled.div`
+	overflow-y: auto;
 	position: absolute;
 	right: 0%;
 	margin-top: 15px;
@@ -534,6 +624,31 @@ const TextSectionRight = styled.div`
 	p {
 		direction: ltr;
 		padding: 0 40px 0 40px;
+		:last-child {
+			padding-bottom: 40px;
+		}
+	}
+	@media (max-width: 1200px) {
+		overflow: hidden;
+		width: 100%;
+		height: fit-content;
+		position: relative;
+		p {
+			&:first-child {
+				display: none;
+			}
+			padding: 0 15px 0 15px;
+			&:last-child {
+				padding-bottom: 10px;
+				text-align: right;
+			}
+			&:nth-child(3) {
+				text-align: right;
+			}
+		}
+		a {
+			font-size: 1.6rem;
+		}
 	}
 `
 
@@ -618,7 +733,7 @@ const IconImage = styled.img`
 
 const Arrow = styled.a`
 	position: absolute;
-	bottom: 50%;
+	bottom: 80%;
 	left: calc(50% - 35px);
 	transform: translate(-50%, -50%);
 	cursor: pointer;
