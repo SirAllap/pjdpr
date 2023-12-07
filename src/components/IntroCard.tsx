@@ -42,18 +42,19 @@ const UserCard: FC = () => {
 }
 
 const Card = styled.div`
-	height: 50%;
-	border-radius: 25px;
-	display: flex;
-	flex-direction: column;
 	p {
 		font-size: 1.5rem;
 	}
 	@media (max-width: 600px) {
-		margin-top: 70px;
 		padding: 20px;
 		p {
 			font-size: 1rem;
+		}
+	}
+	@media (max-width: 400px) {
+		padding: 20px;
+		p {
+			font-size: 0.8rem;
 		}
 	}
 `
