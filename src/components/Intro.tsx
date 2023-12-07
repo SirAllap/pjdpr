@@ -45,12 +45,12 @@ const Intro: FC = () => {
 						</Links>
 					</RightHeaderTextContainer>
 				</HeaderContainer>
-				<MePicture />
 				<TextArea>
 					<IntroContainer>Hi. I'm David.</IntroContainer>
 					<IntroNextContainer>A Developer.</IntroNextContainer>
 					<UserCard />
 				</TextArea>
+				<MePicture />
 				<Arrow href='#projectSection' />
 			</Container>
 		</>
@@ -62,12 +62,9 @@ const Container = styled.div`
 	height: 100dvh;
 	display: flex;
 	align-items: center;
-	flex-direction: column;
+	flex-direction: row;
 	@media (min-width: 600px) {
 		justify-content: center;
-	}
-	@media (max-width: 600px) {
-		margin-top: 150px;
 	}
 `
 
@@ -89,7 +86,7 @@ const IntroContainer = styled.div`
 	text-transform: uppercase;
 	transition: 0.5s;
 	@media (max-width: 600px) {
-		font-size: 3rem;
+		font-size: 2rem;
 	}
 `
 
@@ -130,7 +127,7 @@ const IntroNextContainer = styled.div`
 		}
 	}
 	@media (max-width: 600px) {
-		font-size: 4rem;
+		font-size: 3rem;
 	}
 `
 
@@ -151,11 +148,11 @@ const MePicture = styled.div`
 		background-position-y: 100%;
 		background-position-x: 0%;
 	}
-	@media (max-width: 600px) {
-		background-size: 300px;
-	}
 	@media (max-width: 1200px) {
 		background-size: 450px;
+	}
+	@media (max-width: 600px) {
+		background-size: 60dvw;
 	}
 `
 
@@ -204,25 +201,23 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
 		padding: ${(props) => (props.shadow === 'yes' ? '0.5rem' : '0')};
 	}
 	@media (max-width: 600px) {
-		width: 90dvw;
+		width: 95dvw;
 		margin-top: 0;
 		background: none;
 		border-radius: none;
 		box-shadow: none;
 		backdrop-filter: none;
-		button:hover {
-			background-color: ${(props) =>
-				props.shadow === 'yes' ? '#8c56d2' : 'transparent'};
-			color: ${(props) =>
-				props.shadow === 'yes' ? '#373737' : '#8c56d2'};
-		}
-	}
-	@media (min-width: 600px) {
 		button {
 			background-color: ${(props) =>
 				props.shadow === 'yes' ? '#8c56d2' : 'transparent'};
 			color: ${(props) =>
 				props.shadow === 'yes' ? '#373737' : '#8c56d2'};
+			:hover {
+				background-color: ${(props) =>
+					props.shadow === 'yes' ? '#8c56d2' : 'transparent'};
+				color: ${(props) =>
+					props.shadow === 'yes' ? '#373737' : '#8c56d2'};
+			}
 		}
 	}
 `
@@ -285,6 +280,10 @@ const CTAGH = styled.button`
 	color: #fff;
 	&:hover {
 		scale: 1.05;
+	}
+	@media (max-width: 600px) {
+		bottom: 5px;
+		right: 6px;
 	}
 `
 
