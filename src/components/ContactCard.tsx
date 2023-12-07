@@ -6,8 +6,6 @@ const ContactCard: FC = () => {
 	return (
 		<>
 			<Card>
-				<NormalText>🚀 Goal:</NormalText>
-				<br />
 				<NormalText>
 					My goal is continuous growth as a web developer, leveraging
 					my skills and experiences to make a positive difference. If
