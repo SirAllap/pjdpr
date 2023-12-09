@@ -1,6 +1,8 @@
 import { FC } from 'react'
 import { CTA, Links, NormalText } from '../shared_styling/Styled'
 import styled from 'styled-components'
+import cvESP from '../../src/assets/CV/David_PR_ESP.pdf'
+import cvENG from '../../src/assets/CV/David_PR_ENG.pdf'
 
 const ContactCard: FC = () => {
 	return (
@@ -33,16 +35,10 @@ const ContactCard: FC = () => {
 					Github:{' '}
 					<Links href='https://github.com/SirAllap'>SirAllap</Links>
 				</NormalText>
-				<Links
-					href='/src/assets/CV/David_PR_ESP.pdf'
-					download='David_PR_ESP.pdf'
-				>
+				<Links href={cvESP} download='David_PR_ESP.pdf'>
 					<CTA>🇪🇸 CV ESPAÑOL 🇪🇸</CTA>
 				</Links>
-				<Links
-					href='/src/assets/CV/David_PR_ENG.pdf'
-					download='David_PR_ENG.pdf'
-				>
+				<Links href={cvENG} download='David_PR_ENG.pdf'>
 					<CTA>🇬🇧 CV ENGLISH 🇬🇧</CTA>
 				</Links>
 			</Card>
