@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { BigTitle, CTA, Links } from '../shared_styling/Styled'
 import imageMe from '../assets/me1.png'
 import UserCard from './IntroCard'
-import dpr from '../assets/dpr.png'
 
 const Intro: FC = () => {
 	const [scrollY, setScrollY] = useState(0)
@@ -36,7 +35,6 @@ const Intro: FC = () => {
 						</Links>
 					</LeftHeaderTextContainer>
 					<Links href='#'>
-						{/* <img src={dpr} alt='logo' style={{ height: '80px' }} /> */}
 						<BigTitle className='title-glow'>DPR</BigTitle>
 					</Links>
 					<RightHeaderTextContainer>
