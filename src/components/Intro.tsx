@@ -45,7 +45,7 @@ const Intro: FC = () => {
 				</HeaderContainer>
 				<TextArea>
 					<IntroContainer>Hi. I'm David.</IntroContainer>
-					<IntroNextContainer>A Developer.</IntroNextContainer>
+					<IntroNextContainer>FullStack Developer</IntroNextContainer>
 					<UserCard />
 				</TextArea>
 				<MePicture />
@@ -80,7 +80,7 @@ const TextArea = styled.div`
 
 const IntroContainer = styled.div`
 	text-align: center;
-	font-size: 6.5dvw;
+	font-size: 4.5dvw;
 	text-transform: uppercase;
 	transition: 0.5s;
 	@media (max-width: 600px) {
@@ -90,7 +90,7 @@ const IntroContainer = styled.div`
 
 const IntroNextContainer = styled.div`
 	text-align: center;
-	font-size: 7.5dvw;
+	font-size: 4.5dvw;
 	transition: 0.5s;
 	text-transform: uppercase;
 	animation: glitch 900ms infinite;
