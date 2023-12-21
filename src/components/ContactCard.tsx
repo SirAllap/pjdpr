@@ -35,6 +35,12 @@ const ContactCard: FC = () => {
 					Github:{' '}
 					<Links href='https://github.com/SirAllap'>SirAllap</Links>
 				</NormalText>
+				<NormalText>
+					LinkedIn:{' '}
+					<Links href='https://www.linkedin.com/in/davidpallaresrobaina/'>
+						HERE!
+					</Links>
+				</NormalText>
 				<Links href={cvESP} download='David_PR_ESP.pdf'>
 					<CTA>🇪🇸 CV ESPAÑOL 🇪🇸</CTA>
 				</Links>
