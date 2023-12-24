@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
 // import UserCard from './UserCard'
 import { BigTitle, CTA, Links } from '../shared_styling/Styled'
-import imageMe from '../assets/me1.png'
+// import imageMe from '../assets/me1.png'
 import UserCard from './IntroCard'
 
 const Intro: FC = () => {
@@ -139,30 +139,30 @@ const IntroNextContainer = styled.div`
 	}
 `
 
-const MePicture = styled.div`
-	z-index: -10;
-	width: 550px;
-	height: 500px;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	background-image: url(${imageMe});
-	background-repeat: no-repeat;
-	background-size: 600px;
-	background-position-y: 103%;
-	background-position-x: -2%;
-	transition: 1s;
-	&:hover {
-		background-position-y: 100%;
-		background-position-x: 0%;
-	}
-	@media (max-width: 1200px) {
-		background-size: 450px;
-	}
-	@media (max-width: 600px) {
-		background-size: 60dvw;
-	}
-`
+// const MePicture = styled.div`
+// 	z-index: -10;
+// 	width: 550px;
+// 	height: 500px;
+// 	position: fixed;
+// 	bottom: 0;
+// 	left: 0;
+// 	background-image: url(${imageMe});
+// 	background-repeat: no-repeat;
+// 	background-size: 600px;
+// 	background-position-y: 103%;
+// 	background-position-x: -2%;
+// 	transition: 1s;
+// 	&:hover {
+// 		background-position-y: 100%;
+// 		background-position-x: 0%;
+// 	}
+// 	@media (max-width: 1200px) {
+// 		background-size: 450px;
+// 	}
+// 	@media (max-width: 600px) {
+// 		background-size: 60dvw;
+// 	}
+// `
 
 interface HeaderContainerProps {
 	readonly shadow: string
