@@ -44,11 +44,13 @@ const Intro: FC = () => {
 					</RightHeaderTextContainer>
 				</HeaderContainer>
 				<TextArea>
-					<IntroContainer>Hi. I'm David.</IntroContainer>
+					<IntroContainer>
+						Hi, I'm David <hr />
+					</IntroContainer>
 					<IntroNextContainer>FullStack Developer</IntroNextContainer>
 					<UserCard />
 				</TextArea>
-				<MePicture />
+				{/* <MePicture /> */}
 				<Arrow href='#projectSection' />
 			</Container>
 		</>
@@ -75,6 +77,7 @@ const TextArea = styled.div`
 	}
 	@media (max-width: 600px) {
 		width: 100%;
+		margin-top: 10%;
 	}
 `
 
@@ -85,6 +88,13 @@ const IntroContainer = styled.div`
 	transition: 0.5s;
 	@media (max-width: 600px) {
 		font-size: 2rem;
+	}
+	hr {
+		margin: auto;
+		width: 70%;
+		@media (min-width: 1000px) {
+			width: 40%;
+		}
 	}
 `
 
