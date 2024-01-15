@@ -36,7 +36,7 @@ const ProjectContent: FC = () => {
 								Hotel Miranda
 							</NormalText>
 							<Links
-								href='http://13.38.229.168/index'
+								href='http://ec2-13-38-117-224.eu-west-3.compute.amazonaws.com/'
 								target='_blank'
 							>
 								<PhotoProjectRight
