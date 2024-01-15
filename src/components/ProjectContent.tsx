@@ -62,7 +62,7 @@ const ProjectContent: FC = () => {
 							</NormalText>
 							<NormalText pos='right'>
 								<Links
-									href='http://13.38.229.168/index'
+									href='http://ec2-13-38-117-224.eu-west-3.compute.amazonaws.com/'
 									target='_blank'
 								>
 									Visit the website
