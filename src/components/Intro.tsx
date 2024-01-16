@@ -44,10 +44,10 @@ const Intro: FC = () => {
 					</RightHeaderTextContainer>
 				</HeaderContainer>
 				<TextArea>
-					<IntroContainer>
-						Hi, I'm David <hr />
-					</IntroContainer>
-					<IntroNextContainer>FullStack Developer</IntroNextContainer>
+					<IntroContainer>Hi, I'm David</IntroContainer>
+					<IntroNextContainer>
+						FullStack Web Developer
+					</IntroNextContainer>
 					<UserCard />
 				</TextArea>
 				{/* <MePicture /> */}
