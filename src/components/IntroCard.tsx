@@ -17,14 +17,14 @@ const UserCard: FC = () => {
 					keep coming back for more.
 				</NormalText>
 				<br />
-				<NormalText pos='justi'>
+				{/* <NormalText pos='justi'>
 					As a Full-stack Developer, I prioritize testing and
 					accessibility, excel in teamwork, and continually strive to
 					improve my code with each iteration. My expertise lies in
 					constructing scalable and secure applications, predominantly
 					utilizing React.js, Express.js, Node.js, and MongoDB —
 					skills I've developed over the past two years.
-				</NormalText>
+				</NormalText> */}
 				<br />
 				<NormalText pos='justi'>
 					I'm a{' '}
