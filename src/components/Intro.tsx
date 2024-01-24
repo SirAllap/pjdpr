@@ -48,9 +48,10 @@ const Intro: FC = () => {
 					<IntroNextContainer>
 						FullStack Web Developer
 					</IntroNextContainer>
+					<br />
+					<br />
 					<UserCard />
 				</TextArea>
-				{/* <MePicture /> */}
 				<Arrow href='#projectSection' />
 			</Container>
 		</>
