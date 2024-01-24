@@ -16,16 +16,7 @@ const UserCard: FC = () => {
 					meet but also to exceed user expectations, ensuring they
 					keep coming back for more.
 				</NormalText>
-				<br />
-				{/* <NormalText pos='justi'>
-					As a Full-stack Developer, I prioritize testing and
-					accessibility, excel in teamwork, and continually strive to
-					improve my code with each iteration. My expertise lies in
-					constructing scalable and secure applications, predominantly
-					utilizing React.js, Express.js, Node.js, and MongoDB —
-					skills I've developed over the past two years.
-				</NormalText> */}
-				<br />
+
 				<NormalText pos='justi'>
 					I'm a{' '}
 					<HighlightedText color='#8c56d2'>
@@ -33,8 +24,7 @@ const UserCard: FC = () => {
 					</HighlightedText>{' '}
 					and a strong team player, valuing collaboration,
 					communication, and feedback. Actively contributing to
-					challenging projects at OXYGEN Coworking, I contribute
-					significantly to our team's success.
+					challenging projects.
 				</NormalText>
 			</Card>
 		</>
