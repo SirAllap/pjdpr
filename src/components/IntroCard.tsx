@@ -16,7 +16,7 @@ const UserCard: FC = () => {
 					meet but also to exceed user expectations, ensuring they
 					keep coming back for more.
 				</NormalText>
-
+				<br />
 				<NormalText pos='justi'>
 					I'm a{' '}
 					<HighlightedText color='#8c56d2'>
