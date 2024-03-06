@@ -463,7 +463,7 @@ const IntroSection = styled.div`
 `
 
 const EndSection = styled.div`
-	height: 150px;
+	height: 120px;
 	position: relative;
 `
 
@@ -753,6 +753,9 @@ const Arrow = styled.a`
 		100% {
 			transform: translatey(0px) rotate(45deg);
 		}
+	}
+	@media (max-width: 1920px) {
+		bottom: 40%;
 	}
 	@media (max-width: 600px) {
 		width: 40px;
