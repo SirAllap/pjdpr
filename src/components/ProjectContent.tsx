@@ -465,6 +465,9 @@ const IntroSection = styled.div`
 const EndSection = styled.div`
 	height: 120px;
 	position: relative;
+	@media (max-width: 600px) {
+		height: 150px;
+	}
 `
 
 const ProjectCard = styled.div`
