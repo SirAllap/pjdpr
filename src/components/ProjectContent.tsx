@@ -56,13 +56,14 @@ const ProjectContent: FC = () => {
 							</NormalText>
 							<NormalText pos='justi'>
 								I've been diving into this super cool project
-								lately, working for a private client. It's my
-								first time using the Next.js framework, and I'm
-								also experimenting with Firebase! <br />
+								lately, working for a private client. It's an
+								amazing opportunity to expand my knowledge by
+								using the Next.js framework, and I'm also
+								experimenting with Firebase! <br />
 								Right now, the project is still in its early
 								stages, like a newborn baby. Basically, it's a
-								bunch of character cards, each with its own
-								backstory. And the best part? All the
+								collection of illustrated cards, each with its
+								unique backstory. And the best part? All the
 								illustrations are handcrafted by the amazing
 								artist{' '}
 								<SmallLinks
@@ -76,7 +77,10 @@ const ProjectContent: FC = () => {
 								<br />
 								<br />
 								Check the artist portfolio{' '}
-								<SmallLinks href='https://www.artstation.com/nahelus'>
+								<SmallLinks
+									href='https://www.artstation.com/nahelus'
+									target='_blank'
+								>
 									HERE!
 								</SmallLinks>
 							</NormalText>
