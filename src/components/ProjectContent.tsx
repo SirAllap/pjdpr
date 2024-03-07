@@ -75,7 +75,6 @@ const ProjectContent: FC = () => {
 								, perfectly capturing the vibe of each character
 								and faction.
 								<br />
-								<br />
 								Check the artist portfolio{' '}
 								<SmallLinks
 									href='https://www.artstation.com/nahelus'
@@ -83,6 +82,7 @@ const ProjectContent: FC = () => {
 								>
 									HERE!
 								</SmallLinks>
+								<br />
 							</NormalText>
 							<NormalText pos='left'>
 								<PrivateLinks>Visit the website</PrivateLinks>{' '}
