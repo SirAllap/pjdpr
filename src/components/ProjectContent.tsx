@@ -41,7 +41,7 @@ const ProjectContent: FC = () => {
 					<ProjectCard>
 						<PhotoContainerLeft>
 							<NormalText pos='mid' textSize='title'>
-								Baby Project "Alavera"
+								Alavera Project
 							</NormalText>
 							<PrivateLinks>
 								<PhotoProjectLeft
