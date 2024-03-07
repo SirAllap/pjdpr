@@ -39,7 +39,7 @@ export const SmallLinks = styled.a`
 export const PrivateLinks = styled.a`
 	color: #ceacf9;
 	font-size: 2rem;
-	cursor: none;
+	cursor: not-allowed;
 	&:hover {
 		color: #ceacf9;
 	}
