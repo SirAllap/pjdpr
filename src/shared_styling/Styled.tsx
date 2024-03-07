@@ -26,6 +26,28 @@ export const Links = styled.a`
 	}
 `
 
+export const SmallLinks = styled.a`
+	color: #bead8e;
+	&:hover {
+		color: #ceacf9;
+	}
+	@media (max-width: 600px) {
+		font-size: 1rem;
+	}
+`
+
+export const PrivateLinks = styled.a`
+	color: #ceacf9;
+	font-size: 2rem;
+	cursor: none;
+	&:hover {
+		color: #ceacf9;
+	}
+	@media (max-width: 600px) {
+		font-size: 1rem;
+	}
+`
+
 type NormalTextProps = {
 	pos?: string
 	color?: string
