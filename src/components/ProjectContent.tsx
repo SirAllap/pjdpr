@@ -1,6 +1,12 @@
 import { FC } from 'react'
 import styled from 'styled-components'
-import { Links, NormalText } from '../shared_styling/Styled'
+import {
+	Links,
+	NormalText,
+	PrivateLinks,
+	SmallLinks,
+} from '../shared_styling/Styled'
+import photoAlaveraProject from '../assets/alavera.png'
 import photoMirandaProject from '../assets/hotel_miranda.png'
 import photoTravlProject from '../assets/travl_dashboard.png'
 import oxygenPicsProject from '../assets/oxygen_pics.png'
@@ -23,13 +29,78 @@ import npm from '../assets/technologies/npm.png'
 import vscode from '../assets/technologies/vscode.png'
 import vue from '../assets/technologies/vue.png'
 import mui from '../assets/technologies/mui.png'
+import next from '../assets/technologies/next.png'
+import firebase from '../assets/technologies/firebase.png'
 
 const ProjectContent: FC = () => {
 	return (
 		<>
 			<BodyContainer id='projectSection'>
 				<IntroSection />
-				<FirstSection>
+				<ReversedSection>
+					<ProjectCard>
+						<PhotoContainerLeft>
+							<NormalText pos='mid' textSize='title'>
+								Baby Project "Alavera"
+							</NormalText>
+							<PrivateLinks>
+								<PhotoProjectLeft
+									src={photoAlaveraProject}
+									alt='Baby Project "Alavera"'
+								/>
+							</PrivateLinks>
+						</PhotoContainerLeft>
+						<TextSectionRight>
+							<NormalText pos='mid' textSize='title'>
+								Baby Project "Alavera"
+							</NormalText>
+							<NormalText pos='justi'>
+								I've been diving into this super cool project
+								lately, working for a private client. It's my
+								first time using the Next.js framework, and I'm
+								also experimenting with Firebase! <br />
+								Right now, the project is still in its early
+								stages, like a newborn baby. Basically, it's a
+								bunch of character cards, each with its own
+								backstory. And the best part? All the
+								illustrations are handcrafted by the amazing
+								artist{' '}
+								<SmallLinks
+									href='https://www.linkedin.com/in/armichelora/'
+									target='_blank'
+								>
+									Armiche Lora
+								</SmallLinks>
+								, perfectly capturing the vibe of each character
+								and faction.
+								<br />
+								<br />
+								Check the artist portfolio{' '}
+								<SmallLinks href='https://www.artstation.com/nahelus'>
+									HERE!
+								</SmallLinks>
+							</NormalText>
+							<NormalText pos='left'>
+								<PrivateLinks>Visit the website</PrivateLinks>{' '}
+								<span>Coming soon!</span>
+							</NormalText>
+							<NormalText>Technologies used:</NormalText>
+							<IconsContainer>
+								<IconImage src={vscode} />
+								<IconImage src={npm} />
+								<IconImage src={firebase} />
+								<IconImage src={node} />
+								<IconImage src={next} />
+								<IconImage src={ts} />
+								<IconImage src={react} />
+							</IconsContainer>
+							<NormalText pos='left'>
+								<PrivateLinks>Private Github</PrivateLinks>
+							</NormalText>
+						</TextSectionRight>
+					</ProjectCard>
+				</ReversedSection>
+				<NormalSection>
 					<ProjectCard>
 						<PhotoContainerRight>
 							<NormalText pos='mid' textSize='title'>
@@ -87,8 +158,8 @@ const ProjectContent: FC = () => {
 							</NormalText>
 						</TextSection>
 					</ProjectCard>
-				</FirstSection>
-				<SecondSection>
+				</NormalSection>
+				<ReversedSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
 							<NormalText pos='mid' textSize='title'>
@@ -146,8 +217,8 @@ const ProjectContent: FC = () => {
 							</NormalText>
 						</TextSectionRight>
 					</ProjectCard>
-				</SecondSection>
-				<ThirdSection>
+				</ReversedSection>
+				<NormalSection>
 					<ProjectCard>
 						<PhotoContainerRight>
 							<NormalText pos='mid' textSize='title'>
@@ -209,8 +280,8 @@ const ProjectContent: FC = () => {
 							</NormalText>
 						</TextSection>
 					</ProjectCard>
-				</ThirdSection>
-				<FourthSection>
+				</NormalSection>
+				<ReversedSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
 							<NormalText pos='mid' textSize='title'>
@@ -259,8 +330,8 @@ const ProjectContent: FC = () => {
 							</NormalText>
 						</TextSectionRight>
 					</ProjectCard>
-				</FourthSection>
-				<FifthSection>
+				</ReversedSection>
+				<NormalSection>
 					<ProjectCard>
 						<PhotoContainerRight>
 							<NormalText pos='mid' textSize='title'>
@@ -320,8 +391,8 @@ const ProjectContent: FC = () => {
 							</NormalText>
 						</TextSection>
 					</ProjectCard>
-				</FifthSection>
-				<SixthSection>
+				</NormalSection>
+				<ReversedSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
 							<NormalText pos='mid' textSize='title'>
@@ -375,8 +446,8 @@ const ProjectContent: FC = () => {
 							</NormalText>
 						</TextSectionRight>
 					</ProjectCard>
-				</SixthSection>
-				<SeventhSection>
+				</ReversedSection>
+				<NormalSection>
 					<ProjectCard>
 						<PhotoContainerRight>
 							<NormalText pos='mid' textSize='title'>
@@ -424,7 +495,7 @@ const ProjectContent: FC = () => {
 							</IconsContainer>
 						</TextSection>
 					</ProjectCard>
-				</SeventhSection>
+				</NormalSection>
 				<EndSection>
 					<Arrow href='#contactSection' />
 				</EndSection>
@@ -655,52 +726,15 @@ const TextSectionRight = styled.div`
 	}
 `
 
-const FirstSection = styled.div`
+const NormalSection = styled.div`
 	position: relative;
 	height: 45%;
 	display: flex;
 	align-items: center;
 `
 
-const SecondSection = styled.div`
+const ReversedSection = styled.div`
 	direction: rtl;
-	position: relative;
-	height: 45%;
-	display: flex;
-	align-items: center;
-`
-
-const ThirdSection = styled.div`
-	position: relative;
-	height: 45%;
-	display: flex;
-	align-items: center;
-`
-
-const FourthSection = styled.div`
-	direction: rtl;
-	position: relative;
-	height: 45%;
-	display: flex;
-	align-items: center;
-`
-
-const FifthSection = styled.div`
-	position: relative;
-	height: 45%;
-	display: flex;
-	align-items: center;
-`
-
-const SixthSection = styled.div`
-	direction: rtl;
-	position: relative;
-	height: 45%;
-	display: flex;
-	align-items: center;
-`
-
-const SeventhSection = styled.div`
 	position: relative;
 	height: 45%;
 	display: flex;
