@@ -33,10 +33,14 @@ const Intro: FC = () => {
 						<Links href='#projectSection'>
 							<CTA>WORK</CTA>
 						</Links>
+						<Links href='#experienceContent'>
+							<CTA type={'true'}>Experience</CTA>
+						</Links>
 					</LeftHeaderTextContainer>
 					<Links href='#'>
 						<BigTitle className='title-glow'>DPR</BigTitle>
 					</Links>
+					<Divider></Divider>
 					<RightHeaderTextContainer>
 						<Links href='#contactSection'>
 							<CTA>Contact</CTA>
@@ -140,31 +144,6 @@ const IntroNextContainer = styled.div`
 	}
 `
 
-// const MePicture = styled.div`
-// 	z-index: -10;
-// 	width: 550px;
-// 	height: 500px;
-// 	position: fixed;
-// 	bottom: 0;
-// 	left: 0;
-// 	background-image: url(${imageMe});
-// 	background-repeat: no-repeat;
-// 	background-size: 600px;
-// 	background-position-y: 103%;
-// 	background-position-x: -2%;
-// 	transition: 1s;
-// 	&:hover {
-// 		background-position-y: 100%;
-// 		background-position-x: 0%;
-// 	}
-// 	@media (max-width: 1200px) {
-// 		background-size: 450px;
-// 	}
-// 	@media (max-width: 600px) {
-// 		background-size: 60dvw;
-// 	}
-// `
-
 interface HeaderContainerProps {
 	readonly shadow: string
 }
@@ -244,6 +223,16 @@ const RightHeaderTextContainer = styled.div`
 		button {
 			font-size: 2rem;
 		}
+	}
+`
+
+const Divider = styled.div`
+	width: 1px;
+	height: 100%;
+	background-color: #8c56d2;
+	margin: 0 10px;
+	@media (max-width: 600px) {
+		display: none;
 	}
 `
 
