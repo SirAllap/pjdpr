@@ -12,10 +12,14 @@
 		"plus-build": "rimraf dist && vite build && aws s3 sync dist/ s3://pjdpr --delete --profile sirallap"
 	},
 	"dependencies": {
+		"@tsparticles/engine": "^3.3.0",
+		"@tsparticles/react": "^3.0.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-toggle-dark-mode": "^1.1.1",
-		"styled-components": "^6.1.1"
+		"react-tsparticles": "^2.12.2",
+		"styled-components": "^6.1.1",
+		"tsparticles": "^3.3.0"
 	},
 	"devDependencies": {
 		"@types/react": "^18.2.15",
