@@ -84,4 +84,5 @@ type BTN = {
 
 export const CTA = styled.button<BTN>`
 	margin-left: ${(props) => (props.type === 'true' ? '15px' : null)};
+	width: ${(props) => (props.type === 'true' ? 'fit-content' : null)};
 `
