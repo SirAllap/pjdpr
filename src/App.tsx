@@ -1,4 +1,4 @@
-import React, { FC, Suspense, lazy, useEffect, useState, useMemo } from 'react'
+import { FC, Suspense, lazy, useEffect, useState, useMemo } from 'react'
 import './App.css'
 import Menu from './components/Menu'
 import ProjectContent from './components/ProjectContent'
