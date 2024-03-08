@@ -83,6 +83,13 @@ type BTN = {
 }
 
 export const CTA = styled.button<BTN>`
-	margin-left: ${(props) => (props.type === 'true' ? '15px' : null)};
-	width: ${(props) => (props.type === 'true' ? 'fit-content' : null)};
+	margin-left: ${(props) => (props.type === 'left' ? '15px' : null)};
+	width: ${(props) => (props.type === 'left' ? 'fit-content' : null)};
+	opacity: ${(props) => (props.type === 'right' ? '0' : null)};
+	cursor: ${(props) => (props.type === 'right' ? '0' : null)};
+	@media (max-width: 1200px) {
+		margin-left: 0px;
+		margin-top: ${(props) => (props.type === 'left' ? '5px' : null)};
+		display: ${(props) => (props.type === 'right' ? 'none' : null)};
+	}
 `
