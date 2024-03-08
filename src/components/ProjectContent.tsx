@@ -40,7 +40,7 @@ const ProjectContent: FC = () => {
 				<ReversedSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Alavera Project
 							</NormalText>
 							<PrivateLinks>
@@ -51,7 +51,7 @@ const ProjectContent: FC = () => {
 							</PrivateLinks>
 						</PhotoContainerLeft>
 						<TextSectionRight>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Baby Project "Alavera"
 							</NormalText>
 							<NormalText pos='justi'>
@@ -107,7 +107,7 @@ const ProjectContent: FC = () => {
 				<NormalSection>
 					<ProjectCard>
 						<PhotoContainerRight>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Hotel Miranda
 							</NormalText>
 							<Links
@@ -121,7 +121,7 @@ const ProjectContent: FC = () => {
 							</Links>
 						</PhotoContainerRight>
 						<TextSection>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Hotel Miranda
 							</NormalText>
 							<NormalText pos='justi'>
@@ -166,7 +166,7 @@ const ProjectContent: FC = () => {
 				<ReversedSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Travl Dashboard
 							</NormalText>
 							<Links
@@ -180,7 +180,7 @@ const ProjectContent: FC = () => {
 							</Links>
 						</PhotoContainerLeft>
 						<TextSectionRight>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Travl Dashboard
 							</NormalText>
 							<NormalText pos='justi'>
@@ -225,7 +225,7 @@ const ProjectContent: FC = () => {
 				<NormalSection>
 					<ProjectCard>
 						<PhotoContainerRight>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Oxygen Stock Free Photos
 							</NormalText>
 							<Links
@@ -239,7 +239,7 @@ const ProjectContent: FC = () => {
 							</Links>
 						</PhotoContainerRight>
 						<TextSection>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Oxygen Stock Free Photos
 							</NormalText>
 							<NormalText pos='justi'>
@@ -288,7 +288,7 @@ const ProjectContent: FC = () => {
 				<ReversedSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Oxigen Shop
 							</NormalText>
 							<Links
@@ -302,7 +302,7 @@ const ProjectContent: FC = () => {
 							</Links>
 						</PhotoContainerLeft>
 						<TextSectionRight>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Oxigen Shop
 							</NormalText>
 							<NormalText pos='justi'>
@@ -338,7 +338,7 @@ const ProjectContent: FC = () => {
 				<NormalSection>
 					<ProjectCard>
 						<PhotoContainerRight>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								PeekBeats
 							</NormalText>
 							<Links
@@ -352,7 +352,7 @@ const ProjectContent: FC = () => {
 							</Links>
 						</PhotoContainerRight>
 						<TextSection>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								PeekBeats
 							</NormalText>
 							<NormalText pos='justi'>
@@ -399,7 +399,7 @@ const ProjectContent: FC = () => {
 				<ReversedSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Frogger, classic game
 							</NormalText>
 							<Links
@@ -413,7 +413,7 @@ const ProjectContent: FC = () => {
 							</Links>
 						</PhotoContainerLeft>
 						<TextSectionRight>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								Frogger, classic game
 							</NormalText>
 							<NormalText pos='justi'>
@@ -454,7 +454,7 @@ const ProjectContent: FC = () => {
 				<NormalSection>
 					<ProjectCard>
 						<PhotoContainerRight>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								GMF Mediación
 							</NormalText>
 							<Links
@@ -468,7 +468,7 @@ const ProjectContent: FC = () => {
 							</Links>
 						</PhotoContainerRight>
 						<TextSection>
-							<NormalText pos='mid' textSize='title'>
+							<NormalText pos='mid' textsize='title'>
 								GMF Mediación
 							</NormalText>
 							<NormalText pos='justi'>

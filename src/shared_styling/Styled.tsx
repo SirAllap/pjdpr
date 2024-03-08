@@ -51,7 +51,8 @@ export const PrivateLinks = styled.a`
 type NormalTextProps = {
 	pos?: string
 	color?: string
-	textSize?: string
+	textsize?: string
+	type?: string
 }
 export const NormalText = styled.p<NormalTextProps>`
 	text-align: ${(props) =>
@@ -63,18 +64,24 @@ export const NormalText = styled.p<NormalTextProps>`
 			? 'justify'
 			: 'left'};
 	font-size: ${(props) =>
-		props.textSize === 'subTitle'
+		props.textsize === 'subTitle'
 			? '1.5rem'
-			: props.textSize === 'title'
+			: props.textsize === 'title'
 			? '1.5rem'
 			: '1rem'};
 	border-bottom: ${(props) =>
-		props.textSize === 'subTitle' ? '2px solid trasparent' : 'none'};
-	padding: ${(props) => (props.textSize === 'subTitle' ? '10px' : 'none')};
+		props.textsize === 'subTitle' ? '2px solid trasparent' : 'none'};
+	padding: ${(props) => (props.textsize === 'subTitle' ? '10px' : 'none')};
 	&:hover {
 		border-bottom: ${(props) =>
-			props.textSize === 'subTitle' ? '2px solid white' : 'none'};
+			props.textsize === 'subTitle' ? '2px solid white' : 'none'};
 	}
 `
 
-export const CTA = styled.button``
+type BTN = {
+	type?: string
+}
+
+export const CTA = styled.button<BTN>`
+	margin-left: ${(props) => (props.type === 'true' ? '15px' : null)};
+`
