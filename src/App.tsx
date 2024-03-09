@@ -24,16 +24,17 @@ const App: FC = () => {
 
 	const options: ISourceOptions = useMemo(
 		() => ({
+			smooth: true,
 			background: {
 				color: {
 					value: '#272727',
 				},
 			},
-			fpsLimit: 120,
+			fpsLimit: 30,
 			interactivity: {
 				events: {
 					onClick: {
-						enable: true,
+						enable: false,
 						mode: 'push',
 					},
 					onHover: {
@@ -81,7 +82,7 @@ const App: FC = () => {
 					type: 'circle',
 				},
 				size: {
-					value: { min: 1, max: 5 },
+					value: { min: 3, max: 7 },
 				},
 			},
 			detectRetina: true,
@@ -91,7 +92,7 @@ const App: FC = () => {
 
 	return (
 		<>
-			<Suspense fallback={<div>Loading...</div>}>
+			<Suspense fallback={<Loading />}>
 				{init && (
 					<LazyParticles
 						id='tsparticles'
@@ -109,3 +110,7 @@ const App: FC = () => {
 }
 
 export default App
+
+const Loading = () => {
+	return <h2>🌀 Loading...</h2>
+}
