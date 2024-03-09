@@ -501,7 +501,7 @@ const ProjectContent: FC = () => {
 					</ProjectCard>
 				</NormalSection>
 				<EndSection>
-					<Arrow href='#contactSection' />
+					<Arrow href='#experienceContent' />
 				</EndSection>
 			</BodyContainer>
 		</>
