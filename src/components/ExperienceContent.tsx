@@ -2,7 +2,6 @@ import { FC } from 'react'
 import styled from 'styled-components'
 import { MdOutlineWork } from 'react-icons/md'
 import { TbSchool } from 'react-icons/tb'
-import { FaGenderless } from 'react-icons/fa'
 import {
 	VerticalTimeline,
 	VerticalTimelineElement,
