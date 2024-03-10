@@ -1,4 +1,4 @@
-import { FC, Suspense, lazy, useEffect, useState, useMemo } from 'react'
+import { FC, lazy, useEffect, useState, useMemo } from 'react'
 import './App.css'
 import Menu from './components/Menu'
 import ProjectContent from './components/ProjectContent'
@@ -7,16 +7,18 @@ import ExperienceContent from './components/ExperienceContent'
 import { initParticlesEngine } from '@tsparticles/react'
 import { type ISourceOptions } from '@tsparticles/engine'
 import { loadSlim } from '@tsparticles/slim'
+import LoadingSpinner from './components/LoadingSpinner'
 
 const LazyParticles = lazy(() => import('@tsparticles/react'))
 
 const App: FC = () => {
-	const [init, setInit] = useState(false)
+	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
 		initParticlesEngine(async (engine) => {
+			setLoading(true)
 			await loadSlim(engine)
-			setInit(true)
+			setLoading(false)
 		})
 	}, [])
 
@@ -92,25 +94,23 @@ const App: FC = () => {
 
 	return (
 		<>
-			<Suspense fallback={<Loading />}>
-				{init && (
+			{loading ? (
+				<LoadingSpinner />
+			) : (
+				<>
 					<LazyParticles
 						id='tsparticles'
 						particlesLoaded={particlesLoaded}
 						options={options}
 					/>
-				)}
-				<Menu />
-				<ProjectContent />
-				<ExperienceContent />
-				<ContactContent />
-			</Suspense>
+					<Menu />
+					<ProjectContent />
+					<ExperienceContent />
+					<ContactContent />
+				</>
+			)}
 		</>
 	)
 }
 
 export default App
-
-const Loading = () => {
-	return <h2>🌀 Loading...</h2>
-}
