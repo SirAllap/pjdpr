@@ -100,11 +100,11 @@ const App: FC = () => {
 						options={options}
 					/>
 				)}
+				<Menu />
+				<ProjectContent />
+				<ExperienceContent />
+				<ContactContent />
 			</Suspense>
-			<Menu />
-			<ProjectContent />
-			<ExperienceContent />
-			<ContactContent />
 		</>
 	)
 }
