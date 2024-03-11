@@ -78,11 +78,11 @@ export const NormalText = styled.p<NormalTextProps>`
 	}
 `
 
-type BTN = {
+type CTAProps = {
 	type?: string
 }
 
-export const CTA = styled.button<BTN>`
+export const CTA = styled.button<CTAProps>`
 	margin-left: ${(props) => (props.type === 'left' ? '15px' : null)};
 	width: ${(props) => (props.type === 'left' ? 'fit-content' : null)};
 	opacity: ${(props) => (props.type === 'right' ? '0' : null)};
@@ -91,5 +91,35 @@ export const CTA = styled.button<BTN>`
 		margin-left: 0px;
 		margin-top: ${(props) => (props.type === 'left' ? '5px' : null)};
 		display: ${(props) => (props.type === 'right' ? 'none' : null)};
+	}
+`
+
+export const Arrow = styled.a`
+	position: absolute;
+	bottom: 5%;
+	left: calc(50% - 35px);
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+	border: solid #8c56d2;
+	border-width: 0 10px 10px 0;
+	width: 70px;
+	height: 70px;
+	transition: 0.5s;
+	animation: float 2.5s ease-in-out infinite;
+	@keyframes float {
+		0% {
+			transform: translatey(0px) rotate(45deg);
+		}
+		50% {
+			transform: translatey(-20px) rotate(45deg);
+		}
+		100% {
+			transform: translatey(0px) rotate(45deg);
+		}
+	}
+	@media (max-width: 600px) {
+		width: 40px;
+		height: 40px;
+		left: calc(50% - 20px);
 	}
 `
