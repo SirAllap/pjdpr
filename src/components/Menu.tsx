@@ -78,22 +78,27 @@ const Intro: FC = () => {
 						</MobileMenuItem>
 					</MobileMenuItemsContainer>
 				</MobileMenu>
-				<MobileHeaderContainer>
+				<MobileHeaderContainer
+					shadow={shadowed}
+					toggled={isOpen.toString()}
+				>
 					<BurgerIcon>
 						<Hamburger
 							toggled={isOpen}
 							toggle={setOpen}
-							color='#bead8e'
+							color={isOpen ? '#bead8e' : '#fff'}
 						/>
 					</BurgerIcon>
-					<Links href='#'>
-						<BigTitle
-							className='title-glow'
-							toggled={isOpen.toString()}
-						>
-							DPR
-						</BigTitle>
-					</Links>
+					<MobileLogo>
+						<Links href='#'>
+							<BigTitle
+								className='title-glow'
+								toggled={isOpen.toString()}
+							>
+								DPR
+							</BigTitle>
+						</Links>
+					</MobileLogo>
 				</MobileHeaderContainer>
 				<TextArea>
 					<IntroContainer>Hi, I'm David</IntroContainer>
@@ -263,19 +268,44 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
 	}
 `
 
-const MobileHeaderContainer = styled.header`
+interface MobileHeaderContainerProps {
+	readonly shadow: string
+	readonly toggled: string
+}
+
+const MobileHeaderContainer = styled.header<MobileHeaderContainerProps>`
 	@media (min-width: 900px) {
 		display: none;
 	}
+	background: ${(props) =>
+		props.shadow === 'yes' && props.toggled === 'false'
+			? '#272727eb'
+			: 'transparent'};
+	box-shadow: ${(props) =>
+		props.shadow === 'yes' && props.toggled === 'false'
+			? '0 4px 30px rgba(0, 0, 0, 0.1)'
+			: 'none'};
+	backdrop-filter: ${(props) =>
+		props.shadow === 'yes' && props.toggled === 'false'
+			? 'blur(7px)'
+			: 'blur(0px)'};
+	height: 130px;
 	display: flex;
 	justify-content: center;
 	z-index: 99;
 	transition: 0.5s;
 	position: fixed;
-	top: 5%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 80dvw;
+	top: 0%;
+	width: 100dvw;
+	@media (max-width: 600px) {
+		height: 100px;
+	}
+`
+
+const MobileLogo = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `
 
 const BurgerIcon = styled.div`
@@ -283,7 +313,7 @@ const BurgerIcon = styled.div`
 	height: 50px;
 	position: absolute;
 	top: 50%;
-	left: 5%;
+	left: 7%;
 	transform: translate(-50%, -50%);
 `
 
@@ -375,13 +405,14 @@ const CTAGH = styled.button<CTAGHProps>`
 	}
 	z-index: 100;
 	position: fixed;
-	bottom: 30px;
-	right: 30px;
+	bottom: ${(props) => (props.toggled === 'true' ? '50px' : '30px')};
+	right: ${(props) => (props.toggled === 'true' ? '50px' : '30px')};
 	background-color: ${(props) =>
 		props.toggled === 'true' ? '#bead8e' : ' #8c56d2'};
 	border-color: ${(props) =>
 		props.toggled === 'true' ? '#bead8e' : ' #8c56d2'};
 	color: ${(props) => (props.toggled === 'true' ? '#000' : '#fff')};
+	scale: ${(props) => (props.toggled === 'true' ? '1.5' : 'initial')};
 	&:hover {
 		scale: 1.05;
 	}
