@@ -1,13 +1,14 @@
 import { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
-// import UserCard from './UserCard'
 import { Arrow, BigTitle, CTA, Links } from '../shared_styling/Styled'
-// import imageMe from '../assets/me1.png'
 import UserCard from './IntroCard'
+import { Sling as Hamburger } from 'hamburger-react'
 
 const Intro: FC = () => {
 	const [scrollY, setScrollY] = useState(0)
 	const [shadowed, setShadowed] = useState('no')
+	const [isOpen, setOpen] = useState(false)
+
 	function logit() {
 		setScrollY(window.scrollY)
 	}
@@ -33,7 +34,7 @@ const Intro: FC = () => {
 						<Links href='#projectSection'>
 							<CTA>WORK</CTA>
 						</Links>
-						<Links href='#experienceContent'>
+						<Links href='#experienceSection'>
 							<CTA type={'left'}>Experience</CTA>
 						</Links>
 					</LeftHeaderTextContainer>
@@ -41,14 +42,54 @@ const Intro: FC = () => {
 						<BigTitle className='title-glow'>DPR</BigTitle>
 					</Links>
 					<RightHeaderTextContainer>
-						<Links href='#experienceContent'>
-							<CTA type={'right'}>Experience</CTA>
+						<Links>
+							<CTA type={'right'}>XXXXXXXXXX</CTA>
 						</Links>
 						<Links href='#contactSection'>
 							<CTA>Contact</CTA>
 						</Links>
 					</RightHeaderTextContainer>
 				</HeaderContainer>
+				<MobileMenu toggled={isOpen.toString()}>
+					<MobileMenuItemsContainer>
+						<MobileMenuItem
+							href='#projectSection'
+							onClick={() => {
+								setOpen(false)
+							}}
+						>
+							Work
+						</MobileMenuItem>
+						<MobileMenuItem
+							href='#experienceSection'
+							onClick={() => {
+								setOpen(false)
+							}}
+						>
+							Experience
+						</MobileMenuItem>
+						<MobileMenuItem
+							href='#contactSection'
+							onClick={() => {
+								setOpen(false)
+							}}
+						>
+							Contact
+						</MobileMenuItem>
+					</MobileMenuItemsContainer>
+				</MobileMenu>
+				<MobileHeaderContainer>
+					<BurgerIcon>
+						<Hamburger
+							toggled={isOpen}
+							toggle={setOpen}
+							color='#bead8e'
+						/>
+					</BurgerIcon>
+					<Links href='#'>
+						<BigTitle className='title-glow'>DPR</BigTitle>
+					</Links>
+				</MobileHeaderContainer>
 				<TextArea>
 					<IntroContainer>Hi, I'm David</IntroContainer>
 					<IntroNextContainer>
@@ -151,6 +192,9 @@ interface HeaderContainerProps {
 }
 
 const HeaderContainer = styled.header<HeaderContainerProps>`
+	@media (max-width: 900px) {
+		display: none;
+	}
 	z-index: 99;
 	transition: 0.5s;
 	position: fixed;
@@ -214,13 +258,96 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
 	}
 `
 
+const MobileHeaderContainer = styled.header`
+	@media (min-width: 900px) {
+		display: none;
+	}
+	display: flex;
+	justify-content: center;
+	z-index: 99;
+	transition: 0.5s;
+	position: fixed;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80dvw;
+`
+
+const BurgerIcon = styled.div`
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 50%;
+	left: 5%;
+	transform: translate(-50%, -50%);
+`
+
+interface MobileMenuProps {
+	readonly toggled: string
+}
+
+const MobileMenu = styled.div<MobileMenuProps>`
+	position: fixed;
+	left: 0;
+	top: 0;
+	transform: ${(props) =>
+		props.toggled === 'true'
+			? 'translate3d(0vw, 0, 0)'
+			: 'translate3d(-100vw, 0, 0)'};
+	transition: transform 0.5s cubic-bezier(0, 0.1, 0, 1);
+	width: 100vw;
+	height: 100vh;
+	background: #272727eb;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	z-index: 99;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	@media (min-width: 900px) {
+		display: none;
+	}
+`
+const MobileMenuItemsContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	a {
+		button {
+			font-size: 2rem;
+		}
+	}
+	@media (max-width: 900px) {
+		display: flex;
+		flex-direction: column;
+	}
+	@media (max-width: 600px) {
+		a {
+			button {
+				font-size: 1.5rem;
+			}
+		}
+	}
+`
+const MobileMenuItem = styled.a`
+	cursor: pointer;
+	font-size: 2.5rem;
+	color: #bead8e;
+	letter-spacing: 2px;
+	padding: 5px;
+`
+
 const LeftHeaderTextContainer = styled.div`
 	a {
 		button {
 			font-size: 2rem;
 		}
 	}
-	@media (max-width: 1200px) {
+	@media (max-width: 900px) {
 		display: flex;
 		flex-direction: column;
 	}
@@ -238,7 +365,7 @@ const CTAGH = styled.button`
 	p {
 		font-size: 1.5rem;
 	}
-	z-index: 2;
+	z-index: 100;
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
