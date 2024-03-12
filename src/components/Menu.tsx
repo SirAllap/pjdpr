@@ -385,10 +385,6 @@ const CTAGH = styled.button<CTAGHProps>`
 	&:hover {
 		scale: 1.05;
 	}
-	@media (max-width: 600px) {
-		bottom: 5px;
-		right: 6px;
-	}
 `
 
 export default Intro
