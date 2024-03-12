@@ -102,7 +102,7 @@ export const Arrow = styled.a`
 	left: calc(50% - 35px);
 	transform: translate(-50%, -50%);
 	cursor: pointer;
-	border: solid #8c56d2;
+	border: solid #bead8e;
 	border-width: 0 10px 10px 0;
 	width: 70px;
 	height: 70px;
