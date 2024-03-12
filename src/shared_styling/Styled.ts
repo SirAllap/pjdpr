@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 type BigTitleProps = {
-	pos?: string
+	readonly pos?: string
+	readonly toggled?: string
 }
 export const BigTitle = styled.h1<BigTitleProps>`
 	text-align: ${(props) =>
@@ -11,6 +12,7 @@ export const BigTitle = styled.h1<BigTitleProps>`
 			? 'right'
 			: 'left'};
 	font-size: 5rem;
+	color: ${(props) => (props.toggled === 'true' ? '#bead8e' : '#fff')};
 	@media (max-width: 600px) {
 		font-size: 3rem;
 	}

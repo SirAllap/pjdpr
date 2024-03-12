@@ -26,7 +26,7 @@ const Intro: FC = () => {
 	return (
 		<>
 			<Links href='https://github.com/SirAllap' target='_blank'>
-				<CTAGH>GitHub</CTAGH>
+				<CTAGH toggled={isOpen.toString()}>GitHub</CTAGH>
 			</Links>
 			<Container>
 				<HeaderContainer shadow={shadowed}>
@@ -87,7 +87,12 @@ const Intro: FC = () => {
 						/>
 					</BurgerIcon>
 					<Links href='#'>
-						<BigTitle className='title-glow'>DPR</BigTitle>
+						<BigTitle
+							className='title-glow'
+							toggled={isOpen.toString()}
+						>
+							DPR
+						</BigTitle>
 					</Links>
 				</MobileHeaderContainer>
 				<TextArea>
@@ -338,7 +343,7 @@ const MobileMenuItem = styled.a`
 	font-size: 2.5rem;
 	color: #bead8e;
 	letter-spacing: 2px;
-	padding: 5px;
+	padding-block: 20px;
 `
 
 const LeftHeaderTextContainer = styled.div`
@@ -360,8 +365,11 @@ const RightHeaderTextContainer = styled.div`
 		}
 	}
 `
+interface CTAGHProps {
+	readonly toggled: string
+}
 
-const CTAGH = styled.button`
+const CTAGH = styled.button<CTAGHProps>`
 	p {
 		font-size: 1.5rem;
 	}
@@ -369,8 +377,11 @@ const CTAGH = styled.button`
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
-	background-color: #8c56d2;
-	color: #fff;
+	background-color: ${(props) =>
+		props.toggled === 'true' ? '#bead8e' : ' #8c56d2'};
+	border-color: ${(props) =>
+		props.toggled === 'true' ? '#bead8e' : ' #8c56d2'};
+	color: ${(props) => (props.toggled === 'true' ? '#000' : '#fff')};
 	&:hover {
 		scale: 1.05;
 	}
