@@ -87,7 +87,7 @@ export const CTA = styled.button<CTAProps>`
 	width: ${(props) => (props.type === 'left' ? 'fit-content' : null)};
 	opacity: ${(props) => (props.type === 'right' ? '0' : null)};
 	cursor: ${(props) => (props.type === 'right' ? '0' : null)};
-	@media (max-width: 1200px) {
+	@media (max-width: 900px) {
 		margin-left: 0px;
 		margin-top: ${(props) => (props.type === 'left' ? '5px' : null)};
 		display: ${(props) => (props.type === 'right' ? 'none' : null)};
