@@ -96,7 +96,11 @@ export const CTA = styled.button<CTAProps>`
 	}
 `
 
-export const Arrow = styled.a`
+interface ArrowProps {
+	readonly section?: string
+}
+
+export const Arrow = styled.a<ArrowProps>`
 	position: absolute;
 	bottom: 5%;
 	left: calc(50% - 35px);
@@ -122,6 +126,7 @@ export const Arrow = styled.a`
 	@media (max-width: 600px) {
 		width: 40px;
 		height: 40px;
+		bottom: ${(props) => (props.section === 'intro' ? '5%' : '30%')};
 		left: calc(50% - 20px);
 	}
 `

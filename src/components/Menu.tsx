@@ -109,7 +109,7 @@ const Intro: FC = () => {
 					<br />
 					<UserCard />
 				</TextArea>
-				<Arrow href='#projectSection' />
+				<Arrow section='intro' href='#projectSection' />
 			</Container>
 		</>
 	)

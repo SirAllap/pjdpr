@@ -527,7 +527,7 @@ const IntroSection = styled.div`
 const EndSection = styled.div`
 	height: 120px;
 	position: relative;
-	@media (max-width: 600px) {
+	@media (max-width: 900px) {
 		height: 150px;
 	}
 `
