@@ -370,7 +370,7 @@ const ProjectContent: FC = () => {
 								and low-latency communication for every
 								platform."
 							</NormalText>
-							<NormalText pos='left'>
+							<NormalText pos='right'>
 								<Links href='https://peek-beats.netlify.app/'>
 									NOT AVAILABLE
 								</Links>
@@ -386,7 +386,7 @@ const ProjectContent: FC = () => {
 								<IconImage src={node} />
 								<IconImage src={mongo} />
 							</IconsContainer>
-							<NormalText pos='left'>
+							<NormalText pos='right'>
 								<Links
 									href='https://github.com/JuanAntonioLeonOjeda/Project-3---Streaming-App'
 									target='_blank'
@@ -427,7 +427,7 @@ const ProjectContent: FC = () => {
 								in separate branches, and merged our changes to
 								GitHub.
 							</NormalText>
-							<NormalText pos='right'>
+							<NormalText pos='left'>
 								<Links
 									href='https://sirallap.github.io/proyecto1-frogger/'
 									target='_blank'
@@ -441,7 +441,7 @@ const ProjectContent: FC = () => {
 								<IconImage src={css} />
 								<IconImage src={js} />
 							</IconsContainer>
-							<NormalText pos='right'>
+							<NormalText pos='left'>
 								<Links
 									href='https://github.com/SirAllap/proyecto1-frogger'
 									target='_blank'
@@ -512,21 +512,7 @@ const ProjectContent: FC = () => {
 const BodyContainer = styled.div`
 	overflow-y: scroll;
 	&::-webkit-scrollbar {
-		width: 15px;
-	}
-	&::-webkit-scrollbar-track {
-		background: #8c56d22d;
-		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-		border-radius: 5px;
-	}
-	&::-webkit-scrollbar-thumb {
-		background: #8c56d2de;
-		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-		border-radius: 5px;
+		width: 0;
 	}
 	height: 100vh;
 `
@@ -534,7 +520,7 @@ const BodyContainer = styled.div`
 const IntroSection = styled.div`
 	height: 150px;
 	@media (max-width: 600px) {
-		height: 70px;
+		height: 100px;
 	}
 `
 
@@ -736,6 +722,10 @@ const NormalSection = styled.div`
 	height: 45%;
 	display: flex;
 	align-items: center;
+	@media (max-width: 900px) {
+		height: fit-content;
+		padding-block: 25px;
+	}
 `
 
 const ReversedSection = styled.div`
@@ -744,6 +734,10 @@ const ReversedSection = styled.div`
 	height: 45%;
 	display: flex;
 	align-items: center;
+	@media (max-width: 900px) {
+		height: fit-content;
+		padding-block: 25px;
+	}
 `
 
 const PhotoProjectRight = styled.img`
