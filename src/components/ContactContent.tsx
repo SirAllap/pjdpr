@@ -29,7 +29,7 @@ const BodyContainer = styled.div`
 `
 
 const TextArea = styled.div`
-	height: 100dvh;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
