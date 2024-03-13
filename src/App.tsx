@@ -104,9 +104,15 @@ const App: FC = () => {
 						options={options}
 					/>
 					<Menu />
-					<ProjectContent />
-					<ExperienceContent />
-					<ContactContent />
+					<div id='projectSection'>
+						<ProjectContent />
+					</div>
+					<div id='experienceSection'>
+						<ExperienceContent />
+					</div>
+					<div id='contactSection'>
+						<ContactContent />
+					</div>
 				</>
 			)}
 		</>

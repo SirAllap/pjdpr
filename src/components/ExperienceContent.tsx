@@ -7,13 +7,16 @@ import {
 	VerticalTimelineElement,
 } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
-import { SmallLinks } from '../shared_styling/Styled'
+import { IntroSection, SmallLinks } from '../shared_styling/Styled'
 
 const ExperienceContent: FC = () => {
 	return (
 		<>
 			<BodyContainer>
-				<IntroSection />
+				<IntroSection>
+					<h1>Experience</h1>
+					<hr />
+				</IntroSection>
 				<VerticalTimeline>
 					<VerticalTimelineElement
 						className='vertical-timeline-element--education'
@@ -203,32 +206,8 @@ const ExperienceContent: FC = () => {
 }
 
 const BodyContainer = styled.div`
-	overflow-y: scroll;
-	&::-webkit-scrollbar {
-		width: 15px;
-	}
-	&::-webkit-scrollbar-track {
-		background: #8c56d22d;
-		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-		border-radius: 5px;
-	}
-	&::-webkit-scrollbar-thumb {
-		background: #8c56d2de;
-		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-		border-radius: 5px;
-	}
-	height: 100vh;
+	height: 100%;
+	position: relative;
 `
 
 export default ExperienceContent
-
-const IntroSection = styled.div`
-	height: 180px;
-	@media (max-width: 600px) {
-		height: 120px;
-	}
-`

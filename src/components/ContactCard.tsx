@@ -57,11 +57,11 @@ const Card = styled.div`
 	border-radius: 25px;
 	display: flex;
 	flex-direction: column;
+	padding: 20px;
 	p {
 		text-align: justify;
 		font-size: 2rem;
 	}
-	padding: 20px;
 	@media (max-width: 600px) {
 		p {
 			text-align: justify;

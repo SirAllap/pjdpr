@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 import {
+	IntroSection,
 	Links,
 	NormalText,
 	PrivateLinks,
@@ -36,7 +37,10 @@ const ProjectContent: FC = () => {
 	return (
 		<>
 			<BodyContainer>
-				<IntroSection />
+				<IntroSection>
+					<h1>Projects</h1>
+					<hr />
+				</IntroSection>
 				<ReversedSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
@@ -506,18 +510,11 @@ const ProjectContent: FC = () => {
 }
 
 const BodyContainer = styled.div`
-	overflow-y: scroll;
+	position: relative;
 	&::-webkit-scrollbar {
 		width: 0;
 	}
-	height: 100vh;
-`
-
-const IntroSection = styled.div`
-	height: 150px;
-	@media (max-width: 600px) {
-		height: 100px;
-	}
+	height: 100%;
 `
 
 const ProjectCard = styled.div`
@@ -525,24 +522,18 @@ const ProjectCard = styled.div`
 	overflow-x: hidden;
 	margin: 0 auto;
 	width: 90%;
-	height: 90%;
+	height: 550px;
 	border-radius: 5px;
 	background: rgba(255, 255, 255, 0.2);
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(5px);
 	-webkit-backdrop-filter: blur(5px);
 	transition: all 0.5s;
-	filter: grayscale(90%);
-	&:hover {
-		filter: grayscale(0%);
-	}
 	@media (max-width: 1200px) {
+		height: 90%;
 		width: 98%;
 		overflow-y: auto;
 		overflow-x: auto;
-	}
-	@media (max-width: 800px) {
-		filter: grayscale(0%);
 	}
 `
 
@@ -637,15 +628,32 @@ const PhotoContainerLeft = styled.div`
 `
 
 const TextSection = styled.div`
-	overflow-y: auto;
-	margin-top: 15px;
+	overflow: auto;
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	&::-webkit-scrollbar-track {
+		background: rgba(255, 255, 255, 0.2);
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border-radius: 5px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: rgba(255, 255, 255, 0.2);
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border-radius: 5px;
+	}
+	margin-top: 5px;
 	width: 30%;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
 	p {
 		padding: 0 15px 0 15px;
-		&:last-child {
-			padding-bottom: 10px;
-		}
 	}
 	@media (max-width: 1200px) {
 		p {
@@ -665,21 +673,40 @@ const TextSection = styled.div`
 			font-size: 1.6rem;
 		}
 	}
+	@media (min-width: 1200px) {
+	}
 `
 
 const TextSectionRight = styled.div`
-	overflow-y: auto;
+	overflow: auto;
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	&::-webkit-scrollbar-track {
+		background: rgba(255, 255, 255, 0.2);
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border-radius: 5px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: rgba(255, 255, 255, 0.2);
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border-radius: 5px;
+	}
 	position: absolute;
 	right: 0%;
-	margin-top: 15px;
+	margin-top: 5px;
 	width: 30%;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
 	p {
 		direction: ltr;
-		padding: 0 40px 0 40px;
-		:last-child {
-			padding-bottom: 40px;
-		}
+		padding: 0 15px 0 15px;
 	}
 	@media (max-width: 1200px) {
 		overflow: hidden;
@@ -703,6 +730,8 @@ const TextSectionRight = styled.div`
 			font-size: 1.6rem;
 		}
 	}
+	@media (min-width: 1200px) {
+	}
 `
 
 const NormalSection = styled.div`
@@ -710,9 +739,9 @@ const NormalSection = styled.div`
 	height: 45%;
 	display: flex;
 	align-items: center;
+	padding-block: 25px;
 	@media (max-width: 900px) {
 		height: fit-content;
-		padding-block: 25px;
 	}
 `
 
@@ -722,9 +751,9 @@ const ReversedSection = styled.div`
 	height: 45%;
 	display: flex;
 	align-items: center;
+	padding-block: 25px;
 	@media (max-width: 900px) {
 		height: fit-content;
-		padding-block: 25px;
 	}
 `
 
