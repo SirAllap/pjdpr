@@ -5,7 +5,7 @@ import ContactCard from './ContactCard'
 const ContactContent: FC = () => {
 	return (
 		<>
-			<BodyContainer id='contactSection'>
+			<BodyContainer>
 				<IntroSection />
 				<TextArea>
 					<ContactCard />

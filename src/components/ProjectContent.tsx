@@ -35,7 +35,7 @@ import firebase from '../assets/technologies/firebase.png'
 const ProjectContent: FC = () => {
 	return (
 		<>
-			<BodyContainer id='projectSection'>
+			<BodyContainer>
 				<IntroSection />
 				<ReversedSection>
 					<ProjectCard>

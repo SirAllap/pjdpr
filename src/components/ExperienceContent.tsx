@@ -12,7 +12,7 @@ import { SmallLinks } from '../shared_styling/Styled'
 const ExperienceContent: FC = () => {
 	return (
 		<>
-			<BodyContainer id='experienceSection'>
+			<BodyContainer>
 				<IntroSection />
 				<VerticalTimeline>
 					<VerticalTimelineElement
