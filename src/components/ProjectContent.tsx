@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 import {
-	Arrow,
 	Links,
 	NormalText,
 	PrivateLinks,
@@ -501,9 +500,6 @@ const ProjectContent: FC = () => {
 						</TextSection>
 					</ProjectCard>
 				</NormalSection>
-				<EndSection>
-					<Arrow href='#experienceSection' />
-				</EndSection>
 			</BodyContainer>
 		</>
 	)
@@ -521,14 +517,6 @@ const IntroSection = styled.div`
 	height: 150px;
 	@media (max-width: 600px) {
 		height: 100px;
-	}
-`
-
-const EndSection = styled.div`
-	height: 120px;
-	position: relative;
-	@media (max-width: 900px) {
-		height: 150px;
 	}
 `
 

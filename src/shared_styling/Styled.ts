@@ -95,38 +95,3 @@ export const CTA = styled.button<CTAProps>`
 		display: ${(props) => (props.type === 'right' ? 'none' : null)};
 	}
 `
-
-interface ArrowProps {
-	readonly section?: string
-}
-
-export const Arrow = styled.a<ArrowProps>`
-	position: absolute;
-	bottom: 5%;
-	left: calc(50% - 35px);
-	transform: translate(-50%, -50%);
-	cursor: pointer;
-	border: solid #bead8e;
-	border-width: 0 10px 10px 0;
-	width: 70px;
-	height: 70px;
-	transition: 0.5s;
-	animation: float 2.5s ease-in-out infinite;
-	@keyframes float {
-		0% {
-			transform: translatey(0px) rotate(45deg);
-		}
-		50% {
-			transform: translatey(-20px) rotate(45deg);
-		}
-		100% {
-			transform: translatey(0px) rotate(45deg);
-		}
-	}
-	@media (max-width: 600px) {
-		width: 40px;
-		height: 40px;
-		bottom: ${(props) => (props.section === 'intro' ? '5%' : '30%')};
-		left: calc(50% - 20px);
-	}
-`

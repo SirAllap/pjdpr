@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Arrow, BigTitle, CTA, Links } from '../shared_styling/Styled'
+import { BigTitle, CTA, Links } from '../shared_styling/Styled'
 import UserCard from './IntroCard'
 import { Sling as Hamburger } from 'hamburger-react'
 
@@ -109,7 +109,6 @@ const Intro: FC = () => {
 					<br />
 					<UserCard />
 				</TextArea>
-				<Arrow section='intro' href='#projectSection' />
 			</Container>
 		</>
 	)

@@ -7,7 +7,7 @@ import {
 	VerticalTimelineElement,
 } from 'react-vertical-timeline-component'
 import 'react-vertical-timeline-component/style.min.css'
-import { Arrow, SmallLinks } from '../shared_styling/Styled'
+import { SmallLinks } from '../shared_styling/Styled'
 
 const ExperienceContent: FC = () => {
 	return (
@@ -197,9 +197,6 @@ const ExperienceContent: FC = () => {
 						icon={<FaGenderless style={{ fill: '#fff' }} />}
 					/> */}
 				</VerticalTimeline>
-				<EndSection>
-					<Arrow href='#contactSection' />
-				</EndSection>
 			</BodyContainer>
 		</>
 	)
@@ -233,12 +230,5 @@ const IntroSection = styled.div`
 	height: 180px;
 	@media (max-width: 600px) {
 		height: 120px;
-	}
-`
-const EndSection = styled.div`
-	height: 120px;
-	position: relative;
-	@media (max-width: 600px) {
-		height: 150px;
 	}
 `
