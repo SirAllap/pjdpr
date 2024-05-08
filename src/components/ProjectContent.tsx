@@ -7,14 +7,14 @@ import {
 	PrivateLinks,
 	SmallLinks,
 } from '../shared_styling/Styled'
-import photoAlaveraProject from '../assets/alavera.png'
-import photoMirandaProject from '../assets/hotel_miranda.png'
-import photoTravlProject from '../assets/travl_dashboard.png'
-import oxygenPicsProject from '../assets/oxygen_pics.png'
-import oxygenshop from '../assets/oxygen_shop.png'
-import peekbeats from '../assets/peekbeats.png'
-import frogger from '../assets/frogger.png'
-import gmf from '../assets/gmf.png'
+import photoAlaveraProject from '../assets/alavera.webp'
+import photoMirandaProject from '../assets/hotel_miranda.webp'
+import photoTravlProject from '../assets/travl_dashboard.webp'
+import oxygenPicsProject from '../assets/oxygen_pics.webp'
+import oxygenshop from '../assets/oxygen_shop.webp'
+import peekbeats from '../assets/peekbeats.webp'
+import frogger from '../assets/frogger.webp'
+import gmf from '../assets/gmf.webp'
 
 import js from '../assets/technologies/js.png'
 import ts from '../assets/technologies/ts.png'
