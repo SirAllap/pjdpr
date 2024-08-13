@@ -1,26 +1,26 @@
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 import './App.css'
 import Menu from './components/Menu'
 import ProjectContent from './components/ProjectContent'
 import ContactContent from './components/ContactContent'
 import ExperienceContent from './components/ExperienceContent'
-import { initParticlesEngine } from '@tsparticles/react'
+// import { initParticlesEngine } from '@tsparticles/react'
 // import { type ISourceOptions } from '@tsparticles/engine'
-import { loadSlim } from '@tsparticles/slim'
+// import { loadSlim } from '@tsparticles/slim'
 import LoadingSpinner from './components/LoadingSpinner'
 
 // const LazyParticles = lazy(() => import('@tsparticles/react'))
 
 const App: FC = () => {
-	const [loading, setLoading] = useState(false)
+	// const [loading, setLoading] = useState(false)
 
-	useEffect(() => {
-		initParticlesEngine(async (engine) => {
-			setLoading(true)
-			await loadSlim(engine)
-			setLoading(false)
-		})
-	}, [])
+	// useEffect(() => {
+	// 	initParticlesEngine(async (engine) => {
+	// 		setLoading(true)
+	// 		await loadSlim(engine)
+	// 		setLoading(false)
+	// 	})
+	// }, [])
 
 	// const particlesLoaded = async (): Promise<void> => {}
 
@@ -94,27 +94,21 @@ const App: FC = () => {
 
 	return (
 		<>
-			{loading ? (
-				<LoadingSpinner />
-			) : (
-				<>
-					{/* <LazyParticles
+			{/* <LazyParticles
 						id='tsparticles'
 						particlesLoaded={particlesLoaded}
 						options={options}
 					/> */}
-					<Menu />
-					<div id='projectSection'>
-						<ProjectContent />
-					</div>
-					<div id='experienceSection'>
-						<ExperienceContent />
-					</div>
-					<div id='contactSection'>
-						<ContactContent />
-					</div>
-				</>
-			)}
+			<Menu />
+			<div id='projectSection'>
+				<ProjectContent />
+			</div>
+			<div id='experienceSection'>
+				<ExperienceContent />
+			</div>
+			<div id='contactSection'>
+				<ContactContent />
+			</div>
 		</>
 	)
 }
