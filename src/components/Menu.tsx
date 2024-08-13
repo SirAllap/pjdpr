@@ -312,7 +312,7 @@ const BurgerIcon = styled.div`
 	height: 50px;
 	position: absolute;
 	top: 50%;
-	left: 7%;
+	right: 0px;
 	transform: translate(-50%, -50%);
 `
 
@@ -322,12 +322,12 @@ interface MobileMenuProps {
 
 const MobileMenu = styled.div<MobileMenuProps>`
 	position: fixed;
-	left: 0;
+	right: 0;
 	top: 0;
 	transform: ${(props) =>
 		props.toggled === 'true'
 			? 'translate3d(0vw, 0, 0)'
-			: 'translate3d(-100vw, 0, 0)'};
+			: 'translate3d(100vw, 0, 0)'};
 	transition: transform 0.5s cubic-bezier(0, 0.1, 0, 1);
 	width: 100vw;
 	height: 100vh;
