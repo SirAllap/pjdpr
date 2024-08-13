@@ -7,7 +7,7 @@ import ExperienceContent from './components/ExperienceContent'
 // import { initParticlesEngine } from '@tsparticles/react'
 // import { type ISourceOptions } from '@tsparticles/engine'
 // import { loadSlim } from '@tsparticles/slim'
-import LoadingSpinner from './components/LoadingSpinner'
+// import LoadingSpinner from './components/LoadingSpinner'
 
 // const LazyParticles = lazy(() => import('@tsparticles/react'))
 
