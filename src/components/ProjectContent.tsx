@@ -115,7 +115,7 @@ const ProjectContent: FC = () => {
 								Hotel Miranda
 							</NormalText>
 							<Links
-								href='http://ec2-35-180-41-241.eu-west-3.compute.amazonaws.com/'
+								href='http://ec2-13-39-83-255.eu-west-3.compute.amazonaws.com/'
 								target='_blank'
 							>
 								<PhotoProjectRight
@@ -141,7 +141,7 @@ const ProjectContent: FC = () => {
 							</NormalText>
 							<NormalText pos='right'>
 								<Links
-									href='http://ec2-13-38-117-224.eu-west-3.compute.amazonaws.com/'
+									href='http://ec2-13-39-83-255.eu-west-3.compute.amazonaws.com/'
 									target='_blank'
 								>
 									Visit the website
