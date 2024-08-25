@@ -233,7 +233,7 @@ const ProjectContent: FC = () => {
 								Oxygen Stock Free Photos
 							</NormalText>
 							<Links
-								href='http://oxygen-academy-photo-app.s3-website.eu-west-3.amazonaws.com/'
+								href='http://davidprcloud-unsplash-photo-app.s3-website.eu-west-3.amazonaws.com'
 								target='_blank'
 							>
 								<PhotoProjectRight
@@ -260,7 +260,7 @@ const ProjectContent: FC = () => {
 							</NormalText>
 							<NormalText pos='right'>
 								<Links
-									href='http://oxygen-academy-photo-app.s3-website.eu-west-3.amazonaws.com/'
+									href='http://davidprcloud-unsplash-photo-app.s3-website.eu-west-3.amazonaws.com'
 									target='_blank'
 								>
 									Visit the website
