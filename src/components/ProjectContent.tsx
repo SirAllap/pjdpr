@@ -174,7 +174,7 @@ const ProjectContent: FC = () => {
 								Travl Dashboard
 							</NormalText>
 							<Links
-								href='http://hotelmiranda-dashboard.s3-website.eu-west-3.amazonaws.com/login'
+								href='http://davidprcloud-travldashboard.s3-website-eu-west-1.amazonaws.com/login'
 								target='_blank'
 							>
 								<PhotoProjectLeft
@@ -199,7 +199,7 @@ const ProjectContent: FC = () => {
 							</NormalText>
 							<NormalText pos='left'>
 								<Links
-									href='http://hotelmiranda-dashboard.s3-website.eu-west-3.amazonaws.com/login'
+									href='http://davidprcloud-travldashboard.s3-website-eu-west-1.amazonaws.com/login'
 									target='_blank'
 								>
 									Visit the website
