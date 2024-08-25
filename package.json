@@ -22,7 +22,7 @@
 		"react-toggle-dark-mode": "^1.1.1",
 		"react-tsparticles": "^2.12.2",
 		"react-vertical-timeline-component": "^3.6.0",
-		"styled-components": "^5.3.11",
+		"styled-components": "^6.1.1",
 		"tsparticles": "^3.5.0"
 	},
 	"devDependencies": {
