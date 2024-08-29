@@ -194,7 +194,7 @@ const ExperienceContent: FC = () => {
             icon={<MdOutlineWork style={{ fill: "#fff" }} />}
           >
             <h3 className="vertical-timeline-element-title">
-              FullStack Developer Pyhton/ReactJS
+              FullStack Developer Pyhton / ReactJS
             </h3>
             <h4 className="vertical-timeline-element-subtitle">
               <SmallLinks href="https://www.trigo-group.com/en" target="_blank">
