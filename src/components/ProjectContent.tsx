@@ -296,7 +296,7 @@ const ProjectContent: FC = () => {
 								Oxigen Shop
 							</NormalText>
 							<Links
-								href='https://tinyurl.com/oxygenshop'
+								href='http://davidprcloud-html-css-js-shop.s3-website.eu-west-3.amazonaws.com'
 								target='_blank'
 							>
 								<PhotoProjectLeft
@@ -315,7 +315,7 @@ const ProjectContent: FC = () => {
 								skills in HTML, CSS, and JS.
 							</NormalText>
 							<NormalText pos='left'>
-								<Links href='https://tinyurl.com/oxygenshop'>
+								<Links href='http://davidprcloud-html-css-js-shop.s3-website.eu-west-3.amazonaws.com'>
 									Visit the website
 								</Links>
 							</NormalText>
