@@ -193,6 +193,10 @@ const ExperienceContent: FC = () => {
 						</p>
 					</VerticalTimelineElement>
 					{/* <VerticalTimelineElement
+            iconStyle={{
+              background: "#8c56d2",
+              color: "#fff",
+            }}
 						iconStyle={{
 							background: '#8c56d2',
 							color: '#fff',
