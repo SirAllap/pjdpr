@@ -197,6 +197,7 @@ const ExperienceContent: FC = () => {
               background: "#8c56d2",
               color: "#fff",
             }}
+            date="2024 / 03 - 2024 / 08"
 						iconStyle={{
 							background: '#8c56d2',
 							color: '#fff',
