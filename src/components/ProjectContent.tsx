@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 import {
+	HighlightedText,
 	IntroSection,
 	Links,
 	NormalText,
