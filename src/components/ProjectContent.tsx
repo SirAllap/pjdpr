@@ -798,9 +798,4 @@ const IconImage = styled.img`
 	height: 35px;
 `
 
-const WiderIconImage = styled.img`
-	width: 40px;
-	height: 35px;
-`
-
 export default ProjectContent
