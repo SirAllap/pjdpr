@@ -7,6 +7,7 @@ import {
 	PrivateLinks,
 	SmallLinks,
 } from '../shared_styling/Styled'
+import tudietista from '../assets/dietista_full-low.webp'
 import photoAlaveraProject from '../assets/alavera.webp'
 import photoMirandaProject from '../assets/hotel_miranda.webp'
 import photoTravlProject from '../assets/travl_dashboard.webp'
