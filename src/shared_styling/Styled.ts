@@ -46,6 +46,9 @@ export const PrivateLinks = styled.a`
 	}
 `
 
+type HighlightedTextProps = {
+	readonly color: string
+}
 
 export const HighlightedText = styled.span<HighlightedTextProps>`
 	color: ${(props) => props.color};
