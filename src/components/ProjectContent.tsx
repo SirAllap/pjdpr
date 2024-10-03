@@ -32,6 +32,10 @@ import vue from '../assets/technologies/vue.png'
 import mui from '../assets/technologies/mui.png'
 import next from '../assets/technologies/next.png'
 import firebase from '../assets/technologies/firebase.png'
+import react_router from '../assets/technologies/react_router.png'
+import tailwind from '../assets/technologies/tailwind.png'
+import calendly from '../assets/technologies/calendly.png'
+import emailjs from '../assets/technologies/emailjs.png'
 
 const ProjectContent: FC = () => {
 	return (
