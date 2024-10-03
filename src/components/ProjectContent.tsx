@@ -47,6 +47,59 @@ const ProjectContent: FC = () => {
 					<h1>Projects</h1>
 					<hr />
 				</IntroSection>
+				<NormalSection>
+					<ProjectCard>
+						<PhotoContainerRight>
+							<NormalText pos='mid' textsize='title'>
+								Tu Dietista Online
+							</NormalText>
+							<Links href='https://tudietistaonline-am.com/' target='_blank'>
+								<PhotoProjectRight
+									src={tudietista}
+									alt='Project Tu Dietista Online'
+								/>
+							</Links>
+						</PhotoContainerRight>
+						<TextSection>
+							<NormalText pos='mid' textsize='title'>
+								Tu Dietista Online
+							</NormalText>
+							<NormalText pos='justi'>
+								Tu Dietista Online is a project I independently designed and
+								developed using modern web technologies. From structuring the
+								layout and creating a seamless user experience to handling
+								deployment and maintenance, this was an enjoyable and rewarding
+								experience. The site features smooth navigation with{' '}
+								<HighlightedText color='#D0021B'>React</HighlightedText>{' '}
+								<HighlightedText color='#000000'>Router</HighlightedText>,
+								responsive design with{' '}
+								<HighlightedText color='#33D3CA'>Tailwind</HighlightedText>,
+								engaging visuals with a parallax effect, and integrated tools
+								like <HighlightedText color='#006BFF'>Calendly</HighlightedText>{' '}
+								for scheduling and{' '}
+								<HighlightedText color='#FF8434'>EmailJS</HighlightedText> for
+								contact forms.
+							</NormalText>
+							<NormalText pos='right'>
+								<Links href='https://tudietistaonline-am.com/' target='_blank'>
+									Visit the website
+								</Links>
+							</NormalText>
+							<NormalText>Technologies used:</NormalText>
+							<IconsContainer>
+								<IconImage src={react} />
+								<IconImage src={react_router} />
+								<IconImage src={tailwind} />
+								<IconImage src={calendly} />
+								<IconImage src={emailjs} />
+								<IconImage src={vscode} />
+							</IconsContainer>
+							<NormalText pos='right'>
+								<PrivateLinks>Private Github</PrivateLinks>
+							</NormalText>
+						</TextSection>
+					</ProjectCard>
+				</NormalSection>
 				<ReversedSection>
 					<ProjectCard>
 						<PhotoContainerLeft>
@@ -65,25 +118,21 @@ const ProjectContent: FC = () => {
 								Baby Project "Alavera"
 							</NormalText>
 							<NormalText pos='justi'>
-								I've been diving into this super cool project
-								lately, working for a private client. It's an
-								amazing opportunity to expand my knowledge by
-								using the Next.js framework, and I'm also
+								I've been diving into this super cool project lately, working
+								for a private client. It's an amazing opportunity to expand my
+								knowledge by using the Next.js framework, and I'm also
 								experimenting with Firebase! <br />
-								Right now, the project is still in its early
-								stages, like a newborn baby. Basically, it's a
-								collection of illustrated cards, each with its
-								unique backstory. And the best part? All the
-								illustrations are handcrafted by the amazing
-								artist{' '}
+								Right now, the project is still in its early stages, like a
+								newborn baby. Basically, it's a collection of illustrated cards,
+								each with its unique backstory. And the best part? All the
+								illustrations are handcrafted by the amazing artist{' '}
 								<SmallLinks
 									href='https://www.linkedin.com/in/armichelora/'
 									target='_blank'
 								>
 									Armiche Lora
 								</SmallLinks>
-								, perfectly capturing the vibe of each character
-								and faction.
+								, perfectly capturing the vibe of each character and faction.
 								<br />
 								Check the artist portfolio{' '}
 								<SmallLinks
@@ -135,15 +184,13 @@ const ProjectContent: FC = () => {
 								Hotel Miranda
 							</NormalText>
 							<NormalText pos='justi'>
-								This is a FrontEnd project I worked on during my
-								mentorship program at Oxygen Academy. It was
-								constructed using HTML, CSS (Sass/Scss), and
-								JavaScript, primarily for implementing photo
-								sliders with Swiper.js. Later on, I integrated
-								it with an SQL database and transitioned all the
-								code to PHP. I employed the BladeOne Template
-								Engine, following the MVC pattern. Overall, it
-								was a very enjoyable project!!!"
+								This is a FrontEnd project I worked on during my mentorship
+								program at Oxygen Academy. It was constructed using HTML, CSS
+								(Sass/Scss), and JavaScript, primarily for implementing photo
+								sliders with Swiper.js. Later on, I integrated it with an SQL
+								database and transitioned all the code to PHP. I employed the
+								BladeOne Template Engine, following the MVC pattern. Overall, it
+								was a very enjoyable project!!!
 							</NormalText>
 							<NormalText pos='right'>
 								<Links
@@ -194,14 +241,12 @@ const ProjectContent: FC = () => {
 								Travl Dashboard
 							</NormalText>
 							<NormalText pos='justi'>
-								This is one of the most complex projects I've
-								done so far, involving user management, roles,
-								CRUD using Express with MongoDB/Mongoose, React
-								with Redux. Styling was an absolute delight with
-								Styled Components! The user can seamlessly
-								handle upcoming bookings, manage rooms, and
-								oversee the hotel's working staff—all within a
-								visually stunning dashboard!
+								This is one of the most complex projects I've done so far,
+								involving user management, roles, CRUD using Express with
+								MongoDB/Mongoose, React with Redux. Styling was an absolute
+								delight with Styled Components! The user can seamlessly handle
+								upcoming bookings, manage rooms, and oversee the hotel's working
+								staff—all within a visually stunning dashboard!
 							</NormalText>
 							<NormalText pos='left'>
 								<Links
@@ -253,16 +298,14 @@ const ProjectContent: FC = () => {
 								Oxygen Stock Free Photos
 							</NormalText>
 							<NormalText pos='justi'>
-								This project is a personal favorite of mine
-								because it has a clean and stylish appearance,
-								making the whole experience enjoyable. I created
-								this web application using React, Redux Toolkit,
-								and the Unsplash API. My main focus was to
-								master React from the ground up and effectively
-								implement Redux Toolkit for managing the
-								project's data. It took me about a week to
-								complete, and I take pride in its smooth
-								performance and polished design.
+								This project is a personal favorite of mine because it has a
+								clean and stylish appearance, making the whole experience
+								enjoyable. I created this web application using React, Redux
+								Toolkit, and the Unsplash API. My main focus was to master React
+								from the ground up and effectively implement Redux Toolkit for
+								managing the project's data. It took me about a week to
+								complete, and I take pride in its smooth performance and
+								polished design.
 							</NormalText>
 							<NormalText pos='right'>
 								<Links
@@ -276,10 +319,7 @@ const ProjectContent: FC = () => {
 							<IconsContainer>
 								<IconImage src={js} />
 								<IconImage src={react} />
-								<IconImage
-									style={{ width: '50px' }}
-									src={mui}
-								/>
+								<IconImage style={{ width: '50px' }} src={mui} />
 								<IconImage src={node} />
 								<IconImage src={aws} />
 								<IconImage src={npm} />
@@ -305,10 +345,7 @@ const ProjectContent: FC = () => {
 								href='http://davidprcloud-html-css-js-shop.s3-website.eu-west-3.amazonaws.com'
 								target='_blank'
 							>
-								<PhotoProjectLeft
-									src={oxygenshop}
-									alt='Oxigen Shop'
-								/>
+								<PhotoProjectLeft src={oxygenshop} alt='Oxigen Shop' />
 							</Links>
 						</PhotoContainerLeft>
 						<TextSectionRight>
@@ -316,9 +353,8 @@ const ProjectContent: FC = () => {
 								Oxigen Shop
 							</NormalText>
 							<NormalText pos='justi'>
-								I took on the challenge of transforming a Figma
-								design into a functional website by utilizing my
-								skills in HTML, CSS, and JS.
+								I took on the challenge of transforming a Figma design into a
+								functional website by utilizing my skills in HTML, CSS, and JS.
 							</NormalText>
 							<NormalText pos='left'>
 								<Links href='http://davidprcloud-html-css-js-shop.s3-website.eu-west-3.amazonaws.com'>
@@ -351,14 +387,8 @@ const ProjectContent: FC = () => {
 							<NormalText pos='mid' textsize='title'>
 								PeekBeats
 							</NormalText>
-							<Links
-								href='https://peek-beats.netlify.app/'
-								target='_blank'
-							>
-								<PhotoProjectRight
-									src={peekbeats}
-									alt='Project peekbeats'
-								/>
+							<Links href='https://peek-beats.netlify.app/' target='_blank'>
+								<PhotoProjectRight src={peekbeats} alt='Project peekbeats' />
 							</Links>
 						</PhotoContainerRight>
 						<TextSection>
@@ -366,18 +396,15 @@ const ProjectContent: FC = () => {
 								PeekBeats
 							</NormalText>
 							<NormalText pos='justi'>
-								This is a streaming application designed for
-								both music lovers and content creators. I
-								collaborated with two other bootcamp students to
-								develop PeekBeats, an incredible application.
-								"PeekBeats is a dynamic streaming platform that
-								connects music producers with listeners. It
-								offers a user-friendly interface and bridges the
-								gap between creators and consumers, enriching
-								the global music scene." This platform is
-								working thanks to: Socket.IO a "bidirectional
-								and low-latency communication for every
-								platform."
+								This is a streaming application designed for both music lovers
+								and content creators. I collaborated with two other bootcamp
+								students to develop PeekBeats, an incredible application.
+								"PeekBeats is a dynamic streaming platform that connects music
+								producers with listeners. It offers a user-friendly interface
+								and bridges the gap between creators and consumers, enriching
+								the global music scene." This platform is working thanks to:
+								Socket.IO a "bidirectional and low-latency communication for
+								every platform."
 							</NormalText>
 							<NormalText pos='right'>
 								<Links href='https://peek-beats.netlify.app/'>
@@ -387,10 +414,7 @@ const ProjectContent: FC = () => {
 							<NormalText>Technologies used:</NormalText>
 							<IconsContainer>
 								<IconImage src={vue} />
-								<IconImage
-									style={{ width: '50px' }}
-									src={mui}
-								/>
+								<IconImage style={{ width: '50px' }} src={mui} />
 								<IconImage src={js} />
 								<IconImage src={node} />
 								<IconImage src={mongo} />
@@ -416,10 +440,7 @@ const ProjectContent: FC = () => {
 								href='https://sirallap.github.io/proyecto1-frogger/'
 								target='_blank'
 							>
-								<PhotoProjectLeft
-									src={frogger}
-									alt='Project miranda photo'
-								/>
+								<PhotoProjectLeft src={frogger} alt='Project miranda photo' />
 							</Links>
 						</PhotoContainerLeft>
 						<TextSectionRight>
@@ -427,14 +448,12 @@ const ProjectContent: FC = () => {
 								Frogger, classic game
 							</NormalText>
 							<NormalText pos='justi'>
-								Classic Frogger game. The game's objective is to
-								guide a frog to each empty home at the top of
-								the screen. I worked on this project alongside
-								two other colleagues. It was a valuable
-								experience where we learned how to function
-								effectively as a team. We divided tasks, worked
-								in separate branches, and merged our changes to
-								GitHub.
+								Classic Frogger game. The game's objective is to guide a frog to
+								each empty home at the top of the screen. I worked on this
+								project alongside two other colleagues. It was a valuable
+								experience where we learned how to function effectively as a
+								team. We divided tasks, worked in separate branches, and merged
+								our changes to GitHub.
 							</NormalText>
 							<NormalText pos='left'>
 								<Links
@@ -467,14 +486,8 @@ const ProjectContent: FC = () => {
 							<NormalText pos='mid' textsize='title'>
 								GMF Mediación
 							</NormalText>
-							<Links
-								href='https://www.gmfmediacion.com/'
-								target='_blank'
-							>
-								<PhotoProjectRight
-									src={gmf}
-									alt='Project miranda photo'
-								/>
+							<Links href='https://www.gmfmediacion.com/' target='_blank'>
+								<PhotoProjectRight src={gmf} alt='Project miranda photo' />
 							</Links>
 						</PhotoContainerRight>
 						<TextSection>
@@ -482,22 +495,17 @@ const ProjectContent: FC = () => {
 								GMF Mediación
 							</NormalText>
 							<NormalText pos='justi'>
-								This was my first real job, and I built the
-								website using HTML, CSS, and a bit of JS. The
-								site is for a professional office that promotes
-								peace in families dealing with conflicts. I
-								worked closely with the client, meeting twice a
-								week to talk about new features and how things
-								were going. They even added some new stuff along
-								the way. It was a bit tough for a beginner like
-								me, but seeing how happy the client was with the
-								result made it really rewarding.
+								This was my first real job, and I built the website using HTML,
+								CSS, and a bit of JS. The site is for a professional office that
+								promotes peace in families dealing with conflicts. I worked
+								closely with the client, meeting twice a week to talk about new
+								features and how things were going. They even added some new
+								stuff along the way. It was a bit tough for a beginner like me,
+								but seeing how happy the client was with the result made it
+								really rewarding.
 							</NormalText>
 							<NormalText pos='right'>
-								<Links
-									href='https://www.gmfmediacion.com/'
-									target='_blank'
-								>
+								<Links href='https://www.gmfmediacion.com/' target='_blank'>
 									Visit the website
 								</Links>
 							</NormalText>
@@ -787,6 +795,11 @@ const IconsContainer = styled.div`
 
 const IconImage = styled.img`
 	width: 35px;
+	height: 35px;
+`
+
+const WiderIconImage = styled.img`
+	width: 40px;
 	height: 35px;
 `
 
