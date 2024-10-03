@@ -6,11 +6,7 @@ type BigTitleProps = {
 }
 export const BigTitle = styled.h1<BigTitleProps>`
 	text-align: ${(props) =>
-		props.pos === 'mid'
-			? 'center'
-			: props.pos === 'right'
-			? 'right'
-			: 'left'};
+		props.pos === 'mid' ? 'center' : props.pos === 'right' ? 'right' : 'left'};
 	font-size: 5rem;
 	color: ${(props) => (props.toggled === 'true' ? '#bead8e' : '#fff')};
 	@media (max-width: 600px) {
