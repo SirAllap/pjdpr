@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { BigTitle, CTA, Links } from '../shared_styling/Styled'
+import { BigTitle, CTA, CTAText, Links } from '../shared_styling/Styled'
 import UserCard from './IntroCard'
 import { Sling as Hamburger } from 'hamburger-react'
 
@@ -32,10 +32,10 @@ const Intro: FC = () => {
 				<HeaderContainer shadow={shadowed}>
 					<LeftHeaderTextContainer>
 						<Links href='#projectSection'>
-							<CTA>WORK</CTA>
+							<CTAText>WORK</CTAText>
 						</Links>
 						<Links href='#experienceSection'>
-							<CTA type={'left'}>Experience</CTA>
+							<CTAText type={'left'}>Experience</CTAText>
 						</Links>
 					</LeftHeaderTextContainer>
 					<Links href='#'>
@@ -46,7 +46,7 @@ const Intro: FC = () => {
 							<CTA type={'right'}>XXXXXXXXXX</CTA>
 						</Links>
 						<Links href='#contactSection'>
-							<CTA>Contact</CTA>
+							<CTAText>Contact</CTAText>
 						</Links>
 					</RightHeaderTextContainer>
 				</HeaderContainer>
@@ -78,10 +78,7 @@ const Intro: FC = () => {
 						</MobileMenuItem>
 					</MobileMenuItemsContainer>
 				</MobileMenu>
-				<MobileHeaderContainer
-					shadow={shadowed}
-					toggled={isOpen.toString()}
-				>
+				<MobileHeaderContainer shadow={shadowed} toggled={isOpen.toString()}>
 					<BurgerIcon>
 						<Hamburger
 							toggled={isOpen}
@@ -91,10 +88,7 @@ const Intro: FC = () => {
 					</BurgerIcon>
 					<MobileLogo>
 						<Links href='#'>
-							<BigTitle
-								className='title-glow'
-								toggled={isOpen.toString()}
-							>
+							<BigTitle className='title-glow' toggled={isOpen.toString()}>
 								DPR
 							</BigTitle>
 						</Links>
@@ -102,9 +96,7 @@ const Intro: FC = () => {
 				</MobileHeaderContainer>
 				<TextArea>
 					<IntroContainer>Hi, I'm David</IntroContainer>
-					<IntroNextContainer>
-						FullStack Web Developer
-					</IntroNextContainer>
+					<IntroNextContainer>FullStack Web Developer</IntroNextContainer>
 					<br />
 					<br />
 					<UserCard />
@@ -229,7 +221,38 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
 		color: #8c56d2;
 	}
 	h1 {
-		color: ${(props) => (props.shadow === 'yes' ? '#8c56d2' : '#fff')};
+		color: ${(props) => (props.shadow === 'yes' ? '#bead8e' : '#fff')};
+		transition: 0.3s;
+	}
+	h1:hover {
+		scale: 1.04;
+	}
+	span {
+		color: ${(props) => (props.shadow === 'yes' ? '#bead8e' : '#fff')};
+		transition: 0.3s;
+		display: inline-block;
+		padding: 5px 10px;
+		position: relative;
+	}
+	span:hover {
+		color: #bead8e;
+	}
+	span:after {
+		background: none repeat scroll 0 0 transparent;
+		bottom: 0;
+		content: '';
+		display: block;
+		height: 2px;
+		left: 50%;
+		position: absolute;
+		background: #bead8e;
+		transition: width 0.3s ease 0s, left 0.3s ease 0s;
+		width: 0;
+	}
+	span:hover:after {
+		width: 100%;
+		background: #bead8e;
+		left: 0;
 	}
 	button:hover {
 		background-color: ${(props) =>
@@ -255,13 +278,11 @@ const HeaderContainer = styled.header<HeaderContainerProps>`
 		button {
 			background-color: ${(props) =>
 				props.shadow === 'yes' ? '#8c56d2' : 'transparent'};
-			color: ${(props) =>
-				props.shadow === 'yes' ? '#373737' : '#8c56d2'};
+			color: ${(props) => (props.shadow === 'yes' ? '#373737' : '#8c56d2')};
 			:hover {
 				background-color: ${(props) =>
 					props.shadow === 'yes' ? '#8c56d2' : 'transparent'};
-				color: ${(props) =>
-					props.shadow === 'yes' ? '#373737' : '#8c56d2'};
+				color: ${(props) => (props.shadow === 'yes' ? '#373737' : '#8c56d2')};
 			}
 		}
 	}
