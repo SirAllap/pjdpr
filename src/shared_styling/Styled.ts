@@ -103,6 +103,19 @@ export const CTA = styled.button<CTAProps>`
 	}
 `
 
+export const CTAText = styled.span<CTAProps>`
+	padding-left: ${(props) => (props.type === 'left' ? '25px' : null)};
+	color: white;
+	@media (max-width: 900px) {
+		font-size: 1rem;
+		margin-top: ${(props) => (props.type === 'left' ? '5px' : null)};
+		display: ${(props) => (props.type === 'right' ? 'none' : null)};
+	}
+	@media (max-width: 600px) {
+		font-size: 1rem;
+	}
+`
+
 export const IntroSection = styled.div`
 	height: 150px;
 	width: 90%;
