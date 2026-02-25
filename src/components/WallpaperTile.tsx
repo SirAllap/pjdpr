@@ -12,21 +12,23 @@ export interface Wallpaper {
   image: string | null  // null = no wallpaper
 }
 
+const LW = 'https://raw.githubusercontent.com/whoisYoges/lwalpapers/PicturesOnly/wallpapers'
+
 export const WALLPAPERS: Wallpaper[] = [
-  { label: 'void',        image: null },
-  // tokyo-night
-  { label: 'purple girl', image: '/images/purple-girl.webp' },
-  { label: 'anime girl',  image: '/images/cat_anime-girl.webp' },
-  { label: 'shiny pur',   image: '/images/shiny_purple.webp' },
-  { label: 'pixel city',  image: '/images/pixel_big_city.webp' },
-  // nord
-  { label: 'cool rocks',  image: '/images/cool_rocks.webp' },
-  { label: "let's go",    image: '/images/lets_go_home.webp' },
-  { label: 'gradient',    image: '/images/gradient-pb.webp' },
-  // solarized
-  { label: 'pastel win',  image: '/images/pastel-window.webp' },
-  { label: 'kyoto',       image: '/images/yellow_kyoto.webp' },
-  { label: 'colorful',    image: '/images/ign_colorful.webp' },
+  { label: 'void',   image: null },
+  { label: 'b-015',  image: `${LW}/b-015.jpg` },
+  { label: 'b-060',  image: `${LW}/b-060.jpg` },
+  { label: 'b-120',  image: `${LW}/b-120.jpg` },
+  { label: 'b-180',  image: `${LW}/b-180.jpg` },
+  { label: 'b-240',  image: `${LW}/b-240.jpg` },
+  { label: 'b-300',  image: `${LW}/b-300.jpg` },
+  { label: 'b-380',  image: `${LW}/b-380.jpg` },
+  { label: 'b-450',  image: `${LW}/b-450.jpg` },
+  { label: 'b-520',  image: `${LW}/b-520.jpg` },
+  { label: 'b-600',  image: `${LW}/b-600.jpg` },
+  { label: 'b-680',  image: `${LW}/b-680.jpg` },
+  { label: 'b-760',  image: `${LW}/b-760.jpg` },
+  { label: 'b-840',  image: `${LW}/b-840.jpg` },
 ]
 
 const WallpaperTile: FC<WallpaperTileProps> = ({
