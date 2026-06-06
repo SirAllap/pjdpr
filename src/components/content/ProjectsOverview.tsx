@@ -17,21 +17,35 @@ const ProjectsOverview: FC<ProjectsOverviewProps> = ({ onSelectProject }) => {
       <hr className="section-divider" />
 
       <div className="projects-grid">
-        {projects.map((p) => (
-          <div
-            key={p.id}
-            className="proj-card"
-            onClick={() => onSelectProject(p.id)}
-          >
-            <div className="proj-card-title">{p.title}</div>
-            <div className="proj-card-desc">{p.description}</div>
-            <div className="proj-card-tech">
-              {p.tech.slice(0, 5).map((t) => (
-                <span key={t.name} className="proj-card-tag">{t.name}</span>
-              ))}
-            </div>
-          </div>
-        ))}
+        {projects.map((p) => {
+          const badge = p.liveUrl ? 'live ↗' : p.isPrivate ? 'private' : 'repo'
+          return (
+            <button
+              key={p.id}
+              className="proj-card"
+              onClick={() => onSelectProject(p.id)}
+            >
+              <div className="proj-card-media">
+                <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" />
+                <span className={`proj-card-badge${p.liveUrl ? '' : ' muted'}`}>
+                  {badge}
+                </span>
+              </div>
+              <div className="proj-card-body">
+                <div className="proj-card-title">{p.title}</div>
+                <div className="proj-card-desc">{p.description}</div>
+                <div className="proj-card-tech">
+                  {p.tech.slice(0, 4).map((t) => (
+                    <span key={t.name} className="proj-card-tag">{t.name}</span>
+                  ))}
+                  {p.tech.length > 4 && (
+                    <span className="proj-card-tag more">+{p.tech.length - 4}</span>
+                  )}
+                </div>
+              </div>
+            </button>
+          )
+        })}
       </div>
     </div>
   )

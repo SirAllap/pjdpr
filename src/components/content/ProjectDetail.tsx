@@ -7,7 +7,7 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack }) => {
-  const { title, description, liveUrl, githubUrl, isPrivate, tech } = project
+  const { title, description, liveUrl, githubUrl, isPrivate, tech, image } = project
 
   return (
     <div className="project-detail fade-in">
@@ -24,6 +24,10 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack }) => {
         </button>
       </div>
       <hr className="section-divider" />
+
+      <div className="project-image-wrap">
+        <img src={image} alt={`${title} screenshot`} loading="lazy" />
+      </div>
 
       <p className="project-desc">{description}</p>
 
