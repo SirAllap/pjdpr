@@ -26,8 +26,6 @@ import npm         from '../assets/technologies/npm.png'
 import vscode      from '../assets/technologies/vscode.png'
 import vue         from '../assets/technologies/vue.png'
 import mui         from '../assets/technologies/mui.png'
-import next        from '../assets/technologies/next.png'
-import firebase    from '../assets/technologies/firebase.png'
 import reactRouter from '../assets/technologies/react_router.png'
 import tailwind    from '../assets/technologies/tailwind.png'
 import calendly    from '../assets/technologies/calendly.png'
@@ -36,7 +34,7 @@ import emailjs     from '../assets/technologies/emailjs.png'
 // ─── Types ────────────────────────────────────────────────────────────────────
 export interface Tech {
   name: string
-  icon: string
+  icon?: string
 }
 
 export interface Project {
@@ -101,10 +99,10 @@ export const personal = {
 export const projects: Project[] = [
   {
     id: 'alavera',
-    title: 'Alavera',
-    tagline: 'Tactical browser card game',
+    title: 'Alavera TCG',
+    tagline: 'Real-time multiplayer trading card game',
     description:
-      'My most ambitious project and current main focus: a tactical, browser-based card game. Deploy 7 cards across a 5×5 battlefield, compare stats edge-to-edge, and capture what you beat. 131 cards spanning 12 factions and 4 tiers, with original illustrations by artist Armiche Lora — free to play in the browser. Built with Next.js, TypeScript and Firebase.',
+      'My most ambitious project: a production-grade, real-time multiplayer trading card game. A pure-Python game engine (zero framework coupling) drives a two-phase attack/defense battle system over WebSockets via Django Channels + Daphne, with Redis-backed matchmaking and presence and pluggable AI opponents — exposed through a Django 5 / DRF API and a React 19 + TypeScript SPA. Roughly 140K LOC across 13 domain modules and 86 models, secured with JWT (HttpOnly) + TOTP 2FA, and shipped on a containerized, observable stack: Docker, nginx load-balancing 3× WebSocket workers, PostgreSQL + pgBouncer, Celery, and Prometheus / Grafana / Loki — with 226 test suites in CI.',
     image: alaveraHero,
     gallery: [alaveraHero, alaveraApp],
     liveUrl: null,
@@ -112,12 +110,18 @@ export const projects: Project[] = [
     isPrivate: true,
     featured: true,
     tech: [
-      { name: 'Next.js', icon: next },
-      { name: 'TypeScript', icon: ts },
-      { name: 'React', icon: react },
-      { name: 'Firebase', icon: firebase },
-      { name: 'Node', icon: node },
-      { name: 'npm', icon: npm },
+      { name: 'Django 5' },
+      { name: 'DRF' },
+      { name: 'Django Channels' },
+      { name: 'Python' },
+      { name: 'WebSockets' },
+      { name: 'React 19' },
+      { name: 'TypeScript' },
+      { name: 'PostgreSQL' },
+      { name: 'Redis' },
+      { name: 'Celery' },
+      { name: 'Docker' },
+      { name: 'Tailwind' },
     ],
   },
   {
