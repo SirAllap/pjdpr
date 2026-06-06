@@ -1383,22 +1383,95 @@ a:hover { color: var(--link-hover); }
   text-align: justify;
 }
 
-/* ─── Contact ─────────────────────────────────────────── */
-.contact-message {
-  font-size: 0.84rem;
+/* ─── Contact — concise channel cards ─────────────────── */
+.contact-lead {
+  font-size: 0.86rem;
   color: var(--text-dim);
-  line-height: 1.80;
-  text-align: justify;
-  margin-bottom: 22px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  max-width: 54ch;
 }
-.contact-info-list { list-style:none; display:flex; flex-direction:column; gap:9px; margin-bottom:22px; }
-.contact-info-item { display:flex; align-items:baseline; gap:10px; font-size:0.78rem; }
-.contact-info-key  { color:var(--gold); min-width:76px; flex-shrink:0; font-size:0.72rem; }
-.contact-info-key::before { content:'> '; color:var(--text-muted); }
-.contact-info-val  { color:var(--text-dim); }
-.contact-info-val a { color:var(--text-dim); }
-.contact-info-val a:hover { color:var(--gold); }
-.cv-row { display:flex; gap:10px; flex-wrap:wrap; }
+
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 460px;
+}
+
+.contact-channel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--tile-border);
+  background: rgba(var(--surface-rgb), 0.4);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.contact-channel:hover {
+  border-color: rgba(var(--accent-rgb), 0.5);
+  background: rgba(var(--surface-rgb), 0.65);
+}
+a.contact-channel:hover { transform: translateX(3px); }
+
+.cc-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: var(--radius-xs);
+  background: rgba(var(--accent-rgb), 0.12);
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.cc-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--mono);
+  padding: 0;
+  color: inherit;
+}
+.cc-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.cc-value {
+  font-size: 0.8rem;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.contact-channel:hover .cc-value { color: var(--accent); }
+
+.cc-copy {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--tile-border);
+  border-radius: var(--radius-xs);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.cc-copy:hover { color: var(--accent); border-color: rgba(var(--accent-rgb), 0.5); background: rgba(var(--accent-rgb), 0.08); }
+.cc-copy.copied { color: var(--green); border-color: var(--green); }
+
+.cc-ext { color: var(--text-muted); flex-shrink: 0; font-size: 0.8rem; }
+a.contact-channel:hover .cc-ext { color: var(--accent); }
 
 /* ═══════════════════════════════════════════════════════
    ANIMATIONS
@@ -1819,12 +1892,8 @@ button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
   /* Comfortable reading sizes on small screens */
   .about-intro   { font-size: 0.84rem; line-height: 1.75; }
   .section-title { font-size: 1.45rem; }
-  .contact-message { font-size: 0.86rem; }
-
-  /* Stack contact rows for larger tap targets */
-  .contact-info-item { flex-direction: column; align-items: flex-start; gap: 3px; }
-  .contact-info-key  { min-width: 0; }
-  .contact-info-val  { font-size: 0.84rem; }
+  .contact-lead  { font-size: 0.84rem; }
+  .contact-channels { max-width: none; }
 
   /* Tighten the timeline rail on phones */
   .exp-log { padding-left: 28px; }
