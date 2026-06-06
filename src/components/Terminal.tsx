@@ -48,6 +48,25 @@ const ARG_OPTIONS: Record<string, string[]> = {
   man: COMMANDS,
 }
 
+// Returns the full suggested input string for the current text, or '' if none.
+// Commands get a trailing space; argument completions don't.
+function complete(input: string): string {
+  if (!input || /\s$/.test(input)) return ''
+  const parts = input.split(/\s+/)
+  if (parts.length <= 1) {
+    const m = COMMANDS.find((c) => c !== parts[0] && c.startsWith(parts[0]))
+    return m ? m + ' ' : ''
+  }
+  const cmd = parts[0].toLowerCase()
+  const opts = cmd === 'open'
+    ? ['github', 'linkedin', 'cv', 'email', ...projects.map((p) => p.id)]
+    : ARG_OPTIONS[cmd] ?? []
+  const partial = parts[parts.length - 1]
+  if (!partial) return ''
+  const m = opts.find((o) => o !== partial && o.startsWith(partial))
+  return m ? [...parts.slice(0, -1), m].join(' ') : ''
+}
+
 const HELP: string[] = [
   'available commands:',
   '  help              show this help',
@@ -163,6 +182,17 @@ const Terminal: FC<TerminalProps> = ({ open, onClose, actions }) => {
     }
   }
 
+  // Inline (fish-style) autocomplete suggestion
+  const suggestion = complete(input)
+  const ghost = suggestion.startsWith(input) ? suggestion.slice(input.length) : ''
+  const acceptSuggestion = () => {
+    if (!ghost) return
+    setInput(suggestion)
+    requestAnimationFrame(() => {
+      inputRef.current?.setSelectionRange(suggestion.length, suggestion.length)
+    })
+  }
+
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') { run(input); setInput('') }
     else if (e.key === 'ArrowUp') {
@@ -180,18 +210,11 @@ const Terminal: FC<TerminalProps> = ({ open, onClose, actions }) => {
       }
     } else if (e.key === 'Tab') {
       e.preventDefault()
-      const parts = input.split(/\s+/)
-      if (parts.length <= 1) {
-        const m = COMMANDS.filter((c) => c.startsWith(parts[0]))
-        if (m.length === 1) setInput(m[0] + ' ')
-      } else {
-        const opts = parts[0].toLowerCase() === 'open'
-          ? ['github', 'linkedin', 'cv', 'email', ...projects.map((p) => p.id)]
-          : ARG_OPTIONS[parts[0].toLowerCase()] ?? []
-        const partial = parts[parts.length - 1]
-        const m = opts.filter((o) => o.startsWith(partial))
-        if (m.length === 1) setInput(parts[0] + ' ' + m[0])
-      }
+      acceptSuggestion()
+    } else if (e.key === 'ArrowRight') {
+      const el = inputRef.current
+      const atEnd = el && el.selectionStart === input.length && el.selectionEnd === input.length
+      if (ghost && atEnd) { e.preventDefault(); acceptSuggestion() }
     } else if (e.key === 'Escape') { onClose() }
   }
 
@@ -214,16 +237,24 @@ const Terminal: FC<TerminalProps> = ({ open, onClose, actions }) => {
           ))}
           <div className="term-inputline">
             <span className="term-prompt">❯</span>
-            <input
-              ref={inputRef}
-              className="term-input"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={onKeyDown}
-              spellCheck={false}
-              autoComplete="off"
-              aria-label="Terminal command input"
-            />
+            <span className="term-input-wrap">
+              <input
+                ref={inputRef}
+                className="term-input"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={onKeyDown}
+                spellCheck={false}
+                autoComplete="off"
+                aria-label="Terminal command input"
+              />
+              {ghost && (
+                <span className="term-ghost" aria-hidden="true">
+                  <span className="gh-typed">{input}</span>{ghost}
+                  <span className="gh-key">↹ tab</span>
+                </span>
+              )}
+            </span>
           </div>
         </div>
       </div>
