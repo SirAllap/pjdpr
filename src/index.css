@@ -1091,55 +1091,133 @@ a:hover { color: var(--link-hover); }
   background: rgba(var(--surface-rgb), 0.35);
 }
 
-/* ─── Experience ─────────────────────────────────────── */
-.vertical-timeline::before {
-  background: rgba(var(--accent-rgb), 0.20) !important;
-  width: 2px !important;
+/* ─── Experience — git-log style timeline ─────────────── */
+.exp-log {
+  list-style: none;
+  position: relative;
+  margin: 4px 0 0;
+  padding-left: 32px;
 }
-.vertical-timeline-element-content {
-  background: var(--surface) !important;
-  border: 1px solid var(--tile-border) !important;
-  border-radius: var(--radius-sm) !important;
-  box-shadow: none !important;
-  color: var(--text) !important;
-  padding: 14px 16px !important;
-}
-.vertical-timeline-element-content-arrow {
-  border-right-color: var(--tile-border) !important;
-}
-.vertical-timeline-element-date {
-  color: var(--text-muted) !important;
-  font-size: 0.68rem !important;
-  font-family: var(--mono) !important;
-}
-.exp-entry-title    { font-size:0.88rem !important; color:var(--text) !important; font-weight:600 !important; margin-bottom:4px !important; }
-.exp-entry-mark     { color: var(--gold); }
-.exp-entry-company  { font-size:0.76rem; color:var(--accent); margin-bottom:2px; }
-.exp-entry-location { font-size:0.68rem !important; color:var(--text-muted) !important; font-family:var(--mono) !important; margin-bottom:9px !important; }
-.exp-entry-desc     { font-size:0.76rem !important; color:var(--text-dim) !important; line-height:1.65 !important; text-align:justify !important; }
-.exp-current-badge  {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 0.65rem;
-  color: var(--gold);
-  border: 1px solid rgba(var(--gold-rgb), 0.45);
-  border-radius: var(--radius-xs);
-  padding: 1px 7px;
+.exp-log::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--accent-rgb), 0.45),
+    rgba(var(--accent-rgb), 0.10)
+  );
 }
 
-/* Theme-aware timeline icons (override library + inline) */
-.exp-icon-current {
-  background: var(--gold) !important;
-  box-shadow: 0 0 0 3px rgba(var(--gold-rgb), 0.30) !important;
-  color: var(--accent-fg) !important;
+.exp-item { position: relative; margin-bottom: 16px; }
+.exp-item:last-child { margin-bottom: 0; }
+
+.exp-node {
+  position: absolute;
+  left: -32px;
+  top: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  z-index: 1;
 }
-.exp-icon-past {
-  background: var(--accent) !important;
-  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.30) !important;
-  color: var(--accent-fg) !important;
+.exp-node svg { width: 0.72rem; height: 0.72rem; }
+.exp-item.current .exp-node {
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(var(--gold-rgb), 0.16);
 }
-.exp-icon-current svg,
-.exp-icon-past svg { fill: var(--accent-fg) !important; }
+
+.exp-card {
+  border: 1px solid var(--tile-border);
+  background: rgba(var(--surface-rgb), 0.5);
+  border-radius: var(--radius-sm);
+  padding: 13px 15px;
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+.exp-card:hover {
+  border-color: rgba(var(--accent-rgb), 0.45);
+  background: rgba(var(--surface-rgb), 0.72);
+  transform: translateX(3px);
+}
+.exp-item.current .exp-card {
+  border-color: rgba(var(--gold-rgb), 0.40);
+  background: rgba(var(--gold-rgb), 0.06);
+}
+
+.exp-card-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 8px;
+}
+.exp-date {
+  font-size: 0.62rem;
+  font-family: var(--mono);
+  color: var(--text-muted);
+  border: 1px solid var(--tile-border);
+  border-radius: var(--radius-xs);
+  padding: 1px 7px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.exp-now {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.exp-role {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-bright, var(--text));
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+
+.exp-org {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 9px;
+  font-size: 0.72rem;
+}
+.exp-company { color: var(--accent); font-weight: 600; }
+.exp-company:hover { color: var(--link-hover); }
+.exp-dot-sep { color: var(--text-muted); }
+.exp-place { color: var(--text-dim); }
+.exp-mode {
+  font-size: 0.6rem;
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--tile-border);
+  background: rgba(var(--surface-rgb), 0.6);
+  color: var(--text-dim);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.exp-mode.remote { color: var(--info);   border-color: var(--info); }
+.exp-mode.onsite { color: var(--orange); border-color: var(--orange); }
+
+.exp-desc {
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  text-align: justify;
+}
 
 /* ─── Contact ─────────────────────────────────────────── */
 .contact-message {
@@ -1573,6 +1651,7 @@ button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
   .contact-info-key  { min-width: 0; }
   .contact-info-val  { font-size: 0.84rem; }
 
-  /* Timeline breathes a little better on phones */
-  .vertical-timeline { padding: 0.5em 0 !important; }
+  /* Tighten the timeline rail on phones */
+  .exp-log { padding-left: 28px; }
+  .exp-node { left: -28px; }
 }
