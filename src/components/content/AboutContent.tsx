@@ -25,31 +25,6 @@ const TECH_GRID: TechEntry[] = [
 const AboutContent: FC = () => {
   return (
     <div className="about-content fade-in">
-      {/* ── Mobile neofetch header (hidden on desktop) ── */}
-      <div className="mobile-neo-header">
-        <div className="mobile-neo-logo">DPR</div>
-        <div className="mobile-neo-info">
-          <div className="mobile-neo-user">
-            <span className="neo-user">david</span>
-            <span className="neo-at">@</span>
-            <span className="neo-host">DPR</span>
-          </div>
-          <div className="mobile-neo-sep">──────────────────</div>
-          <div className="mobile-neo-row">
-            <span className="neo-key">github</span>
-            <span className="neo-val">{personal.contact.githubHandle}</span>
-          </div>
-          <div className="mobile-neo-row">
-            <span className="neo-key">linkedin</span>
-            <span className="neo-val">{personal.contact.linkedinHandle}</span>
-          </div>
-          <div className="mobile-neo-row">
-            <span className="neo-key">location</span>
-            <span className="neo-val">Seville, ES</span>
-          </div>
-        </div>
-      </div>
-
       <div className="section-cmd">
         <span className="section-cmd-prompt">$</span>
         <span className="section-cmd-text">cat ~/DPR/about.md</span>

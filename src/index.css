@@ -180,9 +180,15 @@ html, body, #root {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: var(--bg);
   transition: background-color 0.35s ease, color 0.35s ease;
 }
+
+/* Base colour lives on <html> only; body/#root stay transparent so the
+   fixed wallpaper layer (z-index:-2) is never covered by an opaque
+   ancestor background — this is what kept the wallpaper from showing,
+   especially on mobile where .app-shell is position:static. */
+html { background-color: var(--bg); }
+body, #root { background-color: transparent; }
 
 /* ── Wallpaper background image ──────────────────────── */
 .wallpaper-bg {
@@ -1375,49 +1381,6 @@ button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
 }
 
 /* ═══════════════════════════════════════════════════════
-   MOBILE-ONLY COMPONENTS (hidden on desktop)
-═══════════════════════════════════════════════════════ */
-.mobile-neo-header { display: none; }
-
-.mobile-neo-logo {
-  flex-shrink: 0;
-  border: 1px solid rgba(var(--accent-rgb), 0.55);
-  padding: 10px 12px;
-  font-size: 1.55rem;
-  font-weight: 900;
-  color: var(--accent);
-  letter-spacing: 0.02em;
-  background: rgba(var(--surface-rgb), 0.45);
-  font-family: var(--mono);
-  line-height: 1;
-  min-width: 70px;
-  text-align: center;
-}
-
-.mobile-neo-info { flex: 1; min-width: 0; }
-
-.mobile-neo-user {
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin-bottom: 3px;
-}
-
-.mobile-neo-sep {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  margin-bottom: 6px;
-  letter-spacing: 0.04em;
-}
-
-.mobile-neo-row {
-  font-size: 0.70rem;
-  color: var(--text-dim);
-  margin-bottom: 2px;
-  display: flex;
-  gap: 6px;
-}
-
-/* ═══════════════════════════════════════════════════════
    LARGE SCREENS (≥ 1440px)
 ═══════════════════════════════════════════════════════ */
 @media (min-width: 1440px) {
@@ -1558,8 +1521,16 @@ button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
     flex: none;
   }
 
-  /* Appearance controls now live in the settings drawer (gear icon) */
-  .left-col { display: none; }
+  /* Show the real neofetch panel at the top; controls live in the drawer,
+     section nav lives in the polybar — so hide the nav + control tiles. */
+  .left-col { display: flex; width: 100%; height: auto; }
+  .neofetch-tile { height: auto; }
+  .bottom-row { display: none; }
+
+  /* Stack the neofetch as a banner: ASCII art on top, info below */
+  .neofetch-layout { flex-direction: column; align-items: center; gap: 14px; }
+  .neofetch-ascii  { font-size: clamp(0.5rem, 3.2cqw, 0.85rem); text-align: center; }
+  .neofetch-info   { width: 100%; }
 
   .right-col {
     width: 100%;
@@ -1585,19 +1556,9 @@ button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
     overflow-wrap: anywhere;
   }
 
-  /* Show mobile neofetch header inside About section */
-  .mobile-neo-header {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--tile-border);
-  }
-
-  /* Hide photo (mobile neofetch header replaces it visually) */
-  .about-photo-wrap { display: none; }
+  /* About: stack bio, then a centred portrait */
   .about-layout { display: block; }
+  .about-photo-wrap { width: 100%; max-width: 220px; margin: 20px auto 0; }
 
   .projects-grid { grid-template-columns: 1fr; }
   .tech-grid     { grid-template-columns: repeat(3, 1fr); }
@@ -1614,10 +1575,4 @@ button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
 
   /* Timeline breathes a little better on phones */
   .vertical-timeline { padding: 0.5em 0 !important; }
-}
-
-/* Very narrow phones: stack the mobile neofetch header */
-@media (max-width: 420px) {
-  .mobile-neo-header { flex-direction: column; gap: 10px; align-items: stretch; }
-  .mobile-neo-logo { width: 100%; min-width: 0; font-size: 1.3rem; }
 }
