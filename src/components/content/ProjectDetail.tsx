@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Project, projects } from '../../data/portfolio'
 import { track } from '../../lib/analytics'
+import { useGithubStats, relativeTime } from '../../lib/useGithubStats'
 
 interface ProjectDetailProps {
   project: Project
@@ -12,6 +13,7 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack, onSelectProjec
   const idx = projects.findIndex((p) => p.id === project.id)
   const prev = projects[idx - 1]
   const next = projects[idx + 1]
+  const stats = useGithubStats(project.githubUrl)
   const { title, description, liveUrl, githubUrl, isPrivate, tech, image, gallery, featured, tagline } = project
 
   return (
@@ -48,6 +50,14 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack, onSelectProjec
       )}
 
       <p className="project-desc">{description}</p>
+
+      {stats && (stats.stars > 0 || stats.language || stats.pushedAt) && (
+        <div className="project-ghstats">
+          {stats.language && <span className="proj-lang"><i className="lang-dot" />{stats.language}</span>}
+          {stats.stars > 0 && <span>★ {stats.stars} stars</span>}
+          {stats.pushedAt && <span>updated {relativeTime(stats.pushedAt)}</span>}
+        </div>
+      )}
 
       <p className="project-tech-label">Tech stack</p>
       <div className="project-tech-row">

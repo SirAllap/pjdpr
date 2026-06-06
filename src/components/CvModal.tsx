@@ -1,5 +1,7 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import { personal, experience, projects } from '../data/portfolio'
+import { downloadCv } from '../lib/generateCv'
+import { useFocusTrap } from '../lib/useFocusTrap'
 
 interface CvModalProps {
   open: boolean
@@ -11,30 +13,39 @@ const education = experience.filter((e) => e.type === 'education')
 const featuredProjects = projects.filter((p) => p.featured || p.githubUrl || p.liveUrl).slice(0, 5)
 
 const CvModal: FC<CvModalProps> = ({ open, onClose }) => {
+  const shellRef = useRef<HTMLDivElement>(null)
+  const [busy, setBusy] = useState(false)
+  useFocusTrap(shellRef, open)
+
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', onKey)
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
-    document.body.classList.add('cv-open')
     return () => {
       window.removeEventListener('keydown', onKey)
       document.body.style.overflow = prev
-      document.body.classList.remove('cv-open')
     }
   }, [open, onClose])
+
+  const handleDownload = async () => {
+    setBusy(true)
+    try { await downloadCv() } finally { setBusy(false) }
+  }
 
   const { contact } = personal
 
   return (
     <div className={`cv-overlay${open ? ' open' : ''}`} role="dialog" aria-modal="true" aria-label="Résumé" aria-hidden={!open}>
       <div className="cv-backdrop" onClick={onClose} />
-      <div className="cv-shell">
+      <div className="cv-shell" ref={shellRef} tabIndex={-1}>
         <div className="cv-toolbar">
           <span className="cv-toolbar-name">~/DPR/resume.pdf</span>
           <div className="cv-toolbar-actions">
-            <button className="cv-btn" onClick={() => window.print()}>↓ download / print</button>
+            <button className="cv-btn" onClick={handleDownload} disabled={busy}>
+              {busy ? 'generating…' : '↓ download PDF'}
+            </button>
             <button className="cv-btn cv-btn-close" onClick={onClose} aria-label="Close résumé">✕</button>
           </div>
         </div>

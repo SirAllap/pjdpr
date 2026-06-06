@@ -1,5 +1,6 @@
 import { FC, useMemo, useState } from 'react'
 import { projects, Project } from '../../data/portfolio'
+import { useGithubStats } from '../../lib/useGithubStats'
 
 interface ProjectsOverviewProps {
   onSelectProject: (id: string) => void
@@ -8,26 +9,35 @@ interface ProjectsOverviewProps {
 const badgeFor = (p: Project) =>
   p.liveUrl ? 'live ↗' : p.isPrivate ? 'private' : 'repo'
 
-const ProjectCard: FC<{ p: Project; onSelect: (id: string) => void }> = ({ p, onSelect }) => (
-  <button className="proj-card" onClick={() => onSelect(p.id)}>
-    <div className="proj-card-media">
-      <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" />
-      <span className={`proj-card-badge${p.liveUrl ? '' : ' muted'}`}>{badgeFor(p)}</span>
-    </div>
-    <div className="proj-card-body">
-      <div className="proj-card-title">{p.title}</div>
-      <div className="proj-card-desc">{p.description}</div>
-      <div className="proj-card-tech">
-        {p.tech.slice(0, 4).map((t) => (
-          <span key={t.name} className="proj-card-tag">{t.name}</span>
-        ))}
-        {p.tech.length > 4 && (
-          <span className="proj-card-tag more">+{p.tech.length - 4}</span>
+const ProjectCard: FC<{ p: Project; onSelect: (id: string) => void }> = ({ p, onSelect }) => {
+  const stats = useGithubStats(p.githubUrl)
+  return (
+    <button className="proj-card" onClick={() => onSelect(p.id)}>
+      <div className="proj-card-media">
+        <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" />
+        <span className={`proj-card-badge${p.liveUrl ? '' : ' muted'}`}>{badgeFor(p)}</span>
+      </div>
+      <div className="proj-card-body">
+        <div className="proj-card-title">{p.title}</div>
+        <div className="proj-card-desc">{p.description}</div>
+        <div className="proj-card-tech">
+          {p.tech.slice(0, 4).map((t) => (
+            <span key={t.name} className="proj-card-tag">{t.name}</span>
+          ))}
+          {p.tech.length > 4 && (
+            <span className="proj-card-tag more">+{p.tech.length - 4}</span>
+          )}
+        </div>
+        {stats && (stats.stars > 0 || stats.language) && (
+          <div className="proj-card-stats">
+            {stats.language && <span className="proj-lang"><i className="lang-dot" />{stats.language}</span>}
+            {stats.stars > 0 && <span className="proj-stars">★ {stats.stars}</span>}
+          </div>
         )}
       </div>
-    </div>
-  </button>
-)
+    </button>
+  )
+}
 
 const ProjectsOverview: FC<ProjectsOverviewProps> = ({ onSelectProject }) => {
   const [filter, setFilter] = useState<string | null>(null)

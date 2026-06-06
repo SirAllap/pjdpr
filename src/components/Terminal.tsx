@@ -1,6 +1,7 @@
 import { FC, KeyboardEvent, useEffect, useRef, useState } from 'react'
 import { personal, projects } from '../data/portfolio'
 import { Theme } from './ThemeTile'
+import { useFocusTrap } from '../lib/useFocusTrap'
 
 type Section = 'about' | 'projects' | 'experience' | 'contact'
 
@@ -9,6 +10,26 @@ interface TerminalActions {
   selectProject: (id: string) => void
   setTheme: (t: Theme) => void
   openCv: () => void
+  matrix: () => void
+}
+
+const REPO = 'https://github.com/SirAllap/pjdpr'
+
+const MAN: Record<string, string> = {
+  help: 'help — list available commands',
+  ls: 'ls [work] — list sections, or projects with `ls work`',
+  cat: 'cat <section> — open about | experience | work | contact',
+  open: 'open <target> — github | linkedin | cv | email | <project-id>',
+  theme: 'theme <dark|dim|light> — switch the colour theme',
+  whoami: 'whoami — a one-line bio',
+  neofetch: 'neofetch — system-info style summary',
+  history: 'history — show the commands you have run',
+  repo: 'repo — open the source code of this site',
+  matrix: 'matrix — there is no spoon',
+  date: 'date — current date & time',
+  echo: 'echo <text> — print text',
+  clear: 'clear — clear the screen',
+  exit: 'exit — close the terminal',
 }
 
 interface TerminalProps {
@@ -19,7 +40,13 @@ interface TerminalProps {
 
 interface Line { type: 'in' | 'out' | 'err'; text: string }
 
-const COMMANDS = ['help', 'ls', 'cat', 'open', 'theme', 'whoami', 'neofetch', 'date', 'echo', 'clear', 'exit']
+const COMMANDS = ['help', 'ls', 'cat', 'open', 'theme', 'whoami', 'neofetch', 'history', 'man', 'repo', 'matrix', 'pwd', 'date', 'echo', 'clear', 'exit']
+
+const ARG_OPTIONS: Record<string, string[]> = {
+  cat: ['about', 'experience', 'work', 'contact'],
+  theme: ['dark', 'dim', 'light'],
+  man: COMMANDS,
+}
 
 const HELP: string[] = [
   'available commands:',
@@ -38,13 +65,16 @@ const HELP: string[] = [
 
 const Terminal: FC<TerminalProps> = ({ open, onClose, actions }) => {
   const [lines, setLines] = useState<Line[]>([
-    { type: 'out', text: "welcome to dpr-sh — type 'help' to get started." },
+    { type: 'out', text: 'dpr-sh v1.0.0 — interactive portfolio shell' },
+    { type: 'out', text: "type 'help' for commands · 'cat about' to begin · ⌘/Ctrl-K for the palette" },
   ])
   const [input, setInput] = useState('')
   const [history, setHistory] = useState<string[]>([])
   const [histIdx, setHistIdx] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
+  const windowRef = useRef<HTMLDivElement>(null)
+  useFocusTrap(windowRef, open)
 
   useEffect(() => { if (open) setTimeout(() => inputRef.current?.focus(), 60) }, [open])
   useEffect(() => { bodyRef.current?.scrollTo({ top: bodyRef.current.scrollHeight }) }, [lines, open])
@@ -113,6 +143,16 @@ const Terminal: FC<TerminalProps> = ({ open, onClose, actions }) => {
           { type: 'out', text: 'os        GNU/Linux x86_64' },
         )
         break
+      case 'history':
+        print(...(history.length ? history.map((h, i) => ({ type: 'out' as const, text: `  ${i + 1}  ${h}` })) : [{ type: 'out' as const, text: '(empty)' }]))
+        break
+      case 'man':
+        print({ type: arg && MAN[arg] ? 'out' : 'err', text: MAN[arg] ?? `man: no entry for '${arg || '?'}'` })
+        break
+      case 'repo':
+      case 'source': window.open(REPO, '_blank', 'noopener'); print({ type: 'out', text: 'opening source…' }); break
+      case 'pwd': print({ type: 'out', text: '/home/david/DPR' }); break
+      case 'matrix': print({ type: 'out', text: 'there is no spoon…' }); actions.matrix(); break
       case 'date': print({ type: 'out', text: new Date().toString() }); break
       case 'echo': print({ type: 'out', text: arg }); break
       case 'sudo': print({ type: 'err', text: "nice try — you don't have permission for that 😏" }); break
@@ -140,15 +180,25 @@ const Terminal: FC<TerminalProps> = ({ open, onClose, actions }) => {
       }
     } else if (e.key === 'Tab') {
       e.preventDefault()
-      const m = COMMANDS.filter((c) => c.startsWith(input.trim()))
-      if (m.length === 1) setInput(m[0] + ' ')
+      const parts = input.split(/\s+/)
+      if (parts.length <= 1) {
+        const m = COMMANDS.filter((c) => c.startsWith(parts[0]))
+        if (m.length === 1) setInput(m[0] + ' ')
+      } else {
+        const opts = parts[0].toLowerCase() === 'open'
+          ? ['github', 'linkedin', 'cv', 'email', ...projects.map((p) => p.id)]
+          : ARG_OPTIONS[parts[0].toLowerCase()] ?? []
+        const partial = parts[parts.length - 1]
+        const m = opts.filter((o) => o.startsWith(partial))
+        if (m.length === 1) setInput(parts[0] + ' ' + m[0])
+      }
     } else if (e.key === 'Escape') { onClose() }
   }
 
   return (
     <div className={`term-overlay${open ? ' open' : ''}`} aria-hidden={!open}>
       <div className="term-backdrop" onClick={onClose} />
-      <div className="term-window" role="dialog" aria-modal="true" aria-label="Terminal">
+      <div className="term-window" role="dialog" aria-modal="true" aria-label="Terminal" ref={windowRef} tabIndex={-1}>
         <div className="term-titlebar">
           <span className="term-dots"><i /><i /><i /></span>
           <span className="term-title">david@DPR: ~</span>

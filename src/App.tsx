@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, lazy, Suspense, useEffect, useState } from 'react'
 import './App.css'
 import BlobBackground from './components/BlobBackground'
 import Polybar from './components/Polybar'
@@ -7,12 +7,17 @@ import NavigationTile from './components/NavigationTile'
 import ContentViewer from './components/ContentViewer'
 import ThemeTile, { Theme } from './components/ThemeTile'
 import AccentColorTile from './components/AccentColorTile'
-import WallpaperTile, { WALLPAPERS } from './components/WallpaperTile'
-import SettingsDrawer from './components/SettingsDrawer'
-import CvModal from './components/CvModal'
-import Terminal from './components/Terminal'
+import WallpaperTile from './components/WallpaperTile'
+import { WALLPAPERS } from './data/appearance'
 import ScrollTop from './components/ScrollTop'
 import { track } from './lib/analytics'
+
+// Overlays are loaded on first use to keep the initial bundle lean.
+const SettingsDrawer = lazy(() => import('./components/SettingsDrawer'))
+const CvModal = lazy(() => import('./components/CvModal'))
+const Terminal = lazy(() => import('./components/Terminal'))
+const CommandPalette = lazy(() => import('./components/CommandPalette'))
+const MatrixRain = lazy(() => import('./components/MatrixRain'))
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type Section  = 'about' | 'projects' | 'experience' | 'contact'
@@ -55,6 +60,10 @@ const App: FC = () => {
   const [settingsOpen, setSettingsOpen] = useState(false)
   const [cvOpen, setCvOpen] = useState(false)
   const [terminalOpen, setTerminalOpen] = useState(false)
+  const [paletteOpen, setPaletteOpen] = useState(false)
+  const [matrixOn, setMatrixOn] = useState(false)
+  // Mount overlays only after first use (keeps their chunks out of first load)
+  const [seen, setSeen] = useState({ settings: false, cv: false, term: false, palette: false })
 
   // ── apply theme class to <html> ───────────────────────────────────────────
   useEffect(() => {
@@ -84,17 +93,27 @@ const App: FC = () => {
 
   // ── open CV from anywhere (Contact / About dispatch this event) ────────────
   useEffect(() => {
-    const handler = () => { setCvOpen(true); track('cv_open') }
+    const handler = () => { setSeen((s) => ({ ...s, cv: true })); setCvOpen(true); track('cv_open') }
     window.addEventListener('pjdpr:open-cv', handler)
     return () => window.removeEventListener('pjdpr:open-cv', handler)
   }, [])
 
-  // ── keyboard: backtick toggles the terminal ───────────────────────────────
+  // ── global shortcuts: ` terminal · ⌘/Ctrl-K palette ───────────────────────
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault()
+        setSeen((s) => ({ ...s, palette: true }))
+        setPaletteOpen((v) => !v)
+        return
+      }
       const tag = (e.target as HTMLElement).tagName.toLowerCase()
       if (tag === 'input' || tag === 'textarea') return
-      if (e.key === '`') { e.preventDefault(); setTerminalOpen((v) => !v) }
+      if (e.key === '`') {
+        e.preventDefault()
+        setSeen((s) => ({ ...s, term: true }))
+        setTerminalOpen((v) => { const next = !v; if (next) track('terminal_open'); return next })
+      }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
@@ -132,8 +151,12 @@ const App: FC = () => {
     track('project_view', { id })
   }
 
-  const openCv = () => { setCvOpen(true); track('cv_open') }
-  const openTerminal = () => { setTerminalOpen((v) => !v); track('terminal_open') }
+  const openCv = () => { setSeen((s) => ({ ...s, cv: true })); setCvOpen(true); track('cv_open') }
+  const openSettings = () => { setSeen((s) => ({ ...s, settings: true })); setSettingsOpen(true) }
+  const openTerminal = () => {
+    setSeen((s) => ({ ...s, term: true }))
+    setTerminalOpen((v) => { const next = !v; if (next) track('terminal_open'); return next })
+  }
 
   const polybarSection: Section =
     activeItem.type === 'section'
@@ -158,7 +181,7 @@ const App: FC = () => {
       <Polybar
         activeSection={polybarSection}
         onNavigate={selectSection}
-        onOpenSettings={() => setSettingsOpen(true)}
+        onOpenSettings={openSettings}
         onOpenTerminal={openTerminal}
       />
 
@@ -216,29 +239,46 @@ const App: FC = () => {
         </div>
       </div>
 
-      <SettingsDrawer
-        open={settingsOpen}
-        onClose={() => setSettingsOpen(false)}
-        theme={theme}
-        onThemeChange={setTheme}
-        accent={accent}
-        onAccentChange={setAccent}
-        wallpaper={wallpaper}
-        onWallpaperChange={setWallpaper}
-      />
+      <Suspense fallback={null}>
+        {seen.settings && (
+          <SettingsDrawer
+            open={settingsOpen}
+            onClose={() => setSettingsOpen(false)}
+            theme={theme}
+            onThemeChange={setTheme}
+            accent={accent}
+            onAccentChange={setAccent}
+            wallpaper={wallpaper}
+            onWallpaperChange={setWallpaper}
+          />
+        )}
 
-      <CvModal open={cvOpen} onClose={() => setCvOpen(false)} />
+        {seen.cv && <CvModal open={cvOpen} onClose={() => setCvOpen(false)} />}
 
-      <Terminal
-        open={terminalOpen}
-        onClose={() => setTerminalOpen(false)}
-        actions={{
-          navigate: selectSection,
-          selectProject,
-          setTheme,
-          openCv,
-        }}
-      />
+        {seen.term && (
+          <Terminal
+            open={terminalOpen}
+            onClose={() => setTerminalOpen(false)}
+            actions={{
+              navigate: selectSection,
+              selectProject,
+              setTheme,
+              openCv,
+              matrix: () => { setMatrixOn(true); window.setTimeout(() => setMatrixOn(false), 6000) },
+            }}
+          />
+        )}
+
+        {seen.palette && (
+          <CommandPalette
+            open={paletteOpen}
+            onClose={() => setPaletteOpen(false)}
+            actions={{ navigate: selectSection, selectProject, setTheme, openCv, openTerminal }}
+          />
+        )}
+
+        {matrixOn && <MatrixRain onDone={() => setMatrixOn(false)} />}
+      </Suspense>
 
       <ScrollTop />
     </div>

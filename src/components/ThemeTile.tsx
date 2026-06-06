@@ -1,6 +1,7 @@
 import { FC } from 'react'
+import { Theme, THEMES } from '../data/appearance'
 
-export type Theme = 'dark' | 'dim' | 'light'
+export type { Theme } from '../data/appearance'
 
 interface ThemeTileProps {
   focused: boolean
@@ -8,12 +9,6 @@ interface ThemeTileProps {
   theme: Theme
   onThemeChange: (t: Theme) => void
 }
-
-export const THEMES: { icon: string; label: string; value: Theme }[] = [
-  { icon: '☀️', label: 'light', value: 'light' },
-  { icon: '❄️', label: 'dim',   value: 'dim'   },
-  { icon: '🌙', label: 'dark',  value: 'dark'  },
-]
 
 const ThemeTile: FC<ThemeTileProps> = ({ focused, onClick, theme, onThemeChange }) => {
   return (

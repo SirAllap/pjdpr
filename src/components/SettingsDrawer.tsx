@@ -1,7 +1,6 @@
-import { FC, useEffect } from 'react'
-import { Theme, THEMES } from './ThemeTile'
-import { ACCENTS } from './AccentColorTile'
-import { WALLPAPERS } from './WallpaperTile'
+import { FC, useEffect, useRef } from 'react'
+import { Theme, THEMES, ACCENTS, WALLPAPERS } from '../data/appearance'
+import { useFocusTrap } from '../lib/useFocusTrap'
 
 interface SettingsDrawerProps {
   open: boolean
@@ -27,6 +26,8 @@ const SettingsDrawer: FC<SettingsDrawerProps> = ({
   const current = WALLPAPERS[wallpaper]
   const prev = () => onWallpaperChange((wallpaper - 1 + WALLPAPERS.length) % WALLPAPERS.length)
   const next = () => onWallpaperChange((wallpaper + 1) % WALLPAPERS.length)
+  const panelRef = useRef<HTMLDivElement>(null)
+  useFocusTrap(panelRef, open)
 
   // Close on Escape; lock background scroll while open
   useEffect(() => {
@@ -51,7 +52,7 @@ const SettingsDrawer: FC<SettingsDrawerProps> = ({
     >
       <div className="settings-backdrop" onClick={onClose} />
 
-      <aside className="settings-panel">
+      <aside className="settings-panel" ref={panelRef} tabIndex={-1}>
         <div className="settings-header">
           <span className="settings-title">
             <span className="settings-prompt">$</span> appearance

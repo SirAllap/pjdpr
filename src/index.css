@@ -1403,6 +1403,28 @@ a:hover { color: var(--link-hover); }
 }
 .proj-card-tag.more { color: var(--accent); border-color: rgba(var(--accent-rgb), 0.4); }
 
+.proj-card-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+.proj-stars { color: var(--gold); }
+.proj-lang { display: inline-flex; align-items: center; gap: 5px; }
+.lang-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+.project-ghstats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+.project-ghstats .proj-lang { color: var(--text-dim); }
+
 /* ─── Experience — git-log style timeline ─────────────── */
 .exp-log {
   list-style: none;
@@ -1984,6 +2006,63 @@ a.contact-channel:hover .cc-ext { color: var(--accent); }
   .term-window { top: 0; left: 0; width: 100vw; height: 100dvh; transform: none; border-radius: 0; border: none; }
   .term-overlay.open .term-window { transform: none; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   COMMAND PALETTE (⌘/Ctrl-K)
+═══════════════════════════════════════════════════════ */
+.palette-overlay { position: fixed; inset: 0; z-index: 280; visibility: hidden; }
+.palette-overlay.open { visibility: visible; }
+.palette-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.2s ease; }
+.palette-overlay.open .palette-backdrop { opacity: 1; }
+.palette {
+  position: absolute;
+  top: 13%;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  opacity: 0;
+  width: min(560px, 92vw);
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(var(--surface-rgb), 0.98);
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
+  border-radius: var(--radius);
+  box-shadow: 0 30px 70px -20px rgba(0,0,0,0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.palette-overlay.open .palette { opacity: 1; transform: translate(-50%, 0); }
+.palette-input {
+  background: none; border: none; outline: none;
+  border-bottom: 1px solid var(--tile-border);
+  color: var(--text); font-family: var(--mono); font-size: 0.9rem;
+  padding: 14px 16px;
+}
+.palette-list { list-style: none; margin: 0; padding: 6px; overflow-y: auto; }
+.palette-item {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  background: none; border: none; color: var(--text-dim);
+  font-family: var(--mono); font-size: 0.8rem;
+  padding: 8px 10px; border-radius: var(--radius-xs); cursor: pointer; text-align: left;
+}
+.palette-item.active, .palette-item:hover { background: rgba(var(--accent-rgb), 0.14); color: var(--text); }
+.palette-hint { font-size: 0.58rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.palette-empty { padding: 14px; color: var(--text-muted); font-size: 0.8rem; font-family: var(--mono); }
+.palette-foot {
+  display: flex; gap: 14px; padding: 8px 14px;
+  border-top: 1px solid var(--tile-border);
+  font-size: 0.58rem; color: var(--text-muted);
+}
+.palette-foot kbd { border: 1px solid var(--tile-border); border-radius: 3px; padding: 0 4px; }
+@media (max-width: 768px) {
+  .palette { top: 0; left: 0; transform: none; width: 100vw; max-height: 100dvh; border-radius: 0; }
+  .palette-overlay.open .palette { transform: none; }
+}
+
+/* Matrix easter egg */
+.matrix-rain { position: fixed; inset: 0; z-index: 260; background: #000; cursor: pointer; }
 
 /* ═══════════════════════════════════════════════════════
    ACCESSIBILITY & INTERACTION POLISH
