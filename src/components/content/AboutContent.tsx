@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { personal } from '../../data/portfolio'
-import mePhoto from '../../profile/me.png'
+import mePhoto from '../../profile/me.webp'
 import {
   SiPython,
   SiDjango,
