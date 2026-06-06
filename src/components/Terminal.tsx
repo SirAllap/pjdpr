@@ -223,19 +223,26 @@ const Terminal: FC<TerminalProps> = ({ open, onClose, actions }) => {
       <div className="term-backdrop" onClick={onClose} />
       <div className="term-window" role="dialog" aria-modal="true" aria-label="Terminal" ref={windowRef} tabIndex={-1}>
         <div className="term-titlebar">
-          <span className="term-dots"><i /><i /><i /></span>
-          <span className="term-title">david@DPR: ~</span>
+          <span className="term-id">
+            <span className="term-arch" aria-hidden="true" />
+            <span className="term-user">david</span>
+            <span className="term-at">@</span>
+            <span className="term-host">arch</span>
+            <span className="term-cwd">:~</span>
+          </span>
+          <span className="term-shell">zsh</span>
           <button className="term-x" onClick={onClose} aria-label="Close terminal">✕</button>
         </div>
         <div className="term-body" ref={bodyRef} onClick={() => inputRef.current?.focus()}>
           {lines.map((l, i) => (
             <div key={i} className={`term-line term-${l.type}`}>
               {l.type === 'in'
-                ? <><span className="term-prompt">❯</span> {l.text}</>
+                ? <><span className="term-cwd2">~</span><span className="term-prompt">❯</span> {l.text}</>
                 : l.text}
             </div>
           ))}
           <div className="term-inputline">
+            <span className="term-cwd2">~</span>
             <span className="term-prompt">❯</span>
             <span className="term-input-wrap">
               <input
