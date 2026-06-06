@@ -32,10 +32,6 @@ const AboutContent: FC = () => {
       </div>
       <h2 className="section-title">{personal.name}</h2>
       <p className="about-role">{personal.role}</p>
-      <span className="open-to-work">
-        <span className="status-dot" aria-hidden="true" />
-        open to work
-      </span>
 
       <div className="about-facts">
         <span className="about-fact"><span className="af-k">loc</span> {personal.location}</span>

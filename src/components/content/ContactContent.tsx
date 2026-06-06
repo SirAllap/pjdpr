@@ -48,8 +48,8 @@ const ContactContent: FC = () => {
       <hr className="section-divider" />
 
       <p className="contact-lead">
-        Open to backend &amp; full-stack work — freelance or full-time. The fastest
-        way to reach me is below.
+        Currently building backend systems at Smith.ai — not job-hunting, but
+        always happy to talk shop, swap ideas or collaborate. Here's how to reach me.
       </p>
 
       <div className="contact-channels">
