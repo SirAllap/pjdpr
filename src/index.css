@@ -77,9 +77,9 @@
   --info:          #7dcfff;
   --orange:        #ff9e64;
 
-  --polybar-bg:    rgba(22, 22, 30, 0.98);
-  --tile-bg:       rgba(26, 27, 38, 0.94);
-  --tile-bg-focus: rgba(22, 22, 30, 0.98);
+  --polybar-bg:    rgba(22, 22, 30, 0.96);
+  --tile-bg:       rgba(26, 27, 38, 0.86);
+  --tile-bg-focus: rgba(22, 22, 30, 0.92);
 
   /* Theme-aware helpers (foreground on accent, focus highlight, swatch ring) */
   --accent-fg:     #ffffff;
@@ -115,9 +115,9 @@
   --info:          #5e81ac;
   --orange:        #d08770;
 
-  --polybar-bg:    rgba(46, 52, 64, 0.98);
-  --tile-bg:       rgba(46, 52, 64, 0.94);
-  --tile-bg-focus: rgba(59, 66, 82, 0.98);
+  --polybar-bg:    rgba(46, 52, 64, 0.96);
+  --tile-bg:       rgba(46, 52, 64, 0.86);
+  --tile-bg-focus: rgba(59, 66, 82, 0.92);
 
   --accent-fg:     #ffffff;
   --on-tile-hi:    rgba(255, 255, 255, 0.06);
@@ -152,9 +152,9 @@
   --info:          #2aa198;
   --orange:        #cb4b16;
 
-  --polybar-bg:    rgba(238, 232, 213, 0.99);
-  --tile-bg:       rgba(253, 246, 227, 0.95);
-  --tile-bg-focus: rgba(238, 232, 213, 0.99);
+  --polybar-bg:    rgba(238, 232, 213, 0.97);
+  --tile-bg:       rgba(253, 246, 227, 0.90);
+  --tile-bg-focus: rgba(238, 232, 213, 0.94);
 
   --accent-fg:     #fdf6e3;
   --on-tile-hi:    rgba(0, 0, 0, 0.05);
@@ -193,7 +193,7 @@ html, body, #root {
   background-position: center;
   background-repeat: no-repeat;
   transform: scale(1.06);
-  filter: brightness(0.55) blur(3px);
+  filter: brightness(0.62) blur(2px);
   pointer-events: none;
   transition: background-image 0.4s ease, opacity 0.4s ease;
 }
@@ -340,6 +340,23 @@ a:hover { color: var(--link-hover); }
   border-color: var(--accent);
   background: rgba(var(--accent-rgb), 0.18);
 }
+
+/* Settings gear — only surfaced on mobile (desktop uses the tiles) */
+.polybar-settings {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 1.05rem;
+  padding: 4px;
+  line-height: 0;
+  transition: color 0.15s, transform 0.2s;
+}
+.polybar-settings:hover  { color: var(--accent); }
+.polybar-settings:active { transform: rotate(45deg); }
 
 /* ═══════════════════════════════════════════════════════
    TILE GRID
@@ -1129,6 +1146,160 @@ a:hover { color: var(--link-hover); }
 }
 
 /* ═══════════════════════════════════════════════════════
+   SETTINGS DRAWER (appearance menu)
+═══════════════════════════════════════════════════════ */
+.settings-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  visibility: hidden;
+}
+.settings-overlay.open { visibility: visible; }
+
+.settings-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.settings-overlay.open .settings-backdrop { opacity: 1; }
+
+.settings-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(88vw, 380px);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 20px;
+  padding-right: max(20px, env(safe-area-inset-right));
+  background: var(--surface);
+  border-left: 1px solid var(--tile-border);
+  box-shadow: -16px 0 44px -12px rgba(0, 0, 0, 0.55);
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.settings-overlay.open .settings-panel { transform: translateX(0); }
+
+.settings-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--tile-border);
+  padding-bottom: 12px;
+}
+.settings-title  { font-size: 0.9rem; font-weight: 700; color: var(--text); letter-spacing: 0.02em; }
+.settings-prompt { color: var(--green); margin-right: 5px; }
+.settings-close {
+  background: none;
+  border: 1px solid var(--tile-border);
+  color: var(--text-dim);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.settings-close:hover {
+  color: var(--text);
+  border-color: rgba(var(--accent-rgb), 0.5);
+  background: rgba(var(--accent-rgb), 0.08);
+}
+
+.settings-group { display: flex; flex-direction: column; gap: 10px; }
+.settings-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.settings-theme-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.settings-theme-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 14px 6px;
+  background: rgba(var(--surface-rgb), 0.5);
+  border: 1px solid var(--tile-border);
+  border-radius: var(--radius-sm);
+  color: var(--text-dim);
+  cursor: pointer;
+  font-family: var(--mono);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.settings-theme-btn:hover { border-color: rgba(var(--accent-rgb), 0.45); color: var(--text); }
+.settings-theme-btn.active {
+  border-color: var(--accent);
+  background: rgba(var(--accent-rgb), 0.12);
+  color: var(--text);
+}
+.settings-theme-icon { font-size: 1.45rem; line-height: 1; }
+.settings-theme-name { font-size: 0.7rem; }
+
+.settings-accent-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.settings-swatch {
+  aspect-ratio: 1;
+  border-radius: var(--radius-xs);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+}
+.settings-swatch:hover { transform: scale(1.08); }
+.settings-swatch.active {
+  border-color: var(--swatch-ring);
+  box-shadow: var(--swatch-shadow);
+}
+
+.settings-wallpaper-preview {
+  height: 130px;
+  border: 1px solid var(--tile-border);
+  border-radius: var(--radius-sm);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(var(--surface-rgb), 0.5);
+  position: relative;
+}
+.settings-wallpaper-none {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+.settings-wallpaper-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+.settings-wp-btn {
+  background: none;
+  border: 1px solid var(--tile-border);
+  color: var(--text-dim);
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: var(--mono);
+  transition: color 0.15s, border-color 0.15s;
+}
+.settings-wp-btn:hover { color: var(--text); border-color: rgba(var(--accent-rgb), 0.5); }
+.settings-wallpaper-idx { font-size: 0.7rem; color: var(--text-muted); min-width: 5ch; text-align: center; }
+
+/* ═══════════════════════════════════════════════════════
    ACCESSIBILITY & INTERACTION POLISH
 ═══════════════════════════════════════════════════════ */
 /* Visible keyboard focus ring (mouse users unaffected) */
@@ -1312,6 +1483,41 @@ button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
     min-height: 100dvh;
   }
 
+  /* Sticky top bar — nav + settings stay reachable while scrolling */
+  .polybar {
+    position: sticky;
+    top: 0;
+    height: var(--polybar-h);
+    padding: 0 8px;
+    padding-right: max(8px, env(safe-area-inset-right));
+    gap: 6px;
+  }
+  .polybar-subtitle { display: none; }
+  .polybar-sep      { display: none; }
+  .polybar-gh       { display: none; }
+  .polybar-time     { display: none; }
+  .polybar-dot      { display: none; }
+  .polybar-settings { display: inline-flex; }
+
+  /* Section nav: horizontal scroll, never clips or wraps */
+  .polybar-center {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 2px;
+    scrollbar-width: none;
+  }
+  .polybar-center::-webkit-scrollbar { display: none; }
+  .polybar-link {
+    font-size: 0.66rem;
+    padding: 6px 9px;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+
   .tile-grid {
     flex-direction: column;
     padding: 10px;
@@ -1321,36 +1527,20 @@ button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
     flex: none;
   }
 
-  /* Content first; customization controls follow it */
+  /* Appearance controls now live in the settings drawer (gear icon) */
+  .left-col { display: none; }
+
   .right-col {
     width: 100%;
     flex: 1;
     height: auto;
     min-height: 0;
-    order: 1;
   }
-
-  /* Keep the left column ONLY for the customization controls.
-     Neofetch is shown via the mobile-neo-header; nav via the polybar. */
-  .left-col { display: flex; width: 100%; height: auto; order: 2; }
-  .neofetch-tile { display: none; }
-  .nav-tile { display: none; }
-  .bottom-row { display: block; height: auto; }
-
-  .small-tiles-col {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 84px 1fr 112px;
-    gap: 10px;
-    height: 124px;
-  }
-  .small-tiles-col > .tile { height: 100% !important; flex: none !important; }
-  .accent-grid { grid-template-columns: repeat(5, 1fr); gap: 6px; }
 
   .content-tile {
     height: auto;
-    min-height: calc(100dvh - var(--polybar-h) - 160px);
-    border-color: rgba(var(--accent-rgb), 0.50);
+    min-height: calc(100dvh - var(--polybar-h) - 20px);
+    border-color: rgba(var(--accent-rgb), 0.45);
   }
 
   /* All tiles full opacity on mobile (no focus/blur distinction) */
@@ -1363,21 +1553,6 @@ button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
     padding: 16px;
     overflow-wrap: anywhere;
   }
-
-  /* Polybar: compact nav, allow it to grow/wrap instead of clipping */
-  .polybar {
-    height: auto;
-    min-height: var(--polybar-h);
-    flex-wrap: wrap;
-    row-gap: 2px;
-    padding: 5px 10px;
-  }
-  .polybar-subtitle { display: none; }
-  .polybar-gh       { display: none; }
-  .polybar-time     { font-size: 0.62rem; }
-  .polybar-center   { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; }
-  .polybar-link     { font-size: 0.62rem; padding: 6px 8px; }
-  .polybar-dot      { display: none; }
 
   /* Show mobile neofetch header inside About section */
   .mobile-neo-header {
@@ -1414,5 +1589,4 @@ button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
 @media (max-width: 420px) {
   .mobile-neo-header { flex-direction: column; gap: 10px; align-items: stretch; }
   .mobile-neo-logo { width: 100%; min-width: 0; font-size: 1.3rem; }
-  .small-tiles-col { grid-template-columns: 72px 1fr 96px; }
 }

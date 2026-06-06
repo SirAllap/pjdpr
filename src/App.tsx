@@ -8,6 +8,7 @@ import ContentViewer from './components/ContentViewer'
 import ThemeTile, { Theme } from './components/ThemeTile'
 import AccentColorTile from './components/AccentColorTile'
 import WallpaperTile, { WALLPAPERS } from './components/WallpaperTile'
+import SettingsDrawer from './components/SettingsDrawer'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type Section  = 'about' | 'projects' | 'experience' | 'contact'
@@ -47,6 +48,7 @@ const App: FC = () => {
   const [theme,     setTheme]     = useState<Theme>(() => load<Theme>('pjdpr-theme', 'dark'))
   const [accent,    setAccent]    = useState<string>(() => load<string>('pjdpr-accent', '#bb9af7'))
   const [wallpaper, setWallpaper] = useState<number>(() => load<number>('pjdpr-wallpaper', 0))
+  const [settingsOpen, setSettingsOpen] = useState(false)
 
   // ── apply theme class to <html> ───────────────────────────────────────────
   useEffect(() => {
@@ -126,6 +128,7 @@ const App: FC = () => {
       <Polybar
         activeSection={polybarSection}
         onNavigate={selectSection}
+        onOpenSettings={() => setSettingsOpen(true)}
       />
 
       <div className="tile-grid">
@@ -181,6 +184,17 @@ const App: FC = () => {
           />
         </div>
       </div>
+
+      <SettingsDrawer
+        open={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+        theme={theme}
+        onThemeChange={setTheme}
+        accent={accent}
+        onAccentChange={setAccent}
+        wallpaper={wallpaper}
+        onWallpaperChange={setWallpaper}
+      />
     </div>
   )
 }

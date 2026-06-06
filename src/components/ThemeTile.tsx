@@ -9,7 +9,7 @@ interface ThemeTileProps {
   onThemeChange: (t: Theme) => void
 }
 
-const THEMES: { icon: string; label: string; value: Theme }[] = [
+export const THEMES: { icon: string; label: string; value: Theme }[] = [
   { icon: '☀️', label: 'light', value: 'light' },
   { icon: '❄️', label: 'dim',   value: 'dim'   },
   { icon: '🌙', label: 'dark',  value: 'dark'  },

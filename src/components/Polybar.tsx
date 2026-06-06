@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react'
+import { FiSettings } from 'react-icons/fi'
 import { personal } from '../data/portfolio'
 
 type Section = 'about' | 'projects' | 'experience' | 'contact'
@@ -6,6 +7,7 @@ type Section = 'about' | 'projects' | 'experience' | 'contact'
 interface PolybarProps {
   activeSection: Section
   onNavigate: (s: Section) => void
+  onOpenSettings?: () => void
 }
 
 const NAV_ITEMS: { label: string; section: Section; dot: string }[] = [
@@ -15,7 +17,7 @@ const NAV_ITEMS: { label: string; section: Section; dot: string }[] = [
   { label: '~/contact',    section: 'contact',    dot: '#56d2a0' },
 ]
 
-const Polybar: FC<PolybarProps> = ({ activeSection, onNavigate }) => {
+const Polybar: FC<PolybarProps> = ({ activeSection, onNavigate, onOpenSettings }) => {
   const [time, setTime] = useState(() => formatTime())
 
   useEffect(() => {
@@ -61,6 +63,15 @@ const Polybar: FC<PolybarProps> = ({ activeSection, onNavigate }) => {
         >
           [github]
         </a>
+        {onOpenSettings && (
+          <button
+            className="polybar-settings"
+            onClick={onOpenSettings}
+            aria-label="Open appearance settings"
+          >
+            <FiSettings />
+          </button>
+        )}
       </div>
     </div>
   )
