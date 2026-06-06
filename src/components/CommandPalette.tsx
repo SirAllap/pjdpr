@@ -78,6 +78,8 @@ const CommandPalette: FC<CommandPaletteProps> = ({ open, onClose, actions }) => 
           onKeyDown={onKeyDown}
           aria-label="Command palette search"
           spellCheck={false}
+          autoCorrect="off"
+          autoCapitalize="none"
         />
         <ul className="palette-list">
           {results.length === 0 && <li className="palette-empty">no matches</li>}

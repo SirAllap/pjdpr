@@ -242,10 +242,13 @@ const Terminal: FC<TerminalProps> = ({ open, onClose, actions }) => {
                 ref={inputRef}
                 className="term-input"
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(e) => setInput(e.target.value.toLowerCase())}
                 onKeyDown={onKeyDown}
                 spellCheck={false}
                 autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="none"
+                inputMode="text"
                 aria-label="Terminal command input"
               />
               {ghost && (
