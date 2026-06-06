@@ -1,12 +1,16 @@
 import { FC } from 'react'
-import { Project } from '../../data/portfolio'
+import { Project, projects } from '../../data/portfolio'
 
 interface ProjectDetailProps {
   project: Project
   onBack: () => void
+  onSelectProject: (id: string) => void
 }
 
-const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack }) => {
+const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack, onSelectProject }) => {
+  const idx = projects.findIndex((p) => p.id === project.id)
+  const prev = projects[idx - 1]
+  const next = projects[idx + 1]
   const { title, description, liveUrl, githubUrl, isPrivate, tech, image, gallery, featured, tagline } = project
 
   return (
@@ -80,6 +84,21 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack }) => {
           <span className="project-link-btn disabled">private repo</span>
         ) : null}
       </div>
+
+      <nav className="project-nav" aria-label="Project navigation">
+        {prev ? (
+          <button className="project-nav-btn" onClick={() => onSelectProject(prev.id)}>
+            <span className="project-nav-dir">← prev</span>
+            <span className="project-nav-name">{prev.title}</span>
+          </button>
+        ) : <span />}
+        {next ? (
+          <button className="project-nav-btn align-end" onClick={() => onSelectProject(next.id)}>
+            <span className="project-nav-dir">next →</span>
+            <span className="project-nav-name">{next.title}</span>
+          </button>
+        ) : <span />}
+      </nav>
     </div>
   )
 }

@@ -9,6 +9,8 @@ import ThemeTile, { Theme } from './components/ThemeTile'
 import AccentColorTile from './components/AccentColorTile'
 import WallpaperTile, { WALLPAPERS } from './components/WallpaperTile'
 import SettingsDrawer from './components/SettingsDrawer'
+import CvModal from './components/CvModal'
+import Terminal from './components/Terminal'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type Section  = 'about' | 'projects' | 'experience' | 'contact'
@@ -49,6 +51,8 @@ const App: FC = () => {
   const [accent,    setAccent]    = useState<string>(() => load<string>('pjdpr-accent', '#bb9af7'))
   const [wallpaper, setWallpaper] = useState<number>(() => load<number>('pjdpr-wallpaper', 0))
   const [settingsOpen, setSettingsOpen] = useState(false)
+  const [cvOpen, setCvOpen] = useState(false)
+  const [terminalOpen, setTerminalOpen] = useState(false)
 
   // ── apply theme class to <html> ───────────────────────────────────────────
   useEffect(() => {
@@ -74,6 +78,24 @@ const App: FC = () => {
     document.documentElement.style.setProperty('--accent', accent)
     document.documentElement.style.setProperty('--accent-rgb', hexToRgb(accent))
   // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  // ── open CV from anywhere (Contact / About dispatch this event) ────────────
+  useEffect(() => {
+    const openCv = () => setCvOpen(true)
+    window.addEventListener('pjdpr:open-cv', openCv)
+    return () => window.removeEventListener('pjdpr:open-cv', openCv)
+  }, [])
+
+  // ── keyboard: backtick toggles the terminal ───────────────────────────────
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const tag = (e.target as HTMLElement).tagName.toLowerCase()
+      if (tag === 'input' || tag === 'textarea') return
+      if (e.key === '`') { e.preventDefault(); setTerminalOpen((v) => !v) }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
   }, [])
 
   // ── keyboard: Tab / Shift+Tab cycle tiles ─────────────────────────────────
@@ -129,6 +151,7 @@ const App: FC = () => {
         activeSection={polybarSection}
         onNavigate={selectSection}
         onOpenSettings={() => setSettingsOpen(true)}
+        onOpenTerminal={() => setTerminalOpen(true)}
       />
 
       <div className="tile-grid">
@@ -194,6 +217,19 @@ const App: FC = () => {
         onAccentChange={setAccent}
         wallpaper={wallpaper}
         onWallpaperChange={setWallpaper}
+      />
+
+      <CvModal open={cvOpen} onClose={() => setCvOpen(false)} />
+
+      <Terminal
+        open={terminalOpen}
+        onClose={() => setTerminalOpen(false)}
+        actions={{
+          navigate: selectSection,
+          selectProject,
+          setTheme,
+          openCv: () => setCvOpen(true),
+        }}
       />
     </div>
   )

@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { FiMail, FiGithub, FiLinkedin, FiCopy, FiCheck } from 'react-icons/fi'
+import { FiMail, FiGithub, FiLinkedin, FiCopy, FiCheck, FiFileText } from 'react-icons/fi'
 import { personal } from '../../data/portfolio'
 
 const ContactContent: FC = () => {
@@ -66,6 +66,18 @@ const ContactContent: FC = () => {
             {copied ? <FiCheck /> : <FiCopy />}
           </button>
         </div>
+
+        <button
+          className="contact-channel"
+          onClick={() => window.dispatchEvent(new Event('pjdpr:open-cv'))}
+        >
+          <span className="cc-icon"><FiFileText /></span>
+          <span className="cc-main">
+            <span className="cc-label">résumé</span>
+            <span className="cc-value">view / download CV</span>
+          </span>
+          <span className="cc-ext">↓</span>
+        </button>
 
         <a
           className="contact-channel"

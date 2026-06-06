@@ -70,6 +70,17 @@ export const personal = {
   initials: 'DPR',
   name: 'David Pallarés Robaina',
   role: 'Backend Developer · Python · Django · React',
+  location: 'Seville, Spain',
+  summary:
+    'Backend-focused full-stack developer with experience building and shipping production web apps end to end — APIs, data models, frontends and deployment. Comfortable owning the full picture, reviewing teammates’ code, and keeping quality high as products move fast.',
+  skills: [
+    'Python', 'Django', 'PostgreSQL', 'Docker', 'React', 'TypeScript',
+    'JavaScript', 'Node.js', 'Vue.js', 'REST APIs', 'Git & CI', 'AWS', 'Linux',
+  ],
+  languages: [
+    { name: 'Spanish', level: 'Native' },
+    { name: 'English', level: 'Professional working' },
+  ],
   bio: [
     "I build full-stack applications that are solid under the hood and pleasant to work with. My main stack is Django, React, PostgreSQL and Docker, but I'll reach for Node, Vue or whatever the project actually needs — picking up new tools has never been a problem.",
     "I care about writing code that's readable six months later and setting things up properly from the start. Whether it's the API, the frontend, or getting a service deployed, I like owning the full picture.",

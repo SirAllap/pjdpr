@@ -32,6 +32,7 @@ const ContentViewer: FC<ContentViewerProps> = ({
         <ProjectDetail
           project={project}
           onBack={() => onSelectSection('projects')}
+          onSelectProject={onSelectProject}
         />
       )
     }

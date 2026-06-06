@@ -32,6 +32,10 @@ const AboutContent: FC = () => {
       </div>
       <h2 className="section-title">{personal.name}</h2>
       <p className="about-role">{personal.role}</p>
+      <span className="open-to-work">
+        <span className="status-dot" aria-hidden="true" />
+        open to work
+      </span>
       <hr className="section-divider" />
 
       {/* Bio + Photo row */}
@@ -50,6 +54,12 @@ const AboutContent: FC = () => {
                 2026/01 – present · Seville · Remote
               </p>
             </div>
+            <button
+              className="cv-link-btn"
+              onClick={() => window.dispatchEvent(new Event('pjdpr:open-cv'))}
+            >
+              ↓ download CV
+            </button>
           </div>
         </div>
 
