@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import { FiMail, FiGithub, FiLinkedin, FiCopy, FiCheck, FiFileText } from 'react-icons/fi'
 import { personal } from '../../data/portfolio'
+import { track } from '../../lib/analytics'
 
 const ContactContent: FC = () => {
   const { contact } = personal
@@ -11,6 +12,7 @@ const ContactContent: FC = () => {
   const email = contact.email
 
   const sendEmail = () => {
+    track('outbound', { channel: 'email' })
     window.location.href = `mailto:${email}?subject=${encodeURIComponent('Portfolio contact')}`
   }
 
@@ -84,6 +86,7 @@ const ContactContent: FC = () => {
           href={contact.github}
           target="_blank"
           rel="me noopener noreferrer"
+          onClick={() => track('outbound', { channel: 'github' })}
         >
           <span className="cc-icon"><FiGithub /></span>
           <span className="cc-main">
@@ -98,6 +101,7 @@ const ContactContent: FC = () => {
           href={contact.linkedin}
           target="_blank"
           rel="me noopener noreferrer"
+          onClick={() => track('outbound', { channel: 'linkedin' })}
         >
           <span className="cc-icon"><FiLinkedin /></span>
           <span className="cc-main">

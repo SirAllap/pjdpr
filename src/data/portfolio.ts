@@ -71,6 +71,7 @@ export const personal = {
   name: 'David Pallarés Robaina',
   role: 'Backend Developer · Python · Django · React',
   location: 'Seville, Spain',
+  codingSince: 2021,
   summary:
     'Backend-focused full-stack developer with experience building and shipping production web apps end to end — APIs, data models, frontends and deployment. Comfortable owning the full picture, reviewing teammates’ code, and keeping quality high as products move fast.',
   skills: [

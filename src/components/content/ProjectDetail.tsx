@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { Project, projects } from '../../data/portfolio'
+import { track } from '../../lib/analytics'
 
 interface ProjectDetailProps {
   project: Project
@@ -64,6 +65,7 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack, onSelectProjec
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track('outbound', { channel: 'project_live', id: project.id })}
           >
             visit ↗
           </a>
@@ -77,6 +79,7 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack, onSelectProjec
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track('outbound', { channel: 'project_repo', id: project.id })}
           >
             github ↗
           </a>

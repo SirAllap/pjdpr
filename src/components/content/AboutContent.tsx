@@ -36,6 +36,13 @@ const AboutContent: FC = () => {
         <span className="status-dot" aria-hidden="true" />
         open to work
       </span>
+
+      <div className="about-facts">
+        <span className="about-fact"><span className="af-k">loc</span> {personal.location}</span>
+        <span className="about-fact"><span className="af-k">lang</span> {personal.languages.map((l) => l.name).join(' · ')}</span>
+        <span className="about-fact"><span className="af-k">since</span> {personal.codingSince}</span>
+      </div>
+
       <hr className="section-divider" />
 
       {/* Bio + Photo row */}

@@ -136,6 +136,9 @@ const NavigationTile: FC<NavigationTileProps> = ({
           <span>
             <kbd className="nav-keyhint-key">tab</kbd> switch
           </span>
+          <span>
+            <kbd className="nav-keyhint-key">`</kbd> terminal
+          </span>
         </div>
       </div>
     </div>

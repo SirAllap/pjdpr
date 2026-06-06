@@ -11,6 +11,8 @@ import WallpaperTile, { WALLPAPERS } from './components/WallpaperTile'
 import SettingsDrawer from './components/SettingsDrawer'
 import CvModal from './components/CvModal'
 import Terminal from './components/Terminal'
+import ScrollTop from './components/ScrollTop'
+import { track } from './lib/analytics'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type Section  = 'about' | 'projects' | 'experience' | 'contact'
@@ -82,9 +84,9 @@ const App: FC = () => {
 
   // ── open CV from anywhere (Contact / About dispatch this event) ────────────
   useEffect(() => {
-    const openCv = () => setCvOpen(true)
-    window.addEventListener('pjdpr:open-cv', openCv)
-    return () => window.removeEventListener('pjdpr:open-cv', openCv)
+    const handler = () => { setCvOpen(true); track('cv_open') }
+    window.addEventListener('pjdpr:open-cv', handler)
+    return () => window.removeEventListener('pjdpr:open-cv', handler)
   }, [])
 
   // ── keyboard: backtick toggles the terminal ───────────────────────────────
@@ -121,12 +123,17 @@ const App: FC = () => {
   const selectSection = (section: Section) => {
     setActiveItem({ type: 'section', section })
     setFocusedTile('content')
+    track('nav_section', { section })
   }
 
   const selectProject = (id: string) => {
     setActiveItem({ type: 'project', id })
     setFocusedTile('content')
+    track('project_view', { id })
   }
+
+  const openCv = () => { setCvOpen(true); track('cv_open') }
+  const openTerminal = () => { setTerminalOpen((v) => !v); track('terminal_open') }
 
   const polybarSection: Section =
     activeItem.type === 'section'
@@ -138,6 +145,7 @@ const App: FC = () => {
 
   return (
     <div className="app-shell">
+      <a className="skip-link" href="#main-content">Skip to content</a>
       {/* Wallpaper image layer (behind blobs) */}
       {wallpaperImage && (
         <div
@@ -151,7 +159,7 @@ const App: FC = () => {
         activeSection={polybarSection}
         onNavigate={selectSection}
         onOpenSettings={() => setSettingsOpen(true)}
-        onOpenTerminal={() => setTerminalOpen(true)}
+        onOpenTerminal={openTerminal}
       />
 
       <div className="tile-grid">
@@ -197,7 +205,7 @@ const App: FC = () => {
         </div>
 
         {/* ─── RIGHT COLUMN ─── */}
-        <div className="right-col">
+        <div className="right-col" id="main-content" tabIndex={-1}>
           <ContentViewer
             focused={focusedTile === 'content'}
             onClick={() => setFocusedTile('content')}
@@ -228,9 +236,11 @@ const App: FC = () => {
           navigate: selectSection,
           selectProject,
           setTheme,
-          openCv: () => setCvOpen(true),
+          openCv,
         }}
       />
+
+      <ScrollTop />
     </div>
   )
 }
