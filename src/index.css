@@ -796,22 +796,45 @@ a:hover { color: var(--link-hover); }
   margin-bottom: 12px;
 }
 
-.current-position { margin-top: 14px; }
+.current-position { margin-top: 16px; }
 .current-position-label {
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 2px;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.current-position-card {
+  border-left: 2px solid var(--accent);
+  background: rgba(var(--accent-rgb), 0.06);
+  border-radius: var(--radius-xs);
+  padding: 9px 12px;
 }
 .current-position-title {
   font-size: 0.85rem;
   color: var(--gold);
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 .current-position-meta {
   font-size: 0.72rem;
   color: var(--text-dim);
+  display: flex;
+  align-items: center;
+}
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  margin-right: 8px;
+  box-shadow: 0 0 7px var(--green);
+  flex-shrink: 0;
+  animation: dotPulse 2.2s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
 }
 
 .skills-label {
@@ -854,38 +877,46 @@ a:hover { color: var(--link-hover); }
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px 8px;
+  gap: 10px;
 }
 
 .tech-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
   cursor: default;
-  background: none;
-  border: none;
-  padding: 0;
+  padding: 16px 8px;
+  border: 1px solid var(--tile-border);
+  border-radius: var(--radius-sm);
+  background: rgba(var(--surface-rgb), 0.35);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.tech-item:hover {
+  border-color: rgba(var(--accent-rgb), 0.45);
+  background: rgba(var(--surface-rgb), 0.6);
+  transform: translateY(-3px);
 }
 
 .tech-item-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text);
-  opacity: 0.85;
-  transition: color 0.2s, filter 0.2s, transform 0.2s;
+  opacity: 0.92;
+  transition: filter 0.2s, transform 0.2s, opacity 0.2s;
 }
 
 .tech-item-icon svg {
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .tech-item:hover .tech-item-icon {
   opacity: 1;
-  filter: drop-shadow(0 0 14px rgba(var(--accent-rgb), 0.65));
-  transform: scale(1.10);
+  filter: drop-shadow(0 0 12px currentColor);
+  transform: scale(1.08);
 }
 
 .tech-item span {
@@ -1569,7 +1600,7 @@ button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
   .about-layout { display: block; }
 
   .projects-grid { grid-template-columns: 1fr; }
-  .tech-grid     { grid-template-columns: repeat(4, 1fr); }
+  .tech-grid     { grid-template-columns: repeat(3, 1fr); }
 
   /* Comfortable reading sizes on small screens */
   .about-intro   { font-size: 0.84rem; line-height: 1.75; }

@@ -11,15 +11,15 @@ import {
 } from 'react-icons/si'
 import { IconType } from 'react-icons'
 
-interface TechEntry { Icon: IconType; name: string }
+interface TechEntry { Icon: IconType; name: string; color: string }
 
 const TECH_GRID: TechEntry[] = [
-  { Icon: SiPython,      name: 'Python'     },
-  { Icon: SiDjango,      name: 'Django'     },
-  { Icon: SiDocker,      name: 'Docker'     },
-  { Icon: SiReact,       name: 'React'      },
-  { Icon: SiTypescript,  name: 'TypeScript' },
-  { Icon: SiTailwindcss, name: 'Tailwind'   },
+  { Icon: SiPython,      name: 'Python',     color: '#3776AB' },
+  { Icon: SiDjango,      name: 'Django',     color: '#44B78B' },
+  { Icon: SiDocker,      name: 'Docker',     color: '#2496ED' },
+  { Icon: SiReact,       name: 'React',      color: '#61DAFB' },
+  { Icon: SiTypescript,  name: 'TypeScript', color: '#3178C6' },
+  { Icon: SiTailwindcss, name: 'Tailwind',   color: '#06B6D4' },
 ]
 
 const AboutContent: FC = () => {
@@ -53,6 +53,7 @@ const AboutContent: FC = () => {
       <div className="section-cmd">
         <span className="section-cmd-prompt">$</span>
         <span className="section-cmd-text">cat ~/DPR/about.md</span>
+        <span className="cursor-blink" />
       </div>
       <h2 className="section-title">{personal.name}</h2>
       <p className="about-role">{personal.role}</p>
@@ -67,8 +68,13 @@ const AboutContent: FC = () => {
 
           <div className="current-position">
             <p className="current-position-label">current position</p>
-            <p className="current-position-title">Backend Developer @ Smith.ai</p>
-            <p className="current-position-meta">2026/01 – present · Seville · Remote</p>
+            <div className="current-position-card">
+              <p className="current-position-title">Backend Developer @ Smith.ai</p>
+              <p className="current-position-meta">
+                <span className="status-dot" aria-hidden="true" />
+                2026/01 – present · Seville · Remote
+              </p>
+            </div>
           </div>
         </div>
 
@@ -86,9 +92,9 @@ const AboutContent: FC = () => {
       {/* Tech icon grid — SVG icons, theme-aware */}
       <p className="tech-grid-label">stack</p>
       <div className="tech-grid">
-        {TECH_GRID.map(({ Icon, name }) => (
+        {TECH_GRID.map(({ Icon, name, color }) => (
           <div key={name} className="tech-item">
-            <span className="tech-item-icon">
+            <span className="tech-item-icon" style={{ color }}>
               <Icon />
             </span>
             <span>{name}</span>

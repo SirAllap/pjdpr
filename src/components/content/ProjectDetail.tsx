@@ -14,6 +14,7 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack }) => {
       <div className="section-cmd">
         <span className="section-cmd-prompt">$</span>
         <span className="section-cmd-text">cat ~/DPR/work/{project.id}.md</span>
+        <span className="cursor-blink" />
       </div>
 
       <div className="project-header">

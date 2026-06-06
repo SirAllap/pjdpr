@@ -11,6 +11,7 @@ const ProjectsOverview: FC<ProjectsOverviewProps> = ({ onSelectProject }) => {
       <div className="section-cmd">
         <span className="section-cmd-prompt">$</span>
         <span className="section-cmd-text">ls ~/DPR/work/</span>
+        <span className="cursor-blink" />
       </div>
       <h2 className="section-title">Work</h2>
       <hr className="section-divider" />

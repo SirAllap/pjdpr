@@ -9,6 +9,7 @@ const ContactContent: FC = () => {
       <div className="section-cmd">
         <span className="section-cmd-prompt">$</span>
         <span className="section-cmd-text">cat ~/DPR/contact.md</span>
+        <span className="cursor-blink" />
       </div>
       <h2 className="section-title">Contact</h2>
       <hr className="section-divider" />
