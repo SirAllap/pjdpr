@@ -39,6 +39,7 @@ const Polybar: FC<PolybarProps> = ({ activeSection, onNavigate }) => {
             key={section}
             className={`polybar-link${activeSection === section ? ' active' : ''}`}
             onClick={() => onNavigate(section)}
+            aria-current={activeSection === section ? 'page' : undefined}
           >
             <span
               className="polybar-dot"
@@ -56,6 +57,7 @@ const Polybar: FC<PolybarProps> = ({ activeSection, onNavigate }) => {
           href={personal.contact.github}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="GitHub profile (opens in a new tab)"
         >
           [github]
         </a>

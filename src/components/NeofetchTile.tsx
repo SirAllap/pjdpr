@@ -1,9 +1,11 @@
 import { FC } from 'react'
 import { personal } from '../data/portfolio'
+import { Theme } from './ThemeTile'
 
 interface NeofetchTileProps {
   focused: boolean
   onClick: () => void
+  theme: Theme
 }
 
 // Block-letter DPR in dleer-portfolio style (box-drawing characters)
@@ -26,13 +28,16 @@ const INFO_ROWS: Array<{ key: string; val: string; link?: string }> = [
   { key: 'linkedin', val: personal.contact.linkedinHandle, link: personal.contact.linkedin },
 ]
 
-// Theme palette dots — matches dleer's: bg, error, success, warning, accent, info, primary, text
-const DOT_COLORS = [
-  '#1a1b26', '#f7768e', '#9ece6a',
-  '#e0af68', '#bb9af7', '#7dcfff', '#7aa2f7', '#c0caf5',
-]
+// Theme palette dots — order: bg, error, success, warning, accent, info, primary, text.
+// Each entry matches the active theme so the swatch row mirrors the real palette.
+const DOT_PALETTES: Record<Theme, string[]> = {
+  dark: ['#1a1b26', '#f7768e', '#9ece6a', '#e0af68', '#bb9af7', '#7dcfff', '#7aa2f7', '#c0caf5'],
+  dim:  ['#2e3440', '#bf616a', '#a3be8c', '#ebcb8b', '#b48ead', '#5e81ac', '#81a1c1', '#d8dee9'],
+  light: ['#fdf6e3', '#dc322f', '#859900', '#b58900', '#6c71c4', '#2aa198', '#268bd2', '#073642'],
+}
 
-const NeofetchTile: FC<NeofetchTileProps> = ({ focused, onClick }) => {
+const NeofetchTile: FC<NeofetchTileProps> = ({ focused, onClick, theme }) => {
+  const DOT_COLORS = DOT_PALETTES[theme] ?? DOT_PALETTES.dark
   return (
     <div
       className={`tile neofetch-tile clickable${focused ? ' focused' : ' blurred'}`}

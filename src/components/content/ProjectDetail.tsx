@@ -16,30 +16,9 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack }) => {
         <span className="section-cmd-text">cat ~/DPR/work/{project.id}.md</span>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 4 }}>
-        <h2 className="section-title" style={{ marginBottom: 0 }}>{title}</h2>
-        <button
-          onClick={onBack}
-          style={{
-            fontSize: '0.72rem',
-            color: 'var(--text-muted)',
-            background: 'none',
-            border: '1px solid rgba(255,255,255,0.12)',
-            padding: '2px 8px',
-            borderRadius: 2,
-            cursor: 'pointer',
-            fontFamily: 'var(--mono)',
-            transition: 'color 0.15s, border-color 0.15s',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = 'var(--text)'
-            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = 'var(--text-muted)'
-            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'
-          }}
-        >
+      <div className="project-header">
+        <h2 className="section-title">{title}</h2>
+        <button className="back-btn" onClick={onBack} aria-label="Back to projects">
           ← back
         </button>
       </div>
@@ -72,11 +51,10 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack }) => {
 
         {githubUrl ? (
           <a
-            className="project-link-btn"
+            className="project-link-btn github"
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: 'var(--gold)', borderColor: 'rgba(190,173,142,0.4)' }}
           >
             github ↗
           </a>

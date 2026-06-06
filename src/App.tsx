@@ -134,6 +134,7 @@ const App: FC = () => {
           <NeofetchTile
             focused={focusedTile === 'neofetch'}
             onClick={() => setFocusedTile('neofetch')}
+            theme={theme}
           />
 
           <div className="bottom-row">

@@ -65,16 +65,10 @@ const AboutContent: FC = () => {
             <p key={i} className="about-intro">{p}</p>
           ))}
 
-          <div style={{ marginTop: 14 }}>
-            <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginBottom: 2, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-              current position
-            </p>
-            <p style={{ fontSize: '0.85rem', color: 'var(--gold)', marginBottom: 2 }}>
-              Software Engineer @ Smith.ai
-            </p>
-            <p style={{ fontSize: '0.72rem', color: 'var(--text-dim)' }}>
-              2026/01 – present · Remote
-            </p>
+          <div className="current-position">
+            <p className="current-position-label">current position</p>
+            <p className="current-position-title">Backend Developer @ Smith.ai</p>
+            <p className="current-position-meta">2026/01 – present · Seville · Remote</p>
           </div>
         </div>
 

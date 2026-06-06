@@ -37,6 +37,8 @@ const AccentColorTile: FC<AccentColorTileProps> = ({
               style={{ background: c }}
               onClick={(e) => { e.stopPropagation(); onAccentChange(c) }}
               title={c}
+              aria-label={`Accent color ${c}`}
+              aria-pressed={accent === c}
             />
           ))}
         </div>

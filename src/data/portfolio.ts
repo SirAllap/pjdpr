@@ -246,7 +246,7 @@ export const experience: ExperienceEntry[] = [
     title: 'FullStack Development Bootcamp',
     company: 'Reboot Academy',
     companyUrl: 'https://reboot.academy/',
-    location: 'Seville, Spain — 100% Remote',
+    location: 'Las Palmas de Gran Canaria, Spain — 100% Remote',
     date: '2021 - 2022',
     description:
       'Built responsive web apps with Vue.js, Node.js, Express, and MongoDB. Collaborated in teams, managed code with Git, deployed on Heroku/Netlify. Developed APIs, tested with Postman, and practiced UX/UI with Miro/Figma.',
@@ -257,7 +257,7 @@ export const experience: ExperienceEntry[] = [
     title: 'Junior Sourcer → Talent Acquisition Associate',
     company: 'Clarity AI',
     companyUrl: 'https://clarity.ai/',
-    location: 'Seville, Spain — 100% Remote',
+    location: 'Las Palmas de Gran Canaria, Spain — 100% Remote',
     date: '2022 - 2023',
     description:
       'Sourced candidates for open positions using various methods and tools. Maintained a candidate database, screened applicants and conducted initial interviews to assess fit.',
@@ -268,7 +268,7 @@ export const experience: ExperienceEntry[] = [
     title: 'Full-stack Developer',
     company: 'OXYGEN Coworking',
     companyUrl: 'https://oxygenworkspace.com/',
-    location: 'Seville, Spain — 100% Remote',
+    location: 'Las Palmas de Gran Canaria, Spain — 100% Remote',
     date: '2023 - 2024',
     description:
       'Worked with MongoDB, React + Redux, Node, PHP, MySQL, and AWS. Designed responsive layouts with mobile-first mindset, developed RESTful APIs, end-to-end testing, pair programming, and Agile methodologies.',
@@ -279,7 +279,7 @@ export const experience: ExperienceEntry[] = [
     title: 'FullStack Developer',
     company: 'Nextpyme',
     companyUrl: 'https://www.nextpyme.com/',
-    location: 'Remote',
+    location: 'Seville, Spain — On-site',
     date: '2024/03 - 2024/08',
     description:
       'Used JavaScript, Node.js, Laravel, PHP, SQL, HTML, Bootstrap, ReactJS and Vue.js. Collaborated with the CEO to translate client needs into practical web solutions.',
@@ -290,7 +290,7 @@ export const experience: ExperienceEntry[] = [
     title: 'FullStack Developer Python / ReactJS',
     company: 'TRIGO Aerospace Defense & Rail',
     companyUrl: 'https://www.trigo-group.com/en',
-    location: 'Remote',
+    location: 'Seville, Spain — On-site',
     date: '2024/08 - 2025/12',
     description:
       'Leveraged ReactJS, Django, PostgreSQL, Docker, and the LAPP stack. Crafted and refined user interfaces for diverse projects, troubleshot existing issues, and implemented new features.',
@@ -301,7 +301,7 @@ export const experience: ExperienceEntry[] = [
     title: 'Backend Developer',
     company: 'Smith.ai',
     companyUrl: 'https://smith.ai/',
-    location: 'Remote',
+    location: 'Seville, Spain — Remote',
     date: '2026/01 - present',
     description:
       'Backend engineering on systems that orchestrate simultaneous AI agents. Beyond the day-to-day implementation work, I act as a de-facto lead — reviewing teammates\' code, running tests, and making sure quality stays consistent as the product moves fast.',

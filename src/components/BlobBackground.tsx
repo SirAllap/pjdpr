@@ -12,6 +12,9 @@ const BlobBackground: FC = () => {
     const el = ref.current
     if (!el) return
 
+    // Respect users who prefer reduced motion — skip the rAF loop entirely.
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return
+
     const lerp = (a: number, b: number, t: number) => a + (b - a) * t
 
     const onMove = (e: MouseEvent) => {

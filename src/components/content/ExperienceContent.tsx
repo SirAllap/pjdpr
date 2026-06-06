@@ -21,28 +21,19 @@ const ExperienceContent: FC = () => {
       <VerticalTimeline layout="1-column-left" animate={false}>
         {experience.map((entry) => {
           const isWork = entry.type === 'work'
-          const iconBg = entry.isCurrent ? '#bead8e' : '#8c56d2'
 
           return (
             <VerticalTimelineElement
               key={entry.id}
               contentStyle={{
-                background: 'rgba(31, 35, 53, 0.65)',
-                color: 'rgba(255,255,255,0.87)',
-                border: '1px solid rgba(140,86,210,0.25)',
                 borderRadius: 0,
                 boxShadow: 'none',
                 padding: '14px 16px',
               }}
-              contentArrowStyle={{
-                borderRight: '7px solid rgba(140,86,210,0.25)',
-              }}
               date={entry.date}
               dateClassName="exp-entry-date"
+              iconClassName={entry.isCurrent ? 'exp-icon-current' : 'exp-icon-past'}
               iconStyle={{
-                background: iconBg,
-                color: '#fff',
-                boxShadow: `0 0 0 3px ${iconBg}55`,
                 width: 30,
                 height: 30,
                 marginLeft: -15,
@@ -50,8 +41,8 @@ const ExperienceContent: FC = () => {
               }}
               icon={
                 isWork
-                  ? <MdOutlineWork style={{ fill: '#fff' }} />
-                  : <TbSchool style={{ fill: '#fff' }} />
+                  ? <MdOutlineWork />
+                  : <TbSchool />
               }
             >
               <h3 className="exp-entry-title vertical-timeline-element-title">

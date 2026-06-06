@@ -80,6 +80,14 @@
   --polybar-bg:    rgba(22, 22, 30, 0.98);
   --tile-bg:       rgba(26, 27, 38, 0.94);
   --tile-bg-focus: rgba(22, 22, 30, 0.98);
+
+  /* Theme-aware helpers (foreground on accent, focus highlight, swatch ring) */
+  --accent-fg:     #ffffff;
+  --on-tile-hi:    rgba(255, 255, 255, 0.06);
+  --swatch-ring:   #ffffff;
+  --swatch-shadow: 0 0 0 1px rgba(0,0,0,0.30), 0 2px 8px rgba(0,0,0,0.40);
+  --text-rgb:      192, 202, 245;
+
   --tile-border:   #292e42;
   --tile-border-f: var(--accent);
   --scrollthumb:   rgba(var(--accent-rgb), 0.38);
@@ -110,6 +118,13 @@
   --polybar-bg:    rgba(46, 52, 64, 0.98);
   --tile-bg:       rgba(46, 52, 64, 0.94);
   --tile-bg-focus: rgba(59, 66, 82, 0.98);
+
+  --accent-fg:     #ffffff;
+  --on-tile-hi:    rgba(255, 255, 255, 0.06);
+  --swatch-ring:   #ffffff;
+  --swatch-shadow: 0 0 0 1px rgba(0,0,0,0.30), 0 2px 8px rgba(0,0,0,0.40);
+  --text-rgb:      216, 222, 233;
+
   --tile-border:   #4c566a;   /* Nord3                          */
   --tile-border-f: var(--accent);
   --scrollthumb:   rgba(var(--accent-rgb), 0.40);
@@ -140,6 +155,13 @@
   --polybar-bg:    rgba(238, 232, 213, 0.99);
   --tile-bg:       rgba(253, 246, 227, 0.95);
   --tile-bg-focus: rgba(238, 232, 213, 0.99);
+
+  --accent-fg:     #fdf6e3;
+  --on-tile-hi:    rgba(0, 0, 0, 0.05);
+  --swatch-ring:   var(--text-bright);
+  --swatch-shadow: 0 0 0 1px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.18);
+  --text-rgb:      7, 54, 66;
+
   --tile-border:   #93a1a1;   /* Solarized base1                */
   --tile-border-f: var(--accent);
   --scrollthumb:   rgba(var(--accent-rgb), 0.40);
@@ -199,7 +221,7 @@ a:hover { color: var(--link-hover); }
 
 ::selection {
   background: rgba(var(--accent-rgb), 0.40);
-  color: #fff;
+  color: var(--text-bright);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -314,7 +336,7 @@ a:hover { color: var(--link-hover); }
   transition: all 0.15s;
 }
 .polybar-gh:hover {
-  color: #fff;
+  color: var(--accent-fg);
   border-color: var(--accent);
   background: rgba(var(--accent-rgb), 0.18);
 }
@@ -389,7 +411,7 @@ a:hover { color: var(--link-hover); }
   box-shadow:
     0 0 0 1px rgba(var(--accent-rgb), 0.55),
     0 0 32px -4px rgba(var(--accent-rgb), 0.28),
-    inset 0 1px 0 rgba(255,255,255,0.06);
+    inset 0 1px 0 var(--on-tile-hi);
 }
 
 .tile.blurred { opacity: 0.78; }
@@ -445,7 +467,7 @@ a:hover { color: var(--link-hover); }
   font-size: 0.78rem;
   line-height: 1.75;
 }
-.neo-key { color: var(--accent); font-weight: 700; min-width: 76px; flex-shrink: 0; }
+.neo-key { color: var(--accent); font-weight: 700; min-width: 82px; flex-shrink: 0; }
 .neo-val { color: var(--text); }
 .neo-link {
   color: var(--text);
@@ -459,7 +481,12 @@ a:hover { color: var(--link-hover); }
   gap: 4px;
   margin-top: 10px;
 }
-.neofetch-color-dot { width:13px; height:13px; border-radius:50%; }
+.neofetch-color-dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 1px solid rgba(var(--text-rgb), 0.18);
+}
 
 /* ═══════════════════════════════════════════════════════
    NAVIGATION TILE (Contents)
@@ -608,8 +635,8 @@ a:hover { color: var(--link-hover); }
 }
 .accent-swatch:hover { transform: scale(1.15); }
 .accent-swatch.active {
-  border-color: #fff;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.4);
+  border-color: var(--swatch-ring);
+  box-shadow: var(--swatch-shadow);
   transform: scale(1.12);
 }
 
@@ -634,7 +661,7 @@ a:hover { color: var(--link-hover); }
 .wallpaper-preview {
   flex: 1;
   border: 1px solid var(--tile-border);
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
   overflow: hidden;
   cursor: pointer;
   transition: border-color 0.15s;
@@ -706,6 +733,7 @@ a:hover { color: var(--link-hover); }
   display: flex;
   gap: 24px;
   margin-bottom: 20px;
+  align-items: flex-start;
 }
 
 .about-text { flex: 1; min-width: 0; }
@@ -749,6 +777,24 @@ a:hover { color: var(--link-hover); }
   font-size: 0.80rem;
   color: var(--accent);
   margin-bottom: 12px;
+}
+
+.current-position { margin-top: 14px; }
+.current-position-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+.current-position-title {
+  font-size: 0.85rem;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+.current-position-meta {
+  font-size: 0.72rem;
+  color: var(--text-dim);
 }
 
 .skills-label {
@@ -835,6 +881,32 @@ a:hover { color: var(--link-hover); }
 .tech-item:hover span { color: var(--text); }
 
 /* ─── Project detail ─────────────────────────────────── */
+.project-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+.project-header .section-title { margin-bottom: 0; }
+
+.back-btn {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: none;
+  border: 1px solid rgba(var(--text-rgb), 0.18);
+  padding: 3px 10px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  font-family: var(--mono);
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.back-btn:hover {
+  color: var(--text);
+  border-color: rgba(var(--accent-rgb), 0.45);
+  background: rgba(var(--accent-rgb), 0.08);
+}
+
 .project-image-wrap {
   aspect-ratio: 16/8;
   overflow: hidden;
@@ -903,7 +975,7 @@ a:hover { color: var(--link-hover); }
 }
 .project-link-btn:hover {
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-fg);
   border-color: var(--accent);
 }
 .project-link-btn.disabled {
@@ -915,6 +987,15 @@ a:hover { color: var(--link-hover); }
   background: transparent;
   color: var(--text-muted);
   border-color: rgba(var(--accent-rgb), 0.15);
+}
+.project-link-btn.github {
+  color: var(--gold);
+  border-color: rgba(var(--gold-rgb), 0.40);
+}
+.project-link-btn.github:hover {
+  background: var(--gold);
+  color: var(--accent-fg);
+  border-color: var(--gold);
 }
 
 /* ─── Projects overview ──────────────────────────────── */
@@ -987,9 +1068,24 @@ a:hover { color: var(--link-hover); }
   margin-top: 8px;
   font-size: 0.65rem;
   color: var(--gold);
-  border: 1px solid rgba(var(--gold-rgb), 0.38);
+  border: 1px solid rgba(var(--gold-rgb), 0.45);
+  border-radius: var(--radius-xs);
   padding: 1px 7px;
 }
+
+/* Theme-aware timeline icons (override library + inline) */
+.exp-icon-current {
+  background: var(--gold) !important;
+  box-shadow: 0 0 0 3px rgba(var(--gold-rgb), 0.30) !important;
+  color: var(--accent-fg) !important;
+}
+.exp-icon-past {
+  background: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.30) !important;
+  color: var(--accent-fg) !important;
+}
+.exp-icon-current svg,
+.exp-icon-past svg { fill: var(--accent-fg) !important; }
 
 /* ─── Contact ─────────────────────────────────────────── */
 .contact-message {
@@ -1030,6 +1126,50 @@ a:hover { color: var(--link-hover); }
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
   margin-left: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   ACCESSIBILITY & INTERACTION POLISH
+═══════════════════════════════════════════════════════ */
+/* Visible keyboard focus ring (mouse users unaffected) */
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible,
+.tree-item:focus-visible,
+.proj-card:focus-visible,
+.wallpaper-preview:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+.theme-btn:focus-visible,
+.accent-swatch:focus-visible,
+.wallpaper-nav-btn:focus-visible,
+.polybar-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+/* Calm, on-brand tap feedback on touch; no clunky gray flash */
+button, a, [role="button"], .clickable {
+  -webkit-tap-highlight-color: rgba(var(--accent-rgb), 0.22);
+}
+button, .theme-btn, .accent-swatch, .wallpaper-nav-btn,
+.polybar-link, .tree-item, .proj-card {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .cursor-blink { animation: none; opacity: 1; }
+  .blob-bg { display: none; }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1114,8 +1254,8 @@ a:hover { color: var(--link-hover); }
     flex-direction: column;
     height: auto;
     overflow: visible;
-    padding: 8px;
-    gap: 8px;
+    padding: 10px;
+    gap: 10px;
   }
 
   .left-col  { width: 100%; height: auto; }
@@ -1128,7 +1268,17 @@ a:hover { color: var(--link-hover); }
     height: auto;
   }
 
-  .small-tiles-col { width: 100%; flex-direction: row; min-height: 0; height: 120px; }
+  /* Control tiles as a tidy, equal-height row */
+  .small-tiles-col {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 76px 1fr 108px;
+    gap: 10px;
+    min-height: 0;
+    height: 132px;
+  }
+  .small-tiles-col > .tile { height: 100% !important; flex: none !important; }
+  .accent-grid { grid-template-columns: repeat(5, 1fr); gap: 5px; }
 
   .nav-tile { min-height: 200px; flex: none; }
 
@@ -1163,27 +1313,43 @@ a:hover { color: var(--link-hover); }
   }
 
   .tile-grid {
-    flex-direction: row;
-    padding: 8px;
-    gap: 0;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
     overflow: visible;
     height: auto;
     flex: none;
   }
 
-  /* Hide the entire left column (neofetch, nav, small tiles) */
-  .left-col { display: none; }
-
+  /* Content first; customization controls follow it */
   .right-col {
     width: 100%;
     flex: 1;
     height: auto;
     min-height: 0;
+    order: 1;
   }
+
+  /* Keep the left column ONLY for the customization controls.
+     Neofetch is shown via the mobile-neo-header; nav via the polybar. */
+  .left-col { display: flex; width: 100%; height: auto; order: 2; }
+  .neofetch-tile { display: none; }
+  .nav-tile { display: none; }
+  .bottom-row { display: block; height: auto; }
+
+  .small-tiles-col {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 84px 1fr 112px;
+    gap: 10px;
+    height: 124px;
+  }
+  .small-tiles-col > .tile { height: 100% !important; flex: none !important; }
+  .accent-grid { grid-template-columns: repeat(5, 1fr); gap: 6px; }
 
   .content-tile {
     height: auto;
-    min-height: calc(100dvh - var(--polybar-h) - 16px);
+    min-height: calc(100dvh - var(--polybar-h) - 160px);
     border-color: rgba(var(--accent-rgb), 0.50);
   }
 
@@ -1193,15 +1359,24 @@ a:hover { color: var(--link-hover); }
   .tile-inner {
     height: auto;
     overflow: visible;
+    overflow-x: hidden;
     padding: 16px;
+    overflow-wrap: anywhere;
   }
 
-  /* Polybar: compact nav visible, hide extra elements */
+  /* Polybar: compact nav, allow it to grow/wrap instead of clipping */
+  .polybar {
+    height: auto;
+    min-height: var(--polybar-h);
+    flex-wrap: wrap;
+    row-gap: 2px;
+    padding: 5px 10px;
+  }
   .polybar-subtitle { display: none; }
   .polybar-gh       { display: none; }
   .polybar-time     { font-size: 0.62rem; }
-  .polybar-center   { display: flex; }
-  .polybar-link     { font-size: 0.60rem; padding: 2px 5px; }
+  .polybar-center   { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; }
+  .polybar-link     { font-size: 0.62rem; padding: 6px 8px; }
   .polybar-dot      { display: none; }
 
   /* Show mobile neofetch header inside About section */
@@ -1221,7 +1396,23 @@ a:hover { color: var(--link-hover); }
   .projects-grid { grid-template-columns: 1fr; }
   .tech-grid     { grid-template-columns: repeat(4, 1fr); }
 
-  /* Slightly tighter about text on small screens */
-  .about-intro { font-size: 0.80rem; line-height: 1.70; }
-  .section-title { font-size: 1.40rem; }
+  /* Comfortable reading sizes on small screens */
+  .about-intro   { font-size: 0.84rem; line-height: 1.75; }
+  .section-title { font-size: 1.45rem; }
+  .contact-message { font-size: 0.86rem; }
+
+  /* Stack contact rows for larger tap targets */
+  .contact-info-item { flex-direction: column; align-items: flex-start; gap: 3px; }
+  .contact-info-key  { min-width: 0; }
+  .contact-info-val  { font-size: 0.84rem; }
+
+  /* Timeline breathes a little better on phones */
+  .vertical-timeline { padding: 0.5em 0 !important; }
+}
+
+/* Very narrow phones: stack the mobile neofetch header */
+@media (max-width: 420px) {
+  .mobile-neo-header { flex-direction: column; gap: 10px; align-items: stretch; }
+  .mobile-neo-logo { width: 100%; min-width: 0; font-size: 1.3rem; }
+  .small-tiles-col { grid-template-columns: 72px 1fr 96px; }
 }

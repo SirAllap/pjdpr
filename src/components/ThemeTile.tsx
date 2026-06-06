@@ -29,6 +29,8 @@ const ThemeTile: FC<ThemeTileProps> = ({ focused, onClick, theme, onThemeChange 
             className={`theme-btn${theme === value ? ' active' : ''}`}
             onClick={(e) => { e.stopPropagation(); onThemeChange(value) }}
             title={label}
+            aria-label={`${label} theme`}
+            aria-pressed={theme === value}
           >
             {icon}
           </button>

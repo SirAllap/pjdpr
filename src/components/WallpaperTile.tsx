@@ -67,6 +67,7 @@ const WallpaperTile: FC<WallpaperTileProps> = ({
           <button
             className="wallpaper-nav-btn"
             onClick={(e) => { e.stopPropagation(); prev() }}
+            aria-label="Previous wallpaper"
           >
             ‹
           </button>
@@ -76,6 +77,7 @@ const WallpaperTile: FC<WallpaperTileProps> = ({
           <button
             className="wallpaper-nav-btn"
             onClick={(e) => { e.stopPropagation(); next() }}
+            aria-label="Next wallpaper"
           >
             ›
           </button>
