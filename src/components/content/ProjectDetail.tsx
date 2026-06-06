@@ -7,7 +7,7 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack }) => {
-  const { title, description, liveUrl, githubUrl, isPrivate, tech, image } = project
+  const { title, description, liveUrl, githubUrl, isPrivate, tech, image, gallery, featured, tagline } = project
 
   return (
     <div className="project-detail fade-in">
@@ -19,15 +19,28 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack }) => {
 
       <div className="project-header">
         <h2 className="section-title">{title}</h2>
+        {featured && <span className="project-flag">★ flagship</span>}
         <button className="back-btn" onClick={onBack} aria-label="Back to projects">
           ← back
         </button>
       </div>
+      {tagline && <p className="project-tagline">{tagline}</p>}
       <hr className="section-divider" />
 
-      <div className="project-image-wrap">
-        <img src={image} alt={`${title} screenshot`} loading="lazy" />
-      </div>
+      {gallery && gallery.length > 1 ? (
+        <div className="project-gallery">
+          <div className="project-gallery-item g-wide">
+            <img src={gallery[0]} alt={`${title} desktop screenshot`} loading="lazy" />
+          </div>
+          <div className="project-gallery-item g-tall">
+            <img src={gallery[1]} alt={`${title} mobile screenshot`} loading="lazy" />
+          </div>
+        </div>
+      ) : (
+        <div className="project-image-wrap">
+          <img src={image} alt={`${title} screenshot`} loading="lazy" />
+        </div>
+      )}
 
       <p className="project-desc">{description}</p>
 

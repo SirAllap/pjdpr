@@ -1,6 +1,8 @@
 // ─── Asset imports ────────────────────────────────────────────────────────────
 import tudietista       from '../assets/dietista_full-low.webp'
-import photoAlavera     from '../assets/alavera.webp'
+import alaveraHero      from '../assets/alavera_hero.webp'
+import alaveraApp       from '../assets/alavera_app.webp'
+import pawcook          from '../assets/pawcook.webp'
 import photoMiranda     from '../assets/hotel_miranda.webp'
 import photoTravl       from '../assets/travl_dashboard.webp'
 import oxygenPics       from '../assets/oxygen_pics.webp'
@@ -46,6 +48,9 @@ export interface Project {
   githubUrl: string | null
   isPrivate: boolean
   tech: Tech[]
+  featured?: boolean
+  tagline?: string
+  gallery?: string[]
 }
 
 export interface ExperienceEntry {
@@ -83,6 +88,44 @@ export const personal = {
 // ─── Projects ─────────────────────────────────────────────────────────────────
 export const projects: Project[] = [
   {
+    id: 'alavera',
+    title: 'Alavera',
+    tagline: 'Tactical browser card game',
+    description:
+      'My most ambitious project and current main focus: a tactical, browser-based card game. Deploy 7 cards across a 5×5 battlefield, compare stats edge-to-edge, and capture what you beat. 131 cards spanning 12 factions and 4 tiers, with original illustrations by artist Armiche Lora — free to play in the browser. Built with Next.js, TypeScript and Firebase.',
+    image: alaveraHero,
+    gallery: [alaveraHero, alaveraApp],
+    liveUrl: null,
+    githubUrl: null,
+    isPrivate: true,
+    featured: true,
+    tech: [
+      { name: 'Next.js', icon: next },
+      { name: 'TypeScript', icon: ts },
+      { name: 'React', icon: react },
+      { name: 'Firebase', icon: firebase },
+      { name: 'Node', icon: node },
+      { name: 'npm', icon: npm },
+    ],
+  },
+  {
+    id: 'pawcook',
+    title: 'PawCook',
+    description:
+      'Open-source nutrition & cooking tools for home-cooked dog and cat meals. PawCook computes daily portions against AAFCO / NRC / FEDIAF veterinary standards, flags toxic foods and safe cooking temperatures, and plans weekly meal rotations across a multi-pet household — it even tells you cut form, cook time and bag counts for batch-cooking. Built as a TypeScript pnpm + Turbo monorepo: a React + Vite web app, a pure-TypeScript nutrition engine, and JSON nutrition data, with i18n across 8 locales and a "followability-first" design principle.',
+    image: pawcook,
+    liveUrl: 'https://sirallap.github.io/pawcook/',
+    githubUrl: 'https://github.com/SirAllap/pawcook',
+    isPrivate: false,
+    tech: [
+      { name: 'TypeScript', icon: ts },
+      { name: 'React', icon: react },
+      { name: 'Node', icon: node },
+      { name: 'CSS', icon: css },
+      { name: 'npm', icon: npm },
+    ],
+  },
+  {
     id: 'tudietista',
     title: 'Tu Dietista Online',
     description:
@@ -98,24 +141,6 @@ export const projects: Project[] = [
       { name: 'Calendly', icon: calendly },
       { name: 'EmailJS', icon: emailjs },
       { name: 'VSCode', icon: vscode },
-    ],
-  },
-  {
-    id: 'alavera',
-    title: 'Baby Project "Alavera"',
-    description:
-      'Private client project using Next.js and Firebase. A collection of illustrated cards each with a unique backstory, with illustrations by artist Armiche Lora. Currently in early development.',
-    image: photoAlavera,
-    liveUrl: null,
-    githubUrl: null,
-    isPrivate: true,
-    tech: [
-      { name: 'Next.js', icon: next },
-      { name: 'TypeScript', icon: ts },
-      { name: 'React', icon: react },
-      { name: 'Firebase', icon: firebase },
-      { name: 'Node', icon: node },
-      { name: 'npm', icon: npm },
     ],
   },
   {
