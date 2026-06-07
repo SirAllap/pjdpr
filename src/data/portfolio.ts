@@ -81,9 +81,9 @@ export const personal = {
     { name: 'English', level: 'Professional working' },
   ],
   bio: [
-    "I build full-stack applications that are solid under the hood and pleasant to work with. My main stack is Django, React, PostgreSQL and Docker, but I'll reach for Node, Vue or whatever the project actually needs — picking up new tools has never been a problem.",
-    "I care about writing code that's readable six months later and setting things up properly from the start. Whether it's the API, the frontend, or getting a service deployed, I like owning the full picture.",
-    "Most of my time is spent in the terminal, in Neovim. Vim motions have ruined every other editor for me and I'm completely fine with that.",
+    "I build full-stack apps that are solid under the hood and genuinely nice to use. Django, React, PostgreSQL and Docker are my home turf, but I'll happily reach for Node, Vue or whatever the job actually needs — new tools have never been the scary part.",
+    "What I really care about is code that still makes sense six months later, and getting the foundations right from the start. API, frontend, or shipping the thing to production — I like owning the whole picture, not just my corner of it.",
+    "Most of my time is spent in the terminal, living in Neovim. Vim motions have ruined every other editor for me — and honestly, I wouldn't have it any other way.",
   ],
   contact: {
     email: 'serallapdivad@gmail.com',
