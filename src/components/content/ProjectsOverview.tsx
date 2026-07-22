@@ -39,6 +39,31 @@ const ProjectCard: FC<{ p: Project; onSelect: (id: string) => void }> = ({ p, on
   )
 }
 
+const SpotlightCard: FC<{ p: Project; onSelect: (id: string) => void }> = ({ p, onSelect }) => {
+  const stats = useGithubStats(p.githubUrl)
+  return (
+    <button className="proj-spotlight" onClick={() => onSelect(p.id)}>
+      <div className="proj-spotlight-media">
+        <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" />
+      </div>
+      <div className="proj-spotlight-body">
+        <span className="proj-spotlight-flag">
+          ◆ spotlight{stats && stats.stars > 0 ? ` · ★ ${stats.stars}` : ' · open source'}
+        </span>
+        <div className="proj-spotlight-title">{p.title}</div>
+        {p.tagline && <div className="proj-spotlight-tagline">{p.tagline}</div>}
+        <div className="proj-spotlight-desc">{p.description}</div>
+        <div className="proj-card-tech">
+          {p.tech.map((t) => (
+            <span key={t.name} className="proj-card-tag">{t.name}</span>
+          ))}
+        </div>
+        <span className="proj-spotlight-cta">view project →</span>
+      </div>
+    </button>
+  )
+}
+
 const ProjectsOverview: FC<ProjectsOverviewProps> = ({ onSelectProject }) => {
   const [filter, setFilter] = useState<string | null>(null)
 
@@ -49,7 +74,8 @@ const ProjectsOverview: FC<ProjectsOverviewProps> = ({ onSelectProject }) => {
 
   const matches = (p: Project) => !filter || p.tech.some((t) => t.name === filter)
   const featured = !filter ? projects.find((p) => p.featured) : null
-  const grid = projects.filter((p) => (filter ? matches(p) : !p.featured))
+  const spotlight = !filter ? projects.find((p) => p.spotlight) : null
+  const grid = projects.filter((p) => (filter ? matches(p) : !p.featured && !p.spotlight))
 
   return (
     <div className="fade-in">
@@ -101,6 +127,8 @@ const ProjectsOverview: FC<ProjectsOverviewProps> = ({ onSelectProject }) => {
           </div>
         </button>
       )}
+
+      {spotlight && <SpotlightCard p={spotlight} onSelect={onSelectProject} />}
 
       {grid.length > 0 ? (
         <div className="projects-grid">

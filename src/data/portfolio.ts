@@ -3,6 +3,7 @@ import tudietista       from '../assets/dietista_full-low.webp'
 import alaveraHero      from '../assets/alavera_hero.webp'
 import alaveraApp       from '../assets/alavera_app.webp'
 import pawcook          from '../assets/pawcook.webp'
+import agentglass       from '../assets/agentglass.webp'
 import photoMiranda     from '../assets/hotel_miranda.webp'
 import photoTravl       from '../assets/travl_dashboard.webp'
 import oxygenPics       from '../assets/oxygen_pics.webp'
@@ -47,6 +48,7 @@ export interface Project {
   isPrivate: boolean
   tech: Tech[]
   featured?: boolean
+  spotlight?: boolean
   tagline?: string
   gallery?: string[]
 }
@@ -122,6 +124,29 @@ export const projects: Project[] = [
       { name: 'Celery' },
       { name: 'Docker' },
       { name: 'Tailwind' },
+    ],
+  },
+  {
+    id: 'agentglass',
+    title: 'Agent Glass',
+    tagline: 'A loupe for your AI coding agents',
+    description:
+      'A real-time Mission-Control dashboard and workspace for AI coding agents — one cockpit that watches every agent, across every provider and every project on your machine. Agent Glass streams live telemetry over OpenTelemetry (cost tracking, token spend and tool-latency analysis) alongside a full development surface: a syntax-highlighted diff viewer, lazygit-style source control, lazydocker-style container management, real PTY shells with tmux, and built-in Claude chat — all keyboard-driven across 22 themes. Built on a Bun + SQLite backend with a React + Vite + Motion + Shiki frontend and shipped as an Electron desktop app. Open source, and the tool I now build everything else from — it has replaced the terminal as my daily driver and grew to ~200 GitHub stars in under a week.',
+    image: agentglass,
+    liveUrl: null,
+    githubUrl: 'https://github.com/SirAllap/agentglass',
+    isPrivate: false,
+    spotlight: true,
+    tech: [
+      { name: 'Bun' },
+      { name: 'TypeScript' },
+      { name: 'React' },
+      { name: 'Vite' },
+      { name: 'Electron' },
+      { name: 'SQLite' },
+      { name: 'Motion' },
+      { name: 'Shiki' },
+      { name: 'OpenTelemetry' },
     ],
   },
   {

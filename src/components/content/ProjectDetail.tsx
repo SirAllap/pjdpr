@@ -14,7 +14,7 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack, onSelectProjec
   const prev = projects[idx - 1]
   const next = projects[idx + 1]
   const stats = useGithubStats(project.githubUrl)
-  const { title, description, liveUrl, githubUrl, isPrivate, tech, image, gallery, featured, tagline } = project
+  const { title, description, liveUrl, githubUrl, isPrivate, tech, image, gallery, featured, spotlight, tagline } = project
 
   return (
     <div className="project-detail fade-in">
@@ -27,6 +27,7 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project, onBack, onSelectProjec
       <div className="project-header">
         <h2 className="section-title">{title}</h2>
         {featured && <span className="project-flag">★ flagship</span>}
+        {spotlight && <span className="project-flag spotlight">◆ spotlight</span>}
         <button className="back-btn" onClick={onBack} aria-label="Back to projects">
           ← back
         </button>
